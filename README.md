@@ -11,7 +11,7 @@
 Author: Declan Costello
 
 <p align="center">
-<img height="150" width="150" src="https://github.com/user-attachments/assets/8a59ba44-a86b-416c-94a4-77dba37be954"/>  
+<img height="263" width="186" src="https://github.com/user-attachments/assets/574ae0e8-38a0-44dc-b72c-ec4217bb03b2"/>  
 
 </p>
 
