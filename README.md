@@ -110,3 +110,7 @@ graph TB
     class CLUSTERING,YEAR_MODELS,FINANCIAL_MODELS model
     class ARCHETYPES,YEAR_PREDS,FINANCIAL_PREDS,RESULTS output;
 ```
+
+
+Qs:
+- Will probs keep elo and pos archs independent from eachother
