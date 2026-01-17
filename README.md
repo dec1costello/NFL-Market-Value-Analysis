@@ -37,7 +37,7 @@ graph TB
         %% === STAGE 3: FINANCIAL PREDICTION ===
         subgraph STAGE_3 ["💰 Stage 3: Financial Terms"]
             FINANCIAL_MODELS["Position Financial Models<br/>PyMC Bayesian"]
-            FINANCIAL_PREDS["AAV + Guarantee + Uncertainty"]
+            FINANCIAL_PREDS["AAV + Guarantee"]
         end
     end
 
