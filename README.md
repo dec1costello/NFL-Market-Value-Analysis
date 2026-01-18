@@ -112,300 +112,151 @@ graph TB
 ```
 
 
-Qs:
-- Will probs keep elo and pos archs independent from eachother
 
-
-# 📌 CRITICAL: DEVELOPMENT ORDER
-DO THIS: Local (VS Code) → Docker → K8s
-NOT THIS: K8s → Local
-
-1. BUILD EVERYTHING LOCALLY FIRST in VS Code
-2. Containerize working code with Docker
-3. Deploy containers to K8s LAST
-
----------------------------------------------------------------
-# Project Initialization with UV
-# 1. Install UV if not installed
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# 2. Create project structure
-mkdir nfl-contracts && cd nfl-contracts
-uv init
-
-# # 1. Install UV if not installed
-curl -LsSf https://astral.sh/uv/install.sh | sh
-----------------------------------------------------------------
-# 2. Create project structure
-mkdir nfl-contracts && cd nfl-contracts
-uv init
-
-# Create all directories
-mkdir -p data/raw data/processed dbt/models dbt/tests src/{clustering,years_model,financial_model,utils} notebooks docker k8s/{manifests,configs} tests warehouse
-
-# Create essential files
-touch pyproject.toml README.md .env.example .gitignore docker-compose.yml
-touch dbt/dbt_project.yml dbt/profiles.yml
-touch docker/{Dockerfile.clustering,Dockerfile.pytorch,Dockerfile.pymc}
-touch k8s/manifests/{namespace,configmap,secrets,deployments,services,jobs}.yaml
-
------------------------------
-# UV Environment Setup
-# 1. Create virtual environment
-uv venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-
-# 2. Add core dependencies
-uv add duckdb dbt-core dbt-duckdb pandas numpy jupyter matplotlib seaborn
-
-# 3. Add ML dependencies (separate for now)
-uv add scikit-learn
-uv add torch --extra-index-url https://download.pytorch.org/whl/cpu
-uv add pymc arviz
-
-# 4. Create requirements files
-uv pip compile -o requirements/core.txt
-uv pip compile --extra torch -o requirements/ml.txt
-uv pip compile --extra pymc -o requirements/bayesian.txt
-
-------------------------------
-# DuckDB Initialization
-
-# 1. Start DuckDB CLI to explore
-duckdb warehouse/nfl_contracts.duckdb
-
-# 2. In DuckDB shell, load your CSV files
-.describe
-.timer on
-CREATE TABLE bronze.raw_contracts AS SELECT * FROM read_csv('data/raw/contracts.csv');
-CREATE TABLE bronze.raw_stats AS SELECT * FROM read_csv('data/raw/stats.csv');
-CREATE TABLE bronze.raw_physical AS SELECT * FROM read_csv('data/raw/physical.csv');
-
-
-
-------------------------------
-# dbt Configuration
-# 1. Initialize dbt project (if not already)
-cd dbt
-dbt init nfl_dbt --skip-profile-setup
-
-# 2. Edit dbt_project.yml for DuckDB
-# Configure model paths and materializations
-
-# 3. Test dbt connection
-dbt debug
-
-# 4. Run first models
-dbt run --select tag:bronze
-dbt run --select tag:silver
-dbt test  # Run data quality tests
-
-
-------------------------------
-# Feature Engineering
-# Create models in this order:
-# 1. bronze/ (raw tables)
-# 2. silver/ (cleaned: dim_players, fact_performance, fact_contracts)
-# 3. gold/features/ (position-specific features)
-# 4. gold/elo/ (ELO ratings)
-
-# Run incrementally
-dbt run --select bronze+
-dbt run --select silver+
-dbt run --select gold+
-
-
-------------------------------
-# Archetype Clustering (Local)
-# 1. Create clustering script
-touch src/clustering/qb_clustering.py
-touch src/clustering/wr_clustering.py
-touch src/clustering/utils.py
-
-# 2. Run QB clustering
-uv run python src/clustering/qb_clustering.py
-
-# 3. Test elbow method visualization
-uv run python -c "from src.clustering.qb_clustering import plot_elbow; plot_elbow()"
-
-# 4. Save archetypes to DuckDB
-# Your script should write results back to warehouse
-
-
-------------------------------
-# PyTorch Years Prediction (Local)
-
-# 1. Install PyTorch with CUDA if you have GPU
-uv add torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
-
-# 2. Create year prediction module
-touch src/years_model/train_qb_years.py
-touch src/years_model/train_wr_years.py
-touch src/years_model/predict.py
-
-# 3. Train QB model
-uv run python src/years_model/train_qb_years.py --epochs 50 --batch-size 32
-
-# 4. Save model weights
-# Models should be saved to models/ directory
-
-
-------------------------------
-
-
-# PyMC Financial Prediction (Local)
-
-# 1. Create Bayesian models
-touch src/financial_model/qb_bayesian.py
-touch src/financial_model/wr_bayesian.py
-
-# 2. Run MCMC sampling (this will be SLOW)
-uv run python src/financial_model/qb_bayesian.py --chains 4 --draws 2000
-
-# 3. Save posterior distributions
-# Store in warehouse for Tableau consumption
-
-------------------------------
-# Dockerize Each Component
-
-# 1. Build Docker images one by one
-docker build -t nfl-clustering -f docker/Dockerfile.clustering .
-docker build -t nfl-pytorch -f docker/Dockerfile.pytorch .
-docker build -t nfl-pymc -f docker/Dockerfile.pymc .
-
-# 2. Test containers locally
-docker run -v $(pwd)/warehouse:/app/warehouse nfl-clustering python qb_clustering.py
-docker run -v $(pwd)/warehouse:/app/warehouse nfl-pytorch python train_qb_years.py
-
-# 3. Use docker-compose for local orchestration
-docker-compose up clustering
-docker-compose up pytorch
-docker-compose up pymc
-
-------------------------------
-# Docker Volume Setup
-
-# Create persistent volume for DuckDB
-docker volume create nfl-duckdb-data
-
-# Mount in docker-compose.yml:
-# volumes:
-#   - nfl-duckdb-data:/app/warehouse
-
-------------------------------
-#  Local K8s Setup (Minikube)
-
-# 1. Install minikube (local K8s)
-# On macOS:
-brew install minikube
-
-# 2. Start minikube cluster
-minikube start --memory=8192 --cpus=4  # ML needs resources!
-
-# 3. Enable ingress and metrics
-minikube addons enable ingress
-minikube addons enable metrics-server
-
-# 4. Set Docker to use minikube's daemon
-eval $(minikube docker-env)
-
-
-------------------------------
-# Deploy to K8s Step-by-Step
-
-# 1. Create namespace
-kubectl apply -f k8s/manifests/namespace.yaml
-
-# 2. Create config maps (non-secret configs)
-kubectl apply -f k8s/manifests/configmap.yaml
-
-# 3. Create secrets (API keys, passwords)
-kubectl create secret generic nfl-secrets --from-env-file=.env
-
-# 4. Deploy DuckDB as a persistent volume
-kubectl apply -f k8s/manifests/duckdb-pvc.yaml
-
-# 5. Deploy clustering as a Job (runs once)
-kubectl apply -f k8s/manifests/clustering-job.yaml
-
-# 6. Deploy PyTorch as a Deployment (always running)
-kubectl apply -f k8s/manifests/pytorch-deployment.yaml
-
-# 7. Deploy PyMC as a Deployment
-kubectl apply -f k8s/manifests/pymc-deployment.yaml
-
-# 8. Expose services
-kubectl apply -f k8s/manifests/services.yaml
-
-# 9. Check everything
-kubectl get all -n nfl-contracts
-kubectl logs -f job/clustering-qb -n nfl-contracts
-
-
-
----------------------------------
-
-#  K8s Configuration Files Structure
-
-k8s/manifests/
-├── 00-namespace.yaml          # Namespace definition
-├── 01-configmap.yaml          # Environment configs
-├── 02-secrets.yaml            # Sensitive data
-├── 03-persistent-volume.yaml  # DuckDB storage
-├── 04-clustering-job.yaml     # One-time archetype job
-├── 05-pytorch-deployment.yaml # Year prediction service
-├── 06-pymc-deployment.yaml    # Financial prediction service
-├── 07-services.yaml           # Network exposure
-└── 08-ingress.yaml            # External access
-
-
-
----------------------------------
-
-# GitHub Actions CI/CD
-
-# 1. Create workflows directory
-mkdir -p .github/workflows
-
-# 2. Create workflow files:
-# .github/workflows/test.yml - Run tests on PR
-# .github/workflows/build.yml - Build Docker images
-# .github/workflows/deploy.yml - Deploy to K8s
-
-# 3. Set up secrets in GitHub:
-# DOCKER_USERNAME, DOCKER_PASSWORD
-# KUBE_CONFIG (K8s config)
-
-
-
----------------------------------
-# Monitoring & Logging
-
-# 1. Install Prometheus stack
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm install prometheus prometheus-community/kube-prometheus-stack
-
-# 2. View logs
-kubectl logs -f deployment/pytorch-qb -n nfl-contracts
-
-# 3. Port forward for local testing
-kubectl port-forward svc/pytorch-service 8501:8501 -n nfl-contracts
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## 🌵 Repository Structure
+    
+    nfl-contracts/
+    ├── 📁 data/
+    │   ├── 📁 raw/                    # Original CSV files (never modify)
+    │   │   ├── contracts.csv
+    │   │   ├── stats.csv
+    │   │   └── physical.csv
+    │   └── 📁 processed/              # Intermediate processed data
+    │       └── README.md
+    │
+    ├── 📁 warehouse/                  # DuckDB warehouse directory
+    │   ├── nfl_contracts.duckdb      # MAIN DATABASE FILE
+    │   └── backups/                   # Daily backups
+    │
+    ├── 📁 dbt/                        # SQL transformations
+    │   ├── dbt_project.yml           # dbt configuration
+    │   ├── 📁 models/
+    │   │   ├── 📁 bronze/            # Raw table staging
+    │   │   │   ├── contracts.sql
+    │   │   │   ├── stats.sql
+    │   │   │   └── physical.sql
+    │   │   ├── 📁 silver/            # Cleaned business tables
+    │   │   │   ├── dim_players.sql
+    │   │   │   ├── fact_performance.sql
+    │   │   │   └── fact_contracts.sql
+    │   │   └── 📁 gold/              # Feature engineering
+    │   │       ├── features/
+    │   │       │   ├── qb_features.sql
+    │   │       │   ├── wr_features.sql
+    │   │       │   └── position_features.sql
+    │   │       ├── elo_ratings.sql
+    │   │       └── z_scores.sql
+    │   ├── 📁 tests/                  # Data quality tests
+    │   │   ├── contracts_test.sql
+    │   │   └── uniqueness_test.sql
+    │   └── 📁 macros/                 # Reusable SQL
+    │       └── calculate_elo.sql
+    │
+    ├── 📁 src/                        # Python source code
+    │   ├── 📁 clustering/            # Stage 1: Archetype discovery
+    │   │   ├── __init__.py
+    │   │   ├── qb_clustering.py
+    │   │   ├── wr_clustering.py
+    │   │   ├── utils.py
+    │   │   └── elbow_visualization.py
+    │   │
+    │   ├── 📁 years_model/           # Stage 2: Contract length
+    │   │   ├── __init__.py
+    │   │   ├── train_qb_years.py
+    │   │   ├── train_wr_years.py
+    │   │   ├── predict.py
+    │   │   └── model_architectures.py
+    │   │
+    │   ├── 📁 financial_model/       # Stage 3: Financial terms
+    │   │   ├── __init__.py
+    │   │   ├── qb_bayesian.py
+    │   │   ├── wr_bayesian.py
+    │   │   ├── posterior_analysis.py
+    │   │   └── uncertainty_plots.py
+    │   │
+    │   ├── 📁 utils/                 # Shared utilities
+    │   │   ├── duckdb_connector.py
+    │   │   ├── feature_loader.py
+    │   │   ├── logger_config.py
+    │   │   └── config.py
+    │   │
+    │   └── 📁 api/                   # FastAPI for serving
+    │       ├── main.py
+    │       ├── schemas.py
+    │       └── routers/
+    │           ├── qb_router.py
+    │           └── wr_router.py
+    │
+    ├── 📁 models/                    # Trained model artifacts
+    │   ├── 📁 pytorch/
+    │   │   ├── qb_years_model.pt
+    │   │   ├── wr_years_model.pt
+    │   │   └── model_metadata.json
+    │   └── 📁 pymc/
+    │       ├── qb_financial.nc       # NetCDF with posterior samples
+    │       └── wr_financial.nc
+    │
+    ├── 📁 docker/                    # Container configurations
+    │   ├── Dockerfile.clustering
+    │   ├── Dockerfile.pytorch
+    │   ├── Dockerfile.pymc
+    │   ├── Dockerfile.api
+    │   └── docker-compose.yml
+    │
+    ├── 📁 k8s/                       # Kubernetes manifests
+    │   ├── 📁 manifests/
+    │   │   ├── 00-namespace.yaml
+    │   │   ├── 01-configmap.yaml
+    │   │   ├── 02-secrets.yaml
+    │   │   ├── 03-persistent-volume.yaml
+    │   │   ├── 04-clustering-job.yaml
+    │   │   ├── 05-pytorch-deployment.yaml
+    │   │   ├── 06-pymc-deployment.yaml
+    │   │   ├── 07-services.yaml
+    │   │   └── 08-ingress.yaml
+    │   └── 📁 configs/
+    │       ├── prometheus-values.yaml
+    │       └── grafana-dashboard.yaml
+    │
+    ├── 📁 tests/                     # Test suite
+    │   ├── 📁 unit/
+    │   │   ├── test_clustering.py
+    │   │   └── test_features.py
+    │   ├── 📁 integration/
+    │   │   ├── test_pipeline.py
+    │   │   └── test_duckdb.py
+    │   └── 📁 e2e/
+    │       └── test_full_pipeline.py
+    │
+    ├── 📁 scripts/                   # Utility scripts
+    │   ├── init_duckdb.py
+    │   ├── run_full_pipeline.sh
+    │   ├── backup_warehouse.sh
+    │   └── deploy_to_k8s.sh
+    │
+    ├── 📁 docs/                      # Documentation
+    │   ├── architecture.md
+    │   ├── api_documentation.md
+    │   ├── data_dictionary.md
+    │   └── setup_guide.md
+    │
+    ├── 📁 .github/                   # CI/CD workflows
+    │   └── 📁 workflows/
+    │       ├── test.yml
+    │       ├── build.yml
+    │       └── deploy.yml
+    │
+    ├── 📁 .vscode/                   # VS Code settings
+    │   ├── settings.json
+    │   └── extensions.json
+    │
+    ├── pyproject.toml               # UV/Python dependencies
+    ├── uv.lock                      # UV lock file
+    ├── requirements.txt             # Traditional requirements (optional)
+    ├── .env.example                 # Environment template
+    ├── .gitignore
+    ├── .dockerignore
+    ├── README.md                    # Your awesome README
+    ├── LICENSE
+    └── Makefile                     # Common commands
+    
