@@ -117,19 +117,19 @@ graph TB
     
     nfl-contracts/
     ├── 📁 data/
-    │   ├── 📁 raw/                    # Original CSV files (never modify)
+    │   ├── 📁 raw/                   # Original CSV files (never modify)
     │   │   ├── contracts.csv
     │   │   ├── stats.csv
     │   │   └── physical.csv
-    │   └── 📁 processed/              # Intermediate processed data
+    │   └── 📁 processed/             # Intermediate processed data
     │       └── README.md
     │
-    ├── 📁 warehouse/                  # DuckDB warehouse directory
-    │   ├── nfl_contracts.duckdb      # MAIN DATABASE FILE
+    ├── 📁 warehouse/                 # DuckDB warehouse directory
+    │   ├── nfl_contracts.duckdb       # MAIN DATABASE FILE
     │   └── backups/                   # Daily backups
     │
-    ├── 📁 dbt/                        # SQL transformations
-    │   ├── dbt_project.yml           # dbt configuration
+    ├── 📁 dbt/                       # SQL transformations
+    │   ├── dbt_project.yml            # dbt configuration
     │   ├── 📁 models/
     │   │   ├── 📁 bronze/            # Raw table staging
     │   │   │   ├── contracts.sql
@@ -152,7 +152,7 @@ graph TB
     │   └── 📁 macros/                 # Reusable SQL
     │       └── calculate_elo.sql
     │
-    ├── 📁 src/                        # Python source code
+    ├── 📁 src/                       # Python source code
     │   ├── 📁 clustering/            # Stage 1: Archetype discovery
     │   │   ├── __init__.py
     │   │   ├── qb_clustering.py
@@ -252,11 +252,9 @@ graph TB
     │
     ├── pyproject.toml               # UV/Python dependencies
     ├── uv.lock                      # UV lock file
-    ├── requirements.txt             # Traditional requirements (optional)
     ├── .env.example                 # Environment template
     ├── .gitignore
     ├── .dockerignore
-    ├── README.md                    # Your awesome README
-    ├── LICENSE
+    ├── README.md                    
     └── Makefile                     # Common commands
     
