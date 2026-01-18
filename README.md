@@ -56,19 +56,19 @@ graph TB
     %% === DATA FLOW ===
     subgraph DATA_FLOW ["📊 Data Pipeline"]
         %% === STAGE 1: ARCHETYPE DISCOVERY ===
-        subgraph STAGE_1 ["🎯 Stage 1: Within-Position Archetypes"]
+        subgraph STAGE_1 ["🎯 Position Archetypes"]
             CLUSTERING["Position Clustering<br/>K-Means + Elbow Method"]
             ARCHETYPES["Player Archetype Labels"]
         end
 
         %% === STAGE 2: YEAR PREDICTION ===
-        subgraph STAGE_2 ["🔮 Stage 2: Contract Length"]
+        subgraph STAGE_2 ["🔮 Contract Length"]
             YEAR_MODELS["Position Year Models<br/>PyTorch NN"]
             YEAR_PREDS["Year Predictions<br/>1-5 Years"]
         end
 
         %% === STAGE 3: FINANCIAL PREDICTION ===
-        subgraph STAGE_3 ["💰 Stage 3: Financial Terms"]
+        subgraph STAGE_3 ["💰 Financial Terms"]
             FINANCIAL_MODELS["Position Financial Models<br/>PyMC Bayesian"]
             FINANCIAL_PREDS["AAV + Guarantee"]
         end
