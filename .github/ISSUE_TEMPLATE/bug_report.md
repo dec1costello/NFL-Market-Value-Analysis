@@ -1,25 +1,47 @@
 ---
 name: Bug Report
-about: Report a bug or issue with the project
-title: "[Bug]: "
-labels: bug 🐞
+about: Report a reproducible bug or unexpected behavior
+title: "[Bug] "
+labels: ["bug 🐞"]
+assignees: []
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## 🐞 Bug Summary
+Briefly describe what’s going wrong.
 
-**To Reproduce**
+---
+
+## 🔁 Steps to Reproduce
 Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '...'
-3. Scroll down to '...'
-4. See error
+1. …
+2. …
+3. …
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+---
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+## ✅ Expected Behavior
+What you expected to happen.
 
-**Additional context**
-Add any other context about the problem here.
+---
+
+## ❌ Actual Behavior
+What actually happened instead (include error messages, logs, or stack traces if available).
+
+---
+
+## 🖥️ Environment
+Please complete the following information:
+- OS:
+- Browser / Runtime:
+- Version / Commit:
+- Relevant dependencies:
+
+---
+
+## 📸 Screenshots / Recordings
+If applicable, add screenshots or screen recordings to help explain the issue.
+
+---
+
+## 🧠 Additional Context
+Any other context, edge cases, or related issues that might help investigate the bug.
