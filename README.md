@@ -58,13 +58,13 @@ graph TB
         %% === STAGE 1: ARCHETYPE DISCOVERY ===
         subgraph STAGE_1 ["🎯 Position Archetypes"]
             CLUSTERING["Position Clustering<br/>K-Means + Elbow Method"]
-            ARCHETYPES["Player Archetype Labels"]
+            ARCHETYPES["Archetype Labels"]
         end
 
         %% === STAGE 2: YEAR PREDICTION ===
         subgraph STAGE_2 ["🔮 Contract Length"]
             YEAR_MODELS["Position Year Models<br/>PyTorch NN"]
-            YEAR_PREDS["Year Predictions<br/>1-5 Years"]
+            YEAR_PREDS["Year Predictions<br/>2-5 Years"]
         end
 
         %% === STAGE 3: FINANCIAL PREDICTION ===
@@ -76,7 +76,7 @@ graph TB
 
     %% === STORAGE LAYER ===
     subgraph STORAGE ["💾 Storage (in DuckDB)"]
-        FEATURES["Position Features<br/>+ ELO Ratings"]
+        FEATURES["Position Features<br/>"]
         RESULTS["🏆 Final Predictions<br/>Per Position"]
     end
 
@@ -117,7 +117,7 @@ graph TB
     
     nfl-contracts/
     ├── 📁 data/
-    │   ├── 📁 raw/                   # Original CSV files (never modify)
+    │   ├── 📁 raw/                   
     │   │   ├── contracts.csv
     │   │   ├── stats.csv
     │   │   └── physical.csv
