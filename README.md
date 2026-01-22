@@ -150,7 +150,7 @@ graph TB
     │   │   ├── contracts_test.sql
     │   │   └── uniqueness_test.sql
     │   └── 📁 macros/                 # Reusable SQL
-    │       └── calculate_elo.sql
+    │       └── calculate_qbr.sql
     │
     ├── 📁 src/                       # Python source code
     │   ├── 📁 clustering/            # Stage 1: Archetype discovery
