@@ -1,44 +1,71 @@
-# 🚀 Pull Request Template 
-## 📄 Description
-<!-------------- INSTRUCTIONS --------------
-Briefly describe the changes proposed in this pull request. Include the motivation behind these changes and any relevant context that will help reviewers understand the purpose and impact of your contributions.
-------------------------------------------->
-This PR will introduce the following:
-* 🍉 major changes:
-    * <insert_major_change_1>
-    * <insert_major_change_2>
-    * <insert_major_change...>
-    * <insert_major_change_n>
-* 🍇 minor changes:
-    * <insert_minor_change_1>
-    * <insert_minor_change_2>
-    * <insert_minor_change...>
-    * <insert_minor_change_n>
+# 🚀 Pull Request
 
-## 🔄 Type of change
-<!-------------- INSTRUCTIONS --------------
-Mark all checkboxes that apply with an `x`
-(e.g. `[ ]` becomes `[x]`)
-------------------------------------------->
-- [ ] 📚 Documentation, examples, tutorials, dependencies update
-- [ ] 🐛 Bug fix (non-breaking change which fixes an issue)
-- [ ] 🥂 Improvement (non-breaking change which improves an existing feature)
-- [ ] ✨ New feature (non-breaking change which adds functionality)
-- [ ] 💥 Breaking change (fix or feature that would cause existing functionality to change)
+## 📄 Summary
+<!--
+Briefly explain *what* this PR does and *why* it exists.
+Link related issues or context if applicable.
+-->
+
+This PR introduces the following changes:
+
+### 🍉 Major Changes
+- …
+- …
+
+### 🍇 Minor Changes
+- …
+- …
+
+---
+
+## 🔄 Type of Change
+<!-- Mark all that apply -->
+- [ ] 📚 Documentation / examples / dependencies
+- [ ] 🐛 Bug fix (non-breaking)
+- [ ] 🥂 Improvement (non-breaking enhancement)
+- [ ] ✨ New feature
+- [ ] 💥 Breaking change
 - [ ] 🔐 Security fix
-- [ ] 🔍 Other (Please describe)
+- [ ] 🔍 Other (describe below)
 
-## 🧪 Testing documentation
-<!-------------- INSTRUCTIONS --------------
-Include documentation for all tests conducted related to the changes in this pull request. Outline the testing methods used, test cases covered, and any results or findings that are relevant.
-------------------------------------------->
+---
+
+## 🧪 Testing
+<!--
+Describe how the changes were tested.
+Include commands, environments, or scenarios.
+-->
+- Test type(s): unit / integration / manual
+- How to reproduce:
+  - …
+- Results:
+  - …
+
+---
+
+## 📸 Screenshots / Demos (if applicable)
+<!-- UI or behavioral changes benefit hugely from visuals -->
+
+---
+
+## ⚠️ Breaking Changes / Migration Notes
+<!-- Required if this PR introduces breaking changes -->
+- What breaks:
+- How to migrate:
+
+---
 
 ## ✅ Checklist
-- [ ] I have performed a self-review of my code
-- [ ] I have added necessary tests
-- [ ] All new and existing tests passed
+- [ ] I have performed a self-review
+- [ ] I have added or updated tests (or explained why not)
+- [ ] All tests pass locally
+- [ ] Documentation has been updated (if needed)
+- [ ] No secrets, credentials, or PII are included
 
-## 💬 Notes
-<!-------------- INSTRUCTIONS --------------
-Include any other information or context that might be helpful for reviewers.
-------------------------------------------->
+---
+
+## 💬 Reviewer Notes
+<!--
+Anything reviewers should pay extra attention to?
+Known tradeoffs, follow-ups, or intentional omissions?
+-->
