@@ -3,71 +3,42 @@ name: Displaying commenter's name under new issue
 on:
   workflow_dispatch:
   issues:
-    types: [opened, edited, deleted]
+    types: [opened, edited]
 
 permissions:
   issues: write
 
 jobs:
-  Comment:
+  comment:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Step 1 - Dumping Github Event Payload"
+      - name: Dump GitHub event
         run: echo '${{ toJSON(github.event) }}' | jq
-        shell: bash
 
-      - name: "Step 2 - Print type of event - open vs edit"
-        run: echo "Event action: ${{ github.event.action }}"
-        shell: bash
-
-      - name: "Create a comment on newly opened Issue"
-        if: ${{ github.event.action == 'opened' }}
+      - name: Comment on issue
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           USER: ${{ github.event.issue.user.login }}
-        run: |
-          curl -s -X POST \
-            -H "Authorization: Bearer $GITHUB_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/$REPO/issues/$ISSUE_NUMBER/comments \
-            -d "$(jq -n --arg body "Thanks **@$USER** for opening this issue. We will take a look into it ASAP.\n- Please make sure enough details are provided. ✨" '{body: $body}')"
-
-      - name: "React 👍 to opened Issue comment"
-        if: ${{ github.event.action == 'opened' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-        run: |
-          COMMENT_ID=$(curl -s \
-            -H "Authorization: Bearer $GITHUB_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/$REPO/issues/$ISSUE_NUMBER/comments \
-            | jq '.[-1].id')
-
-          curl -s -X POST \
-            -H "Authorization: Bearer $GITHUB_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/$REPO/issues/comments/$COMMENT_ID/reactions \
-            -d '{"content":"+1"}'
-
-      - name: "Create a comment on edited Issue"
-        if: ${{ github.event.action == 'edited' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
           EDITOR: ${{ github.event.sender.login }}
+          ACTION: ${{ github.event.action }}
         run: |
+          if [ "$ACTION" = "opened" ]; then
+            BODY="Thanks **@$USER** for opening this issue. We will take a look into it ASAP.\n- Please make sure enough details are provided. ✨"
+          elif [ "$ACTION" = "edited" ]; then
+            BODY="Thanks **@$EDITOR** for editing this issue. We will take a look into it ASAP.\n- Please make sure the title is descriptive. ✨"
+          else
+            echo "No comment for this action ($ACTION)"
+            exit 0
+          fi
+
           curl -s -X POST \
             -H "Authorization: Bearer $GITHUB_TOKEN" \
             -H "Accept: application/vnd.github+json" \
             https://api.github.com/repos/$REPO/issues/$ISSUE_NUMBER/comments \
-            -d "$(jq -n --arg body "Thanks **@$EDITOR** for editing this issue. We will take a look into it ASAP.\n- Please make sure the title is descriptive. ✨" '{body: $body}')"
+            -d "$(jq -n --arg body "$BODY" '{body: $body}')"
 
-      - name: "Finished checking out the payload"
-        run: echo 'Thank you. That’s all.'
-        shell: bash
+      - name: Finished
+        run: echo "Done commenting."
