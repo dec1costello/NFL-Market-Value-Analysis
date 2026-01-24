@@ -1,8 +1,0 @@
-name: Debug
-about: Debug issue form visibility
-body:
-  - type: input
-    attributes:
-      label: Does this show up?
-    validations:
-      required: true
