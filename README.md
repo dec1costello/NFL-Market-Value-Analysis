@@ -10,6 +10,8 @@
 <br />
 Author: Declan Costello
 
+<a name="readme-top"></a>
+
 <p align="center">
 <img height="263" width="186" src="https://github.com/user-attachments/assets/574ae0e8-38a0-44dc-b72c-ec4217bb03b2"/>  
 
@@ -46,14 +48,14 @@ graph TB
     classDef storage fill:#fff0f0,stroke:#FF6B6B,stroke-width:2px,stroke-dasharray:5 5,color:#c53030
 
     %% === INFRASTRUCTURE LAYERS ===
-    subgraph INFRA ["🛠️ Infrastructure"]
+    subgraph INFRA ["Infrastructure"]
         DUCKDB["🦆 DuckDB Warehouse<br/>nfl_contracts.duckdb"]
         K8S["⚓ Kubernetes<br/>Orchestrates Position Jobs"]
-        DBT["⚙️ dbt<br/>SQL Transformations"]
+        DBT["🛠️ dbt<br/>SQL Transformations"]
     end
 
     %% === DATA FLOW ===
-    subgraph DATA_FLOW ["📊 Pipeline"]
+    subgraph DATA_FLOW ["Pipeline"]
         %% === STAGE 1: ARCHETYPE DISCOVERY ===
         subgraph STAGE_1 ["Position Archetypes"]
             CLUSTERING["Position Clustering<br/>K-Means + Elbow Method"]
@@ -74,9 +76,9 @@ graph TB
     end
 
     %% === STORAGE LAYER ===
-    subgraph STORAGE ["💾 Storage"]
+    subgraph STORAGE ["Storage"]
         FEATURES["Position Features<br/>"]
-        RESULTS["🏆 Final Predictions<br/>Per Position"]
+        RESULTS["Final Predictions<br/>🏈"]
     end
 
     %% === CONNECTIONS ===
@@ -110,7 +112,7 @@ graph TB
     class ARCHETYPES,YEAR_PREDS,FINANCIAL_PREDS,RESULTS output;
 ```
 
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🌵 Repository Structure
     
@@ -256,4 +258,5 @@ graph TB
     ├── .dockerignore
     ├── README.md                    
     └── Makefile                     # Common commands
-    
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>    
