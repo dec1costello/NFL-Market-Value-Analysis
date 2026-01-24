@@ -28,7 +28,7 @@ Author: Declan Costello
 - ✅ **Operational Analytics:** Predictions stored as DuckDB tables for team analytics consumption
 - ✅ **Kubernetes Orchestration:** Scalable, position specific model deployment
 
-**Architecture Choice Rationale:** DuckDB was selected as the central warehouse for its embedded nature and SQL compliance, eliminating cloud costs while handling NFL datasets efficiently. The three stage pipeline (archetypes → years → financials) mirrors real world contract negotiation logic while maintaining statistical rigor.
+**Architecture Choice Rationale:** DuckDB was selected as the central warehouse for its embedded nature and SQL compliance, eliminating cloud costs while handling NFL datasets efficiently. The three stage pipeline (archetypes → years → financials) mirrors real world contract logic while maintaining statistical rigor.
 
 ## 🏗️ Architecture Diagram
 
