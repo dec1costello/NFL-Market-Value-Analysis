@@ -53,7 +53,7 @@ graph TB
     end
 
     %% === DATA FLOW ===
-    subgraph DATA_FLOW ["📊 Data Pipeline"]
+    subgraph DATA_FLOW ["📊 Pipeline"]
         %% === STAGE 1: ARCHETYPE DISCOVERY ===
         subgraph STAGE_1 ["Position Archetypes"]
             CLUSTERING["Position Clustering<br/>K-Means + Elbow Method"]
