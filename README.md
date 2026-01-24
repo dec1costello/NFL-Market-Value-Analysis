@@ -19,7 +19,7 @@ Author: Declan Costello
 
 **Business Objective:** Predict NFL player contract terms (years, average annual value, guarantees, percent of team cap space) to identify market inefficiencies and optimize team salary cap management.
 
-**Technical Approach:** A three stage ML pipeline using modern analytics engineering patterns. Features are engineered with SQL (dbt) and enriched with player archetypes via clustering. Contract length is predicted with PyTorch neural networks, and financial terms are estimated with PyMC Bayesian regression—providing both point estimates and uncertainty quantification.
+**Technical Approach:** A three stage ML pipeline using modern analytics engineering patterns. Features are engineered with SQL (dbt) and enriched with player archetypes via clustering. Contract length is predicted with PyTorch, and financial terms are estimated with PyMC Bayesian regression.
 
 **Key Results:**
 - ✅ **Position Specific Archetypes:** K-Means clustering within each position (QB, WR, RB, etc) to discover player subtypes
@@ -32,8 +32,7 @@ Author: Declan Costello
 
 ## 🏗️ Architecture Diagram
 
-This NFL contract prediction system employs a sequential pipeline that mirrors actual team decision making. Player performance data flows through position specific feature engineering, is enriched with discovered archetypes ("Scrambler QB" or "Fullback RB"), predicts contract length via neural networks, and finally estimates financial terms with Bayesian uncertainty. All predictions are stored as queryable tables, enabling team analysts to immediately access market value insights while front offices maintain full auditability of the modeling process.
-
+This NFL contract prediction system employs a sequential pipeline that mirrors front office decision making. Player performance data flows through position specific feature engineering, is enriched with discovered archetypes ("Scrambler QB" or "Fullback RB"), predicts contract length via neural networks, and finally estimates financial terms with Bayesian uncertainty. All predictions are stored as queryable tables, enabling immediate market value insights.
 ```mermaid
 graph TB
  %% === STYLING ===
