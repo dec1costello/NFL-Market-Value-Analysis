@@ -1,0 +1,15 @@
+Plain-text citation:
+
+Costello, Declan. NFL Market Value Analysis. GitHub repository, 2026.
+https://github.com/dec1costello/NFL-Market-Value-Analysis
+
+
+BibTeX citation:
+
+@misc{costello2026nflmarketvalue,
+  title        = {NFL Market Value Analysis},
+  author       = {Costello, Declan},
+  year         = {2026},
+  howpublished = {\url{https://github.com/dec1costello/NFL-Market-Value-Analysis}},
+  note         = {GitHub repository}
+}
