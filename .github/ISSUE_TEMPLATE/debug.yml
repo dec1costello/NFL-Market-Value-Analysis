@@ -1,8 +1,11 @@
-name: Debug
-about: Debug issue form visibility
+name: "Debug Template"
+about: "Used to validate issue forms rendering"
+title: "[Debug] "
+labels: ["debug"]
 body:
-  - type: input
+  - type: textarea
     attributes:
-      label: Does this show up?
+      label: "Does this show up?"
+      description: "If yes, your issue forms work."
     validations:
       required: true
