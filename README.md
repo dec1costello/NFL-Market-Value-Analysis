@@ -17,7 +17,7 @@ Author: Declan Costello
 
 <h1 align="center">NFL Player Contract Value Prediction</h1>
 
-**Business Objective:** Predict NFL player contract terms (years, average annual value, guarantees) to identify market inefficiencies and optimize team salary cap management.
+**Business Objective:** Predict NFL player contract terms (years, average annual value, guarantees, percent of team cap space) to identify market inefficiencies and optimize team salary cap management.
 
 **Technical Approach:** A three-stage ML pipeline using modern analytics engineering patterns. Features are engineered with SQL (dbt) and enriched with player archetypes via clustering. Contract length is predicted with PyTorch neural networks, and financial terms are estimated with PyMC Bayesian regression—providing both point estimates and uncertainty quantification.
 
@@ -37,8 +37,8 @@ This NFL contract prediction system employs a sequential pipeline that mirrors a
 ```mermaid
 graph TB
  %% === STYLING ===
-    classDef stage1 fill:#ebf8ff,stroke:#4299e1,stroke-width:3px,color:#22543d
-    classDef stage2 fill:#fef3c7,stroke:#d69e2e,stroke-width:3px,color:#744210
+    classDef stage1 fill:#fef3c7,stroke:#d69e2e,stroke-width:3px,color:#744210
+    classDef stage2 fill:#ebf8ff,stroke:#4299e1,stroke-width:3px,color:#22543d 
     classDef stage3 fill:#f0fff4,stroke:#48bb78,stroke-width:3px,color: #2a4365
     classDef features fill:#fef3c7,stroke:#eab308,stroke-width:2px,color:#854d0e
     classDef model fill:#e0f7fa,stroke:#00bcd4,stroke-width:2px,color:#006064
