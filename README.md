@@ -17,7 +17,7 @@ Author: Declan Costello
 
 <h1 align="center">NFL Player Contract Value Prediction</h1>
 
-**Business Objective:** Predict NFL player contract terms (years, average annual value, guarantees) to identify market inefficiencies and optimize team salary cap management.
+**Business Objective:** Predict NFL player contract terms (years, average annual value, guarantees, percent of team cap space) to identify market inefficiencies and optimize team salary cap management.
 
 **Technical Approach:** A three-stage ML pipeline using modern analytics engineering patterns. Features are engineered with SQL (dbt) and enriched with player archetypes via clustering. Contract length is predicted with PyTorch neural networks, and financial terms are estimated with PyMC Bayesian regression—providing both point estimates and uncertainty quantification.
 
@@ -37,9 +37,9 @@ This NFL contract prediction system employs a sequential pipeline that mirrors a
 ```mermaid
 graph TB
  %% === STYLING ===
-    classDef stage1 fill:#f0fff4,stroke:#48bb78,stroke-width:3px,color:#22543d
-    classDef stage2 fill:#fef3c7,stroke:#d69e2e,stroke-width:3px,color:#744210
-    classDef stage3 fill:#ebf8ff,stroke:#4299e1,stroke-width:3px,color:#2a4365
+    classDef stage1 fill:#fef3c7,stroke:#d69e2e,stroke-width:3px,color:#744210
+    classDef stage2 fill:#ebf8ff,stroke:#4299e1,stroke-width:3px,color:#22543d 
+    classDef stage3 fill:#f0fff4,stroke:#48bb78,stroke-width:3px,color: #2a4365
     classDef features fill:#fef3c7,stroke:#eab308,stroke-width:2px,color:#854d0e
     classDef model fill:#e0f7fa,stroke:#00bcd4,stroke-width:2px,color:#006064
     classDef output fill:#e3f2fd,stroke:#2196f3,stroke-width:2px,color:#0d47a1
@@ -56,21 +56,21 @@ graph TB
     %% === DATA FLOW ===
     subgraph DATA_FLOW ["📊 Data Pipeline"]
         %% === STAGE 1: ARCHETYPE DISCOVERY ===
-        subgraph STAGE_1 ["🎯 Position Archetypes"]
+        subgraph STAGE_1 ["Position Archetypes"]
             CLUSTERING["Position Clustering<br/>K-Means + Elbow Method"]
             ARCHETYPES["Archetype Labels"]
         end
 
         %% === STAGE 2: YEAR PREDICTION ===
-        subgraph STAGE_2 ["🔮 Contract Length"]
+        subgraph STAGE_2 ["Contract Length"]
             YEAR_MODELS["Position Year Models<br/>PyTorch NN"]
             YEAR_PREDS["Year Predictions<br/>2-5 Years"]
         end
 
         %% === STAGE 3: FINANCIAL PREDICTION ===
-        subgraph STAGE_3 ["💰 Financial Terms"]
+        subgraph STAGE_3 ["Financial Terms"]
             FINANCIAL_MODELS["Position Financial Models<br/>PyMC Bayesian"]
-            FINANCIAL_PREDS["AAV + Guarantee"]
+            FINANCIAL_PREDS["💰"]
         end
     end
 
@@ -144,7 +144,7 @@ graph TB
     │   │       │   ├── qb_features.sql
     │   │       │   ├── wr_features.sql
     │   │       │   └── position_features.sql
-    │   │       ├── elo_ratings.sql
+    │   │       ├── qbr_ratings.sql
     │   │       └── z_scores.sql
     │   ├── 📁 tests/                  # Data quality tests
     │   │   ├── contracts_test.sql
