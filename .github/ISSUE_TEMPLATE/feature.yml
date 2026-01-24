@@ -1,5 +1,5 @@
 name: Feature
-about: A high-level capability that delivers meaningful user or system value
+description: A high-level capability that delivers meaningful user or system value
 title: "[Feature] "
 labels: ["feature"]
 body:
