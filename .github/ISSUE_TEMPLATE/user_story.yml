@@ -1,5 +1,4 @@
 name: User Story
-about: A small, valuable, testable unit of user or system behavior
 title: "[Story] "
 labels: ["user-story"]
 body:
