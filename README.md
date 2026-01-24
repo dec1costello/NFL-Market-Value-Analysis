@@ -37,9 +37,9 @@ This NFL contract prediction system employs a sequential pipeline that mirrors a
 ```mermaid
 graph TB
  %% === STYLING ===
-    classDef stage1 fill:#f0fff4,stroke:#48bb78,stroke-width:3px,color: #2a4365
+    classDef stage1 fill:#ebf8ff,stroke:#4299e1,stroke-width:3px,color:#22543d
     classDef stage2 fill:#fef3c7,stroke:#d69e2e,stroke-width:3px,color:#744210
-    classDef stage3 fill:#ebf8ff,stroke:#4299e1,stroke-width:3px,color:#22543d
+    classDef stage3 fill:#f0fff4,stroke:#48bb78,stroke-width:3px,color: #2a4365
     classDef features fill:#fef3c7,stroke:#eab308,stroke-width:2px,color:#854d0e
     classDef model fill:#e0f7fa,stroke:#00bcd4,stroke-width:2px,color:#006064
     classDef output fill:#e3f2fd,stroke:#2196f3,stroke-width:2px,color:#0d47a1
@@ -144,7 +144,7 @@ graph TB
     │   │       │   ├── qb_features.sql
     │   │       │   ├── wr_features.sql
     │   │       │   └── position_features.sql
-    │   │       ├── elo_ratings.sql
+    │   │       ├── qbr_ratings.sql
     │   │       └── z_scores.sql
     │   ├── 📁 tests/                  # Data quality tests
     │   │   ├── contracts_test.sql
