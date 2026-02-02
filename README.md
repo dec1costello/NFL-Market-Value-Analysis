@@ -69,7 +69,7 @@ graph TB
 
         %% === STAGE 3: FINANCIAL PREDICTION ===
         subgraph STAGE_3 ["Financial Terms"]
-            FINANCIAL_MODELS["Position Financial Models<br/>PyMC Bayesian<br/>💰"]
+            FINANCIAL_MODELS["Position Models<br/>PyMC Bayesian<br/>💰"]
         end
     end
 
@@ -83,15 +83,15 @@ graph TB
     %% Infrastructure → Data Flow
     DUCKDB -->|"Serves"| FEATURES
     DBT -->|"Transforms"| FEATURES
-    K8S -->|"Orchestrates"| STAGE_1
-    K8S -->|"Deploys"| STAGE_2
-    K8S -->|"Deploys"| STAGE_3
+    K8S -->|"Orchestrates"| DATA_FLOW
+    K8S -->|"Deploys"| DATA_FLOW
 
     %% Data Pipeline Flow
-    FEATURES --> CLUSTERING
+    FEATURES --> STAGE_1
     CLUSTERING --> STAGE_2
     STAGE_2 --> YEAR_MODELS
-    FEATURES --> YEAR_MODELS
+    FEATURES --> STAGE_2
+
     YEAR_MODELS --> YEAR_PREDS
     YEAR_PREDS --> STAGE_3
     CLUSTERING --> STAGE_3
