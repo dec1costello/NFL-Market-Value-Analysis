@@ -89,7 +89,6 @@ graph TB
     %% Data Pipeline Flow
     FEATURES --> STAGE_1
     CLUSTERING --> STAGE_2
-    STAGE_2 --> YEAR_MODELS
     FEATURES --> STAGE_2
 
     YEAR_MODELS --> YEAR_PREDS
