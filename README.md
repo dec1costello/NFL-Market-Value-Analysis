@@ -62,9 +62,9 @@ graph TB
         end
 
         %% === STAGE 2: YEAR PREDICTION ===
-        subgraph STAGE_2 ["Contract Length"]
-            YEAR_MODELS["Age Curve Projections<br/>PyTorch NN<br/>Snap Share %"]
-            YEAR_PREDS["Year Classification Predictions<br/>PyTorch NN<br/>2-5 Years"]
+        subgraph STAGE_2 ["Duration Terms"]
+            YEAR_MODELS["Age Curve Projections<br/>PyTorch NN<br/>Snap Share"]
+            YEAR_PREDS["Year Classification<br/>PyTorch NN<br/>2-5 Years"]
         end
 
         %% === STAGE 3: FINANCIAL PREDICTION ===
@@ -75,13 +75,13 @@ graph TB
 
     %% === STORAGE LAYER ===
     subgraph STORAGE ["Storage"]
-        FEATURES["Position Features<br/>"]
+        FEATURES["Feature Store<br/>"]
         RESULTS["Final Predictions<br/>🏈"]
     end
 
     %% === CONNECTIONS ===
     %% Infrastructure → Data Flow
-    DUCKDB -->|"Stores & Serves"| FEATURES
+    DUCKDB -->|"Serves"| FEATURES
     DBT -->|"Transforms"| FEATURES
     K8S -->|"Orchestrates"| STAGE_1
     K8S -->|"Deploys"| STAGE_2
