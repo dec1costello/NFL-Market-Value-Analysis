@@ -57,21 +57,19 @@ graph TB
     %% === DATA FLOW ===
     subgraph DATA_FLOW ["Pipeline"]
         %% === STAGE 1: ARCHETYPE DISCOVERY ===
-        subgraph STAGE_1 ["Position Archetypes"]
-            CLUSTERING["Position Clustering<br/>K-Means + Elbow Method"]
-            ARCHETYPES["Archetype Labels"]
+        subgraph STAGE_1 ["Position Clustering"]
+            CLUSTERING["K-Means + Elbow Method<br/>Archetype Labels"]
         end
 
         %% === STAGE 2: YEAR PREDICTION ===
         subgraph STAGE_2 ["Contract Length"]
-            YEAR_MODELS["Position Year Models<br/>PyTorch NN"]
-            YEAR_PREDS["Year Predictions<br/>2-5 Years"]
+            YEAR_MODELS["Age Curve Projections<br/>PyTorch NN<br/>Snap Share %"]
+            YEAR_PREDS["Year Classification Predictions<br/>PyTorch NN<br/>2-5 Years"]
         end
 
         %% === STAGE 3: FINANCIAL PREDICTION ===
         subgraph STAGE_3 ["Financial Terms"]
-            FINANCIAL_MODELS["Position Financial Models<br/>PyMC Bayesian"]
-            FINANCIAL_PREDS["💰"]
+            FINANCIAL_MODELS["Position Financial Models<br/>PyMC Bayesian<br/>💰"]
         end
     end
 
@@ -85,21 +83,20 @@ graph TB
     %% Infrastructure → Data Flow
     DUCKDB -->|"Stores & Serves"| FEATURES
     DBT -->|"Transforms"| FEATURES
-    K8S -->|"Orchestrates"| CLUSTERING
-    K8S -->|"Deploys"| YEAR_MODELS
-    K8S -->|"Deploys"| FINANCIAL_MODELS
+    K8S -->|"Orchestrates"| STAGE_1
+    K8S -->|"Deploys"| STAGE_2
+    K8S -->|"Deploys"| STAGE_3
 
     %% Data Pipeline Flow
     FEATURES --> CLUSTERING
-    CLUSTERING --> ARCHETYPES
-    ARCHETYPES --> YEAR_MODELS
+    CLUSTERING --> STAGE_2
+    STAGE_2 --> YEAR_MODELS
     FEATURES --> YEAR_MODELS
     YEAR_MODELS --> YEAR_PREDS
-    YEAR_PREDS --> FINANCIAL_MODELS
-    ARCHETYPES --> FINANCIAL_MODELS
-    FEATURES --> FINANCIAL_MODELS
-    FINANCIAL_MODELS --> FINANCIAL_PREDS
-    FINANCIAL_PREDS --> RESULTS
+    YEAR_PREDS --> STAGE_3
+    CLUSTERING --> STAGE_3
+    FEATURES --> STAGE_3
+    FINANCIAL_MODELS --> RESULTS
 
     %% === STYLES ===
     class INFRA,DUCKDB,K8S,DBT infra
