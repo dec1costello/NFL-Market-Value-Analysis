@@ -1,23 +1,10 @@
 
 # Adjusted Efficiency Metric (for wrs for example)
 
-**Mutual-Opponent Adjusted EPA per Target (or YPRR)**  
-*Step 1 of the Stat-to-Dollar NFL Wide Receiver Valuation Model*
+This module estimates a schedule-strength-adjusted efficiency metric for NFL wide receivers using a closed, opponent-linked rating system, the model solves for WR performance relative to the defensive units they actually faced, producing a mutually consistent set of offensive and defensive ratings. A WR who posts elite production against top-tier defenses (high negative `def_dev`) deserves a larger upward adjustment than one who posts similar raw numbers against weak secondaries. This metric serves as the **foundation** for all subsequent steps.
 
-## Overview
-
-This module produces a **schedule-strength-adjusted efficiency metric** for NFL wide receivers. It solves for each WR’s true talent level relative to the defensive units they actually faced, using a closed system of qualified starters only.
-
-The result is an **adjusted EPA per target** (or Yards per Route Run) that answers:  
-> “How would this WR have performed against a league-average defense?”
-
-This metric serves as the **foundation** for all subsequent steps: age-curve snap projections → contract dollar valuation.
-
-## Why Mutual-Opponent Adjustment Is the Best Ranking Method for WRs
-
-Wide receivers **do not face each other head-to-head**. They compete indirectly by facing the same defensive secondaries.  
-
-A WR who posts elite production against top-tier defenses (high negative `def_dev`) deserves a larger upward adjustment than one who posts similar raw numbers against weak secondaries.
+### The primary output is:
+  > observed = league_avg + WR_dev − DEF_dev + noise
 
 This approach:
 - Mirrors **Adjusted Plus-Minus (RAPM)** and **Elo-style rating systems** adapted to continuous efficiency outcomes.
@@ -25,8 +12,6 @@ This approach:
 - Avoids bias from easy/hard schedules.
 - Produces stable, mutually-consistent ratings via iterative coordinate descent (alternating least squares).
 - Naturally shrinks low-sample WRs toward the mean (Bayesian-style regularization via priors).
-
-This is superior to simple opponent-adjusted averages or raw percentiles for contract valuation because it explicitly models the strength of the defenses faced.
 
 ## Input Data Requirements
 
