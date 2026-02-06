@@ -37,55 +37,65 @@ Author: Declan Costello
 This NFL contract prediction system employs a sequential pipeline that mirrors front office decision making. Player performance data flows through position specific feature engineering, is enriched with discovered archetypes ("Scrambler QB" or "Fullback RB"), predicts contract length via neural networks, and finally estimates financial terms with Bayesian uncertainty. All predictions are stored as queryable tables, enabling immediate market value insights.
 ```mermaid
 graph TB
- %% === STYLING ===
-    classDef stage1 fill:#fef3c7,stroke:#d69e2e,stroke-width:3px,color:#744210
-    classDef stage2 fill:#ebf8ff,stroke:#4299e1,stroke-width:3px,color:#22543d 
-    classDef stage3 fill:#f0fff4,stroke:#48bb78,stroke-width:3px,color: #2a4365
-    classDef features fill:#fef3c7,stroke:#eab308,stroke-width:2px,color:#854d0e
-    classDef model fill:#e0f7fa,stroke:#00bcd4,stroke-width:2px,color:#006064
-    classDef output fill:#e3f2fd,stroke:#2196f3,stroke-width:2px,color:#0d47a1
-    classDef infra fill:#f5f3ff,stroke:#8b5cf6,stroke-width:2px,color:#5b21b6
-    classDef storage fill:#fff0f0,stroke:#FF6B6B,stroke-width:2px,stroke-dasharray:5 5,color:#c53030
+    %% === VIBRANT STYLING ===
+    classDef infrastructure fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,stroke-dasharray:3 3,color:#4338ca
+    classDef storage fill:#fef3c7,stroke:#f59e0b,stroke-width:3px,stroke-dasharray:5 5,color:#92400e,color:#92400e
+    classDef stage1 fill:#fef9c3,stroke:#fbbf24,stroke-width:3px,color:#92400e
+    classDef stage2 fill:#dbeafe,stroke:#60a5fa,stroke-width:3px,color:#1e40af
+    classDef stage3 fill:#dcfce7,stroke:#34d399,stroke-width:3px,color:#065f46
+    classDef features fill:#fed7aa,stroke:#fb923c,stroke-width:3px,color:#c2410c
+    classDef model fill:#cffafe,stroke:#22d3ee,stroke-width:3px,color:#0e7490
+    classDef output fill:#fef3c7,stroke:#facc15,stroke-width:3px,color:#854d0e
+    
+    %% === ROUNDED NODE STYLES ===
+    classDef rounded radius:12px
+    classDef rounded-lg radius:18px
+    classDef rounded-xl radius:24px
+    
+    %% === FONT STYLES ===
+    classDef bold font-weight:bold
+    classDef semibold font-weight:600
+    classDef italic font-style:italic
 
     %% === INFRASTRUCTURE LAYERS ===
-    subgraph INFRA ["Infrastructure"]
-        DUCKDB["🦆 DuckDB Warehouse<br/>nfl_contracts.duckdb"]
-        K8S["⚓ Kubernetes<br/>Orchestrates Position Jobs"]
-        DBT["🛠️ dbt<br/>SQL Transformations"]
+    subgraph INFRA ["<b>Infrastructure</b>"]
+        DUCKDB["<b>🦆 DuckDB Warehouse</b><br/><i>nfl_contracts.duckdb</i>"]
+        K8S["<b>⚓ Kubernetes</b><br/><i>Orchestrates Position Jobs</i>"]
+        DBT["<b>🛠️ dbt</b><br/><i>SQL Transformations</i>"]
     end
 
     %% === DATA FLOW ===
-    subgraph DATA_FLOW ["Pipeline"]
+    subgraph DATA_FLOW ["Prediction Pipeline</b>"]
         %% === STAGE 1: ARCHETYPE DISCOVERY ===
-        subgraph STAGE_1 ["Position Clustering"]
-            CLUSTERING["K-Means + Elbow Method<br/>Archetype Labels"]
-            adjusted_metric["adjusted metric"]
+        subgraph STAGE_1 ["<b>Position Clustering</b>"]
+            CLUSTERING["<b>🎨 K-Means + Elbow Method</b><br/>Archetype Labels"]
+            adjusted_metric["<b>📈 Adjusted Metric</b><br/>Performance Calculation"]
         end
 
         %% === STAGE 2: YEAR PREDICTION ===
-        subgraph STAGE_2 ["Duration Terms"]
-            YEAR_MODELS["Age Curve<br/>PyTorch NN<br/>Snap Share Projections"]
-            YEAR_PREDS["Year Classification<br/>PyTorch NN<br/>2-5 Years"]
+        subgraph STAGE_2 ["<b>Duration Terms</b>"]
+            YEAR_MODELS["<b>📊 Age Curve</b><br/>Snap Share Projections"]
+            YEAR_PREDS["<b>🗓️ Year Classification</b><br/>2-5 Years Prediction"]
         end
 
         %% === STAGE 3: FINANCIAL PREDICTION ===
-        subgraph STAGE_3 ["Financial Terms"]
-            FINANCIAL_MODELS["Position Models<br/>PyMC Bayesian<br/>💰"]
+        subgraph STAGE_3 ["<b>Financial Terms</b>"]
+            FINANCIAL_MODELS["<b>% of Salary Cap</b><br/>Per Contract Years<br/>💰"]
         end
     end
 
     %% === STORAGE LAYER ===
-    subgraph STORAGE ["Storage"]
-        FEATURES["Feature Store<br/>"]
-        RESULTS["Final Predictions<br/>🏈"]
+    subgraph STORAGE ["<b>Storage Layer</b>"]
+        FEATURES["<b>Feature Store</b><br/>Position Statistics"]
+        RESULTS["<b>Final Predictions</b><br/>🏈 "]
     end
 
     %% === CONNECTIONS ===
     %% Infrastructure → Data Flow
-    DUCKDB -->|"Serves"| FEATURES
-    DBT -->|"Transforms"| FEATURES
-    K8S -->|"Orchestrates"| DATA_FLOW
-    K8S -->|"Deploys"| DATA_FLOW
+    DUCKDB -->|"<i>Serves</i>"| FEATURES
+    DBT -->|"<i>Transforms</i>"| FEATURES
+    K8S -->|"<i>Orchestrates</i>"| DATA_FLOW
+    K8S -->|"<i>Deploys</i>"| DATA_FLOW
 
     %% Data Pipeline Flow
     FEATURES --> STAGE_1
@@ -98,15 +108,31 @@ graph TB
     FEATURES --> STAGE_3
     FINANCIAL_MODELS --> RESULTS
 
-    %% === STYLES ===
-    class INFRA,DUCKDB,K8S,DBT infra
-    class STORAGE,FEATURES,RESULTS storage
-    class STAGE_1 stage1
-    class STAGE_2 stage2
-    class STAGE_3 stage3
-    class FEATURES features
-    class CLUSTERING,YEAR_MODELS,FINANCIAL_MODELS model
-    class ARCHETYPES,YEAR_PREDS,FINANCIAL_PREDS,RESULTS output;
+    %% === APPLY STYLES ===
+    class INFRA,DUCKDB,K8S,DBT infrastructure,rounded-lg,shadow
+    class STORAGE,FEATURES,RESULTS storage,rounded-lg,shadow
+    class DATA_FLOW rounded-xl,shadow
+    class STAGE_1 stage1,rounded,shadow
+    class STAGE_2 stage2,rounded,shadow
+    class STAGE_3 stage3,rounded,shadow
+    class FEATURES features,rounded,shadow
+    class CLUSTERING,YEAR_MODELS,FINANCIAL_MODELS model,rounded,shadow
+    class adjusted_metric,YEAR_PREDS,RESULTS output,rounded,shadow
+    class STAGE_1,STAGE_2,STAGE_3 bold,shadow
+    
+    %% === COLORFUL LINK STYLING ===
+    linkStyle default stroke:#6b7280,stroke-width:3px
+    linkStyle 0 stroke:#6366f1,stroke-width:3px
+    linkStyle 1 stroke:#8b5cf6,stroke-width:3px
+    linkStyle 2,3 stroke:#94a3b8,stroke-width:2.5px,stroke-dasharray:4 4
+    linkStyle 4 stroke:#f59e0b,stroke-width:4px
+    linkStyle 5 stroke:#fbbf24,stroke-width:4px
+    linkStyle 6 stroke:#fb923c,stroke-width:4px
+    linkStyle 7 stroke:#60a5fa,stroke-width:4px
+    linkStyle 8 stroke:#34d399,stroke-width:4px
+    linkStyle 9 stroke:#facc15,stroke-width:4px
+    linkStyle 10 stroke:#22d3ee,stroke-width:4px
+    linkStyle 11 stroke:#f472b6,stroke-width:5px
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
