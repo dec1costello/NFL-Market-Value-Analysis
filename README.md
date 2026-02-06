@@ -78,7 +78,7 @@ graph TB
     %% === STORAGE ===
     subgraph STORAGE ["<b>Storage Layer</b>"]
         FEATURES["<b>Feature Store</b><br/>Position Statistics"]
-        RESULTS["<b>Final Predictions</b><br/>🏈 "]
+        RESULTS["<b>Predictions</b><br/>🏈 "]
     end
 
     %% === CONNECTIONS ===
