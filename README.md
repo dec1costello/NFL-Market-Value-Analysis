@@ -59,11 +59,12 @@ graph TB
         %% === STAGE 1: ARCHETYPE DISCOVERY ===
         subgraph STAGE_1 ["Position Clustering"]
             CLUSTERING["K-Means + Elbow Method<br/>Archetype Labels"]
+            adjusted_metric["adjusted metric"]
         end
 
         %% === STAGE 2: YEAR PREDICTION ===
         subgraph STAGE_2 ["Duration Terms"]
-            YEAR_MODELS["Age Curve Projections<br/>PyTorch NN<br/>Snap Share"]
+            YEAR_MODELS["Age Curve<br/>PyTorch NN<br/>Snap Share Projections"]
             YEAR_PREDS["Year Classification<br/>PyTorch NN<br/>2-5 Years"]
         end
 
@@ -88,12 +89,12 @@ graph TB
 
     %% Data Pipeline Flow
     FEATURES --> STAGE_1
-    CLUSTERING --> STAGE_2
+    STAGE_1 --> STAGE_2
     FEATURES --> STAGE_2
 
     YEAR_MODELS --> YEAR_PREDS
     YEAR_PREDS --> STAGE_3
-    CLUSTERING --> STAGE_3
+    STAGE_1 --> STAGE_3
     FEATURES --> STAGE_3
     FINANCIAL_MODELS --> RESULTS
 
