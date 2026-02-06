@@ -36,68 +36,57 @@ Author: Declan Costello
 
 This NFL contract prediction system employs a sequential pipeline that mirrors front office decision making. Player performance data flows through position specific feature engineering, is enriched with discovered archetypes ("Scrambler QB" or "Fullback RB"), predicts contract length via neural networks, and finally estimates financial terms with Bayesian uncertainty. All predictions are stored as queryable tables, enabling immediate market value insights.
 ```mermaid
-graph TB
-    %% === VIBRANT STYLING ===
-    classDef infrastructure fill:#e0e7ff,stroke:#6366f1,stroke-width:2px,stroke-dasharray:3 3,color:#4338ca
-    classDef storage fill:#fef3c7,stroke:#f59e0b,stroke-width:3px,stroke-dasharray:5 5,color:#92400e,color:#92400e
-    classDef stage1 fill:#fef9c3,stroke:#fbbf24,stroke-width:3px,color:#92400e
-    classDef stage2 fill:#dbeafe,stroke:#60a5fa,stroke-width:3px,color:#1e40af
-    classDef stage3 fill:#dcfce7,stroke:#34d399,stroke-width:3px,color:#065f46
-    classDef features fill:#fed7aa,stroke:#fb923c,stroke-width:3px,color:#c2410c
-    classDef model fill:#cffafe,stroke:#22d3ee,stroke-width:3px,color:#0e7490
-    classDef output fill:#fef3c7,stroke:#facc15,stroke-width:3px,color:#854d0e
-    
-    %% === ROUNDED NODE STYLES ===
-    classDef rounded radius:12px
-    classDef rounded-lg radius:18px
-    classDef rounded-xl radius:24px
-    
-    %% === FONT STYLES ===
-    classDef bold font-weight:bold
-    classDef semibold font-weight:600
-    classDef italic font-style:italic
 
-    %% === INFRASTRUCTURE LAYERS ===
+
+graph TB
+    %% === PROFESSIONAL RED WHITE BLUE THEME ===
+    classDef infrastructure fill:#eef2ff,stroke:#1e3a8a,stroke-width:2.5px,color:#1e3a8a
+    classDef storage fill:#f9fafb,stroke:#374151,stroke-width:2.5px,color:#111827
+    classDef stage1 fill:#eff6ff,stroke:#3b82f6,stroke-width:2.5px,color:#1e3a8a
+    classDef stage2 fill:#f8fafc,stroke:#3b82f6,stroke-width:2.5px,color:#1e3a8a
+    classDef stage3 fill:#fef2f2,stroke:#dc2626,stroke-width:2.5px,color:#991b1b
+    classDef features fill:#f1f5f9,stroke:#334155,stroke-width:2.5px,color:#0f172a
+    classDef model fill:#ffffff,stroke:#3b82f6,stroke-width:2.5px,color:#1e3a8a
+    classDef output fill:#fff7ed,stroke:#dc2626,stroke-width:2.5px,color:#991b1b
+
+    classDef bold font-weight:bold
+
+    %% === INFRASTRUCTURE ===
     subgraph INFRA ["<b>Infrastructure</b>"]
         DUCKDB["<b>🦆 DuckDB Warehouse</b><br/><i>nfl_contracts.duckdb</i>"]
         K8S["<b>⚓ Kubernetes</b><br/><i>Orchestrates Position Jobs</i>"]
         DBT["<b>🛠️ dbt</b><br/><i>SQL Transformations</i>"]
     end
 
-    %% === DATA FLOW ===
+    %% === PIPELINE ===
     subgraph DATA_FLOW ["Prediction Pipeline</b>"]
-        %% === STAGE 1: ARCHETYPE DISCOVERY ===
-        subgraph STAGE_1 ["<b>Position Clustering</b>"]
-            CLUSTERING["<b>🎨 K-Means + Elbow Method</b><br/>Archetype Labels"]
-            adjusted_metric["<b>📈 Adjusted Metric</b><br/>Performance Calculation"]
+        subgraph STAGE_1 ["<b>Position Based</b>"]
+            CLUSTERING["<b>K-Means + Elbow Method</b><br/>Archetype Labels"]
+            adjusted_metric["<b>Adjusted Metric</b><br/>Performance Calculation"]
         end
 
-        %% === STAGE 2: YEAR PREDICTION ===
         subgraph STAGE_2 ["<b>Duration Terms</b>"]
-            YEAR_MODELS["<b>📊 Age Curve</b><br/>Snap Share Projections"]
-            YEAR_PREDS["<b>🗓️ Year Classification</b><br/>2-5 Years Prediction"]
+            YEAR_MODELS["<b>Age Curve</b><br/>Snap Share Projections"]
+            YEAR_PREDS["<b>Year Classification</b><br/>2-5 Years Prediction"]
         end
 
-        %% === STAGE 3: FINANCIAL PREDICTION ===
         subgraph STAGE_3 ["<b>Financial Terms</b>"]
             FINANCIAL_MODELS["<b>% of Salary Cap</b><br/>Per Contract Years<br/>💰"]
         end
     end
 
-    %% === STORAGE LAYER ===
+    %% === STORAGE ===
     subgraph STORAGE ["<b>Storage Layer</b>"]
         FEATURES["<b>Feature Store</b><br/>Position Statistics"]
         RESULTS["<b>Final Predictions</b><br/>🏈 "]
     end
 
     %% === CONNECTIONS ===
-    %% Infrastructure → Data Flow
-    DUCKDB -->|"<i>Serves</i>"| FEATURES
+     DUCKDB -->|"<i>Serves</i>"| FEATURES
     DBT -->|"<i>Transforms</i>"| FEATURES
     K8S -->|"<i>Orchestrates</i>"| DATA_FLOW
     K8S -->|"<i>Deploys</i>"| DATA_FLOW
 
-    %% Data Pipeline Flow
     FEATURES --> STAGE_1
     STAGE_1 --> STAGE_2
     FEATURES --> STAGE_2
@@ -109,30 +98,34 @@ graph TB
     FINANCIAL_MODELS --> RESULTS
 
     %% === APPLY STYLES ===
-    class INFRA,DUCKDB,K8S,DBT infrastructure,rounded-lg,shadow
-    class STORAGE,FEATURES,RESULTS storage,rounded-lg,shadow
-    class DATA_FLOW rounded-xl,shadow
-    class STAGE_1 stage1,rounded,shadow
-    class STAGE_2 stage2,rounded,shadow
-    class STAGE_3 stage3,rounded,shadow
-    class FEATURES features,rounded,shadow
-    class CLUSTERING,YEAR_MODELS,FINANCIAL_MODELS model,rounded,shadow
-    class adjusted_metric,YEAR_PREDS,RESULTS output,rounded,shadow
-    class STAGE_1,STAGE_2,STAGE_3 bold,shadow
-    
-    %% === COLORFUL LINK STYLING ===
-    linkStyle default stroke:#6b7280,stroke-width:3px
-    linkStyle 0 stroke:#6366f1,stroke-width:3px
-    linkStyle 1 stroke:#8b5cf6,stroke-width:3px
-    linkStyle 2,3 stroke:#94a3b8,stroke-width:2.5px,stroke-dasharray:4 4
-    linkStyle 4 stroke:#f59e0b,stroke-width:4px
-    linkStyle 5 stroke:#fbbf24,stroke-width:4px
-    linkStyle 6 stroke:#fb923c,stroke-width:4px
-    linkStyle 7 stroke:#60a5fa,stroke-width:4px
-    linkStyle 8 stroke:#34d399,stroke-width:4px
-    linkStyle 9 stroke:#facc15,stroke-width:4px
-    linkStyle 10 stroke:#22d3ee,stroke-width:4px
-    linkStyle 11 stroke:#f472b6,stroke-width:5px
+    class INFRA,DUCKDB,K8S,DBT infrastructure
+    class STORAGE,FEATURES,RESULTS storage
+    class STAGE_1 stage1
+    class STAGE_2 stage2
+    class STAGE_3 stage3
+    class FEATURES features
+    class CLUSTERING,YEAR_MODELS,FINANCIAL_MODELS model
+    class adjusted_metric,YEAR_PREDS,RESULTS output
+    class STAGE_1,STAGE_2,STAGE_3 bold
+
+    %% === LINK COLORS MATCH SOURCE NODES ===
+    linkStyle 0 stroke:#1e3a8a,stroke-width:3px
+    linkStyle 1 stroke:#1e3a8a,stroke-width:3px
+    linkStyle 2 stroke:#1e3a8a,stroke-width:3px
+    linkStyle 3 stroke:#1e3a8a,stroke-width:3px
+
+    linkStyle 4 stroke:#334155,stroke-width:3px
+    linkStyle 5 stroke:#3b82f6,stroke-width:3px
+    linkStyle 6 stroke:#334155,stroke-width:3px
+
+    linkStyle 7 stroke:#3b82f6,stroke-width:3px
+    linkStyle 8 stroke:#3b82f6,stroke-width:3px
+    linkStyle 9 stroke:#3b82f6,stroke-width:3px
+    linkStyle 10 stroke:#334155,stroke-width:3px
+    linkStyle 11 stroke:#dc2626,stroke-width:3px
+
+
+
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
