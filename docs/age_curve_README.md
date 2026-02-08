@@ -3,15 +3,15 @@ This dedicated snap share prediction module analyzes position-specific aging cur
 
 ## End Goal
 
-| Year | Age | NFL Seasons | Snap % | Status |
-|------|-----|-------------|--------|--------|
-| 1 | 25 | 4 | 80% | Peak Production |
-| 2 | 26 | 5 | 80% | Prime Window |
-| 3 | 27 | 6 | 80% | Final Prime Year |
-| 4 | 28 | 7 | 65% | Decline Phase |
-| 5 | 29 | 8 | 50% | Replacement Candidate |
+| Year | Age | Accrued NFL Seasons | Stats | Snap Share (Target) | 
+|------|-----|-------------|--------|--|
+| 2001 | 25 | 1 | x | 80% |  
+| 2002 | 26 | 2 | x | 80% |   
+| 2003 | 27 | 3 | x | 80% |  
+| 2004 | 28 | 4 | x | 65% | 
+| 2005 | 29 | 5 | x | 50% |  
 
-## 🏗️ Architecture Diagram
+## 🏗️ Architecture Diagram - maybe refactor to survivor / lifeline lib
 
 ```mermaid
 graph TB
