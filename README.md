@@ -97,9 +97,9 @@ graph TB
     gold ==> FS
     sil -.->|Point-in-time| FS
     
-    FS ==> STAGE_1
-    FS ==> STAGE_2
-    FS ==> STAGE_3
+    FS <==> STAGE_1
+    FS <==> STAGE_2
+    FS <==> STAGE_3
 
     STAGE_1 ==> STAGE_2
     YEAR_MODELS ==> YEAR_PREDS
