@@ -83,29 +83,29 @@ graph TB
             scout[("Bronze<br/>Scout, Combine, Contract,<br/> Game, & Biometric")]
             sil[("<b>Silver</b>")]
             gold[("<b>Gold</b>")]
-            scout --> sil --> gold
+            scout ==> sil ==> gold
         end
         FS["<b>Feature Store</b><br/>Offline & Online Stores"]
         RESULTS["<b>Predictions</b><br/>🏈 "]
     end
 
     %% === CONNECTIONS ===
-     DUCKDB -->|"<i>Serves</i>"| MEDALLION
-    DBT -->|"<i>Transforms</i>"| MEDALLION
-    K8S -->|"<i>Orchestrates & Deploys</i>"| DATA_FLOW
+     DUCKDB ==>|"<i>Serves</i>"| MEDALLION
+    DBT ==>|"<i>Transforms</i>"| MEDALLION
+    K8S ==>|"<i>Orchestrates & Deploys</i>"| DATA_FLOW
     
-    gold --> FS
+    gold ==> FS
     sil -.->|Point-in-time| FS
     
-    FS --> STAGE_1
-    FS --> STAGE_2
-    FS --> STAGE_3
+    FS ==> STAGE_1
+    FS ==> STAGE_2
+    FS ==> STAGE_3
 
-    STAGE_1 --> STAGE_2
-    YEAR_MODELS --> YEAR_PREDS
-    YEAR_PREDS --> STAGE_3
-    STAGE_1 --> STAGE_3
-    FINANCIAL_MODELS --> RESULTS
+    STAGE_1 ==> STAGE_2
+    YEAR_MODELS ==> YEAR_PREDS
+    YEAR_PREDS ==> STAGE_3
+    STAGE_1 ==> STAGE_3
+    FINANCIAL_MODELS ==> RESULTS
 
     %% === APPLY STYLES ===
     class INFRA,DUCKDB,K8S,DBT infrastructure
