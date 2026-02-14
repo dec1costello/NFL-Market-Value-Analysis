@@ -8,4 +8,5 @@ env.bak/
 venv.bak/
 
 # Big files
-.csv
+*.csv
+*.xlsx
