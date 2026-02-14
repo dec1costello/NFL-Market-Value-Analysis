@@ -9,3 +9,4 @@ venv.bak/
 
 # Big files
 .csv
+.xlsx
