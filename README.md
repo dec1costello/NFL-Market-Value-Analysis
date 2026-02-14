@@ -30,86 +30,51 @@ Author: Declan Costello
 - ✅ **Operational Analytics:** Predictions stored as DuckDB tables for team analytics consumption
 - ✅ **Kubernetes Orchestration:** Scalable, position specific model deployment
 
-**Architecture Choice Rationale:** DuckDB was selected as the central warehouse for its embedded nature and SQL compliance, eliminating cloud costs while handling NFL datasets efficiently. The three stage pipeline (archetypes → years → financials) mirrors real world contract logic while maintaining statistical rigor.
+**Architecture Rationale:** DuckDB was selected as the central warehouse for its embedded nature and SQL compliance, eliminating cloud costs while handling NFL datasets efficiently. The three stage pipeline (archetypes → years → financials) mirrors real world contract logic while maintaining statistical rigor.
 
 ## 🏗️ Architecture Diagram
 
-This NFL contract prediction system employs a sequential pipeline that mirrors front office decision making. Player performance data flows through position specific feature engineering, is enriched with discovered archetypes ("Scrambler QB" or "Fullback RB"), predicts contract length via neural networks, and finally estimates financial terms with Bayesian uncertainty. All predictions are stored as queryable tables, enabling immediate market value insights.
+This NFL contract prediction system employs a sequential pipeline that mirrors front office decision making. Player performance data flows through position specific feature engineering, is enriched with discovered archetypes ("Scrambler QB" or "Deep Threat WR"), predicts contract length via neural networks, and finally estimates financial terms with Bayesian uncertainty. All predictions are stored as queryable tables, enabling immediate market value insights.
+
 ```mermaid
 graph TB
- %% === STYLING ===
+
     classDef stage1 fill:#fef3c7,stroke:#d69e2e,stroke-width:3px,color:#744210
     classDef stage2 fill:#ebf8ff,stroke:#4299e1,stroke-width:3px,color:#22543d 
-    classDef stage3 fill:#f0fff4,stroke:#48bb78,stroke-width:3px,color: #2a4365
+    classDef stage3 fill:#d4edda,stroke:#2e7d32,stroke-width:4px,color:#1e4620,font-weight:bold
     classDef features fill:#fef3c7,stroke:#eab308,stroke-width:2px,color:#854d0e
     classDef model fill:#e0f7fa,stroke:#00bcd4,stroke-width:2px,color:#006064
     classDef output fill:#e3f2fd,stroke:#2196f3,stroke-width:2px,color:#0d47a1
-    classDef infra fill:#f5f3ff,stroke:#8b5cf6,stroke-width:2px,color:#5b21b6
-    classDef storage fill:#fff0f0,stroke:#FF6B6B,stroke-width:2px,stroke-dasharray:5 5,color:#c53030
 
-    %% === INFRASTRUCTURE LAYERS ===
-    subgraph INFRA ["Infrastructure"]
-        DUCKDB["🦆 DuckDB Warehouse<br/>nfl_contracts.duckdb"]
-        K8S["⚓ Kubernetes<br/>Orchestrates Position Jobs"]
-        DBT["🛠️ dbt<br/>SQL Transformations"]
-    end
-
-    %% === DATA FLOW ===
-    subgraph DATA_FLOW ["Pipeline"]
-        %% === STAGE 1: ARCHETYPE DISCOVERY ===
-        subgraph STAGE_1 ["Position Archetypes"]
-            CLUSTERING["Position Clustering<br/>K-Means + Elbow Method"]
-            ARCHETYPES["Archetype Labels"]
+    %% === PIPELINE ===
+    subgraph DATA_FLOW ["<b>Contractual Models</b>"]
+        subgraph STAGE_1 ["<b>✨ Positional Features</b>"]
+            CLUSTERING["<b>🧬 K-Means + Elbow Method</b><br/>Archetype Labels"]
+            adjusted_metric["<b>📊 Adjusted Metric</b><br/>Performance Calculation"]
         end
-
-        %% === STAGE 2: YEAR PREDICTION ===
-        subgraph STAGE_2 ["Contract Length"]
-            YEAR_MODELS["Position Year Models<br/>PyTorch NN"]
-            YEAR_PREDS["Year Predictions<br/>2-5 Years"]
+        subgraph STAGE_2 ["<b>⏱️ Duration Terms</b>"]
+            YEAR_MODELS["<b>📈 Age Curve</b><br/>Snap Share Projections"]
+            YEAR_PREDS["<b>🔮 Year Classification</b><br/>2-5 Years Prediction"]
         end
-
-        %% === STAGE 3: FINANCIAL PREDICTION ===
-        subgraph STAGE_3 ["Financial Terms"]
-            FINANCIAL_MODELS["Position Financial Models<br/>PyMC Bayesian"]
-            FINANCIAL_PREDS["💰"]
+        subgraph STAGE_3 ["<b>💰 Financial Terms</b>"]
+            FINANCIAL_MODELS["<b>💵 % of Salary Cap</b><br/>Per Contract Years<br/>🏈"]
         end
     end
 
-    %% === STORAGE LAYER ===
-    subgraph STORAGE ["Storage"]
-        FEATURES["Position Features<br/>"]
-        RESULTS["Final Predictions<br/>🏈"]
-    end
-
-    %% === CONNECTIONS ===
-    %% Infrastructure → Data Flow
-    DUCKDB -->|"Stores & Serves"| FEATURES
-    DBT -->|"Transforms"| FEATURES
-    K8S -->|"Orchestrates"| CLUSTERING
-    K8S -->|"Deploys"| YEAR_MODELS
-    K8S -->|"Deploys"| FINANCIAL_MODELS
-
-    %% Data Pipeline Flow
-    FEATURES --> CLUSTERING
-    CLUSTERING --> ARCHETYPES
-    ARCHETYPES --> YEAR_MODELS
-    FEATURES --> YEAR_MODELS
-    YEAR_MODELS --> YEAR_PREDS
-    YEAR_PREDS --> FINANCIAL_MODELS
-    ARCHETYPES --> FINANCIAL_MODELS
-    FEATURES --> FINANCIAL_MODELS
-    FINANCIAL_MODELS --> FINANCIAL_PREDS
-    FINANCIAL_PREDS --> RESULTS
-
-    %% === STYLES ===
-    class INFRA,DUCKDB,K8S,DBT infra
-    class STORAGE,FEATURES,RESULTS storage
+    STAGE_1 ==> STAGE_2
+    YEAR_MODELS ==> YEAR_PREDS
+    YEAR_PREDS ==> STAGE_3
+    STAGE_1 ==> STAGE_3
+    
+    linkStyle default stroke:#94a3b8,stroke-width:2px
+    
+    %% Apply styles
     class STAGE_1 stage1
     class STAGE_2 stage2
     class STAGE_3 stage3
-    class FEATURES features
-    class CLUSTERING,YEAR_MODELS,FINANCIAL_MODELS model
-    class ARCHETYPES,YEAR_PREDS,FINANCIAL_PREDS,RESULTS output;
+    class CLUSTERING,adjusted_metric features
+    class YEAR_MODELS,FINANCIAL_MODELS model
+    class YEAR_PREDS output
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
