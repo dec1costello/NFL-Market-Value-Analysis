@@ -1,0 +1,8 @@
+nfl_contracts:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../nfl_contracts.duckdb
+      schema: main
+      threads: 4
