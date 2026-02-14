@@ -41,25 +41,23 @@ graph TB
 
     classDef stage1 fill:#fef3c7,stroke:#d69e2e,stroke-width:3px,color:#744210
     classDef stage2 fill:#ebf8ff,stroke:#4299e1,stroke-width:3px,color:#22543d 
-    classDef stage3 fill:#f0fff4,stroke:#48bb78,stroke-width:3px,color: #2a4365
+    classDef stage3 fill:#d4edda,stroke:#2e7d32,stroke-width:4px,color:#1e4620,font-weight:bold
     classDef features fill:#fef3c7,stroke:#eab308,stroke-width:2px,color:#854d0e
     classDef model fill:#e0f7fa,stroke:#00bcd4,stroke-width:2px,color:#006064
     classDef output fill:#e3f2fd,stroke:#2196f3,stroke-width:2px,color:#0d47a1
-    classDef infra fill:#f5f3ff,stroke:#8b5cf6,stroke-width:2px,color:#5b21b6
-    classDef storage fill:#fff0f0,stroke:#FF6B6B,stroke-width:2px,stroke-dasharray:5 5,color:#c53030
 
     %% === PIPELINE ===
-    subgraph DATA_FLOW ["<b>Prediction Pipeline</b>"]
-        subgraph STAGE_1 ["<b>Position Based</b>"]
-            CLUSTERING["<b>K-Means + Elbow Method</b><br/>Archetype Labels"]
-            adjusted_metric["<b>Adjusted Metric</b><br/>Performance Calculation"]
+    subgraph DATA_FLOW ["<b>Contractual Models</b>"]
+        subgraph STAGE_1 ["<b>✨ Positional Features</b>"]
+            CLUSTERING["<b>🧬 K-Means + Elbow Method</b><br/>Archetype Labels"]
+            adjusted_metric["<b>📊 Adjusted Metric</b><br/>Performance Calculation"]
         end
-        subgraph STAGE_2 ["<b>Duration Terms</b>"]
-            YEAR_MODELS["<b>Age Curve</b><br/>Snap Share Projections"]
-            YEAR_PREDS["<b>Year Classification</b><br/>2-5 Years Prediction"]
+        subgraph STAGE_2 ["<b>⏱️ Duration Terms</b>"]
+            YEAR_MODELS["<b>📈 Age Curve</b><br/>Snap Share Projections"]
+            YEAR_PREDS["<b>🔮 Year Classification</b><br/>2-5 Years Prediction"]
         end
-        subgraph STAGE_3 ["<b>Financial Terms</b>"]
-            FINANCIAL_MODELS["<b>% of Salary Cap</b><br/>Per Contract Years<br/>💰"]
+        subgraph STAGE_3 ["<b>💰 Financial Terms</b>"]
+            FINANCIAL_MODELS["<b>💵 % of Salary Cap</b><br/>Per Contract Years<br/>🏈"]
         end
     end
 
@@ -67,6 +65,8 @@ graph TB
     YEAR_MODELS ==> YEAR_PREDS
     YEAR_PREDS ==> STAGE_3
     STAGE_1 ==> STAGE_3
+    
+    linkStyle default stroke:#94a3b8,stroke-width:2px
     
     %% Apply styles
     class STAGE_1 stage1
