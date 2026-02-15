@@ -10,3 +10,8 @@ venv.bak/
 # Big files
 *.csv
 *.xlsx
+
+
+# Package metadata
+*.egg-info/
+*.egg

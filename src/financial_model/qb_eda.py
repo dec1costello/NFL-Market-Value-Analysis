@@ -7,12 +7,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
-import sys
 
-# Add project root to Python path
-project_root = Path(__file__).parent.parent.parent
-sys.path.insert(0, str(project_root))
-
+# This import now works because of the editable install
 from src.utils.duckdb_connector import DuckDBConnector
 
 # Set style for better visuals
