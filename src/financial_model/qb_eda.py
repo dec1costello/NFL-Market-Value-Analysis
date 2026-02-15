@@ -8,7 +8,7 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent.parent
 
 # Path to your contracts data
-contracts_path = project_root / 'data' / 'raw' / 'NFL_Contracts.csv'
+contracts_path = project_root / "data" / "raw" / "NFL_Contracts.csv"
 
 print(f"Loading file from: {contracts_path}")
 
@@ -40,10 +40,24 @@ print(contracts_df.iloc[2].tolist())
 # contracts_df = pd.read_csv(contracts_path, skiprows=2, header=0)
 
 # Or you might want to assign custom column names
-custom_columns = ['rank', 'player', 'team', 'position', 'contract_value', 
-                  'guaranteed', 'average_per_year', 'years', 'signing_bonus',
-                  'gtd_at_signing', 'other_bonus', 'cap_hit_2024', 
-                  'cap_hit_2025', 'cap_hit_2026', 'total_value', 'notes']
+custom_columns = [
+    "rank",
+    "player",
+    "team",
+    "position",
+    "contract_value",
+    "guaranteed",
+    "average_per_year",
+    "years",
+    "signing_bonus",
+    "gtd_at_signing",
+    "other_bonus",
+    "cap_hit_2024",
+    "cap_hit_2025",
+    "cap_hit_2026",
+    "total_value",
+    "notes",
+]
 
 # Read with custom column names (adjust based on what you see in the data)
 # contracts_df = pd.read_csv(contracts_path, skiprows=1, names=custom_columns)
