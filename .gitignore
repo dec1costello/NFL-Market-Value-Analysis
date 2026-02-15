@@ -10,6 +10,7 @@ venv.bak/
 # Big files
 *.csv
 *.xlsx
+*.tsv
 
 
 # Package metadata
