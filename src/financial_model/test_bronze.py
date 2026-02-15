@@ -3,8 +3,6 @@ Test script to query bronze dbt model data from DuckDB
 Run this after running 'dbt run' to ensure data is loaded
 """
 
-import pandas as pd
-from pathlib import Path
 from src.utils.duckdb_connector import DuckDBConnector
 
 print("=" * 60)

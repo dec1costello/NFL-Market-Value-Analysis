@@ -6,7 +6,7 @@ Provides easy access to the DuckDB database created by dbt.
 import duckdb
 import pandas as pd
 from pathlib import Path
-from typing import Optional, Union, List, Dict, Any
+from typing import Optional, Union, Dict, Any
 import logging
 
 # Set up logging
@@ -269,7 +269,6 @@ class DuckDBConnector:
         Note: This runs a shell command, use with caution.
         """
         import subprocess
-        import os
 
         dbt_dir = self.project_root / "dbt"
         if not dbt_dir.exists():
