@@ -29,7 +29,7 @@ def print_section_header(title: str, char: str = "=", width: int = 60):
 
 def format_currency_millions(value: float) -> str:
     """Format a number as millions with $ sign."""
-    return f"${value/1_000_000:.2f}M"
+    return f"${value / 1_000_000:.2f}M"
 
 
 print_section_header("🏈 QB CONTRACT ANALYSIS")
@@ -44,7 +44,7 @@ with DuckDBConnector() as db:
     print_section_header("📊 Loading QB Contracts from Bronze Layer", "-")
 
     qb_df = db.query("""
-        SELECT 
+        SELECT
             rank,
             player_name,
             team_signed_with,
@@ -121,10 +121,10 @@ with DuckDBConnector() as db:
     ]
     display_df = top_10[display_cols].copy()
     display_df["total_value"] = display_df["total_value"].apply(
-        lambda x: f"${x/1_000_000:.2f}M"
+        lambda x: f"${x / 1_000_000:.2f}M"
     )
     display_df["average_salary"] = display_df["average_salary"].apply(
-        lambda x: f"${x/1_000_000:.2f}M"
+        lambda x: f"${x / 1_000_000:.2f}M"
     )
 
     print(display_df.to_string(index=False))
@@ -317,7 +317,8 @@ with DuckDBConnector() as db:
 
     print(f"• {most_common_year} saw the most QB contracts signed ({most_contracts})")
     print(f"• {qb_df['years'].mode()[0]}-year contracts are most common")
-    print(f"• Average guarantee is {qb_df['guarantee_pct'].mean():.1f}% of total value")
+    print(f"• Average guarantee is {
+            qb_df['guarantee_pct'].mean():.1f}% of total value")
 
     print(f"\n📁 Visualizations saved to: {FIGS_DIR}")
 

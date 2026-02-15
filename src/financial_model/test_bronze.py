@@ -28,7 +28,7 @@ with DuckDBConnector() as db:
 
     try:
         bronze_check = db.query("""
-            SELECT 
+            SELECT
                 COUNT(*) as row_count,
                 COUNT(DISTINCT position) as unique_positions
             FROM main_bronze.contracts
@@ -43,8 +43,8 @@ with DuckDBConnector() as db:
 
     try:
         sample = db.query("""
-            SELECT 
-                rank, player_name, position, team_signed_with, 
+            SELECT
+                rank, player_name, position, team_signed_with,
                 years, total_value, average_salary
             FROM main_bronze.contracts
             LIMIT 5
