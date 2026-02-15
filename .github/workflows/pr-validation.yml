@@ -29,10 +29,11 @@ jobs:
         source .venv/bin/activate
         black --check src/
 
-    - name: Lint
+    - name: Lint with ruff
       run: |
         source .venv/bin/activate
-        flake8 src/
+        ruff check src/ --output-format=github
+        ruff format src/ --check
 
     - name: Test
       run: |
