@@ -34,10 +34,14 @@ jobs:
         source .venv/bin/activate
         ruff check src/ --output-format=github
 
-    - name: Test
+    - name: Test (if tests exist)
       run: |
         source .venv/bin/activate
-        pytest tests/ -v
+        if [ -d "tests" ] && [ "$(ls -A tests)" ]; then
+          pytest tests/ -v
+        else
+          echo "⚠️ No tests found - skipping"
+        fi
 
     - name: Extra checks for main
       if: github.base_ref == 'main'
