@@ -27,14 +27,12 @@ with DuckDBConnector() as db:
     print("-" * 40)
 
     try:
-        bronze_check = db.query(
-            """
+        bronze_check = db.query("""
             SELECT 
                 COUNT(*) as row_count,
                 COUNT(DISTINCT position) as unique_positions
             FROM main_bronze.contracts
-        """
-        )
+        """)
         print(bronze_check.to_string(index=False))
     except Exception as e:
         print(f"Error: {e}")
@@ -44,15 +42,13 @@ with DuckDBConnector() as db:
     print("-" * 40)
 
     try:
-        sample = db.query(
-            """
+        sample = db.query("""
             SELECT 
                 rank, player_name, position, team_signed_with, 
                 years, total_value, average_salary
             FROM main_bronze.contracts
             LIMIT 5
-        """
-        )
+        """)
         print(sample.to_string(index=False))
     except Exception as e:
         print(f"Error: {e}")

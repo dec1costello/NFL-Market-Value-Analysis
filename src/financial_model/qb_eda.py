@@ -43,8 +43,7 @@ with DuckDBConnector() as db:
     # Load QB data
     print_section_header("📊 Loading QB Contracts from Bronze Layer", "-")
 
-    qb_df = db.query(
-        """
+    qb_df = db.query("""
         SELECT 
             rank,
             player_name,
@@ -66,8 +65,7 @@ with DuckDBConnector() as db:
             AND player_name IS NOT NULL
             AND total_value IS NOT NULL
         ORDER BY total_value DESC
-    """
-    )
+    """)
 
     print(f"Loaded {len(qb_df):,} QB contracts")
     print(f"Date range: {qb_df['start_year'].min()} - {qb_df['start_year'].max()}")
