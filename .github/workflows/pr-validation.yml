@@ -1,0 +1,65 @@
+name: PR Validation
+
+on:
+  pull_request:
+    branches: [dev, main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+
+    - name: Install uv
+      run: pip install uv
+
+    - name: Install deps
+      run: |
+        uv venv
+        uv pip install pytest flake8 black
+
+    - name: Format check
+      run: |
+        source .venv/bin/activate
+        black --check src/
+
+    - name: Lint
+      run: |
+        source .venv/bin/activate
+        flake8 src/
+
+    - name: Test
+      run: |
+        source .venv/bin/activate
+        pytest tests/ -v
+
+    - name: Extra checks for main
+      if: github.base_ref == 'main'
+      run: |
+        source .venv/bin/activate
+        pip install pytest-cov
+        pytest tests/ --cov=src --cov-fail-under=80
+        
+        # Check CHANGELOG
+        if ! git diff --name-only ${{ github.event.pull_request.base.sha }} HEAD | grep -q "CHANGELOG.md"; then
+          echo "::warning::Please update CHANGELOG.md for main branch PRs"
+        fi
+
+    - name: Comment on PR
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const branch = context.payload.pull_request.base.ref;
+          const emoji = branch === 'main' ? '🚀' : '✅';
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `${emoji} ${branch} checks passed!`
+          })
