@@ -3,7 +3,6 @@ QB EDA using DuckDB connector - analyzes quarterback contracts from bronze layer
 """
 
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
@@ -29,7 +28,7 @@ def print_section_header(title: str, char: str = "=", width: int = 60):
 
 def format_currency_millions(value: float) -> str:
     """Format a number as millions with $ sign."""
-    return f"${value / 1_000_000:.2f}M"
+    return f"${value/1_000_000:.2f}M"
 
 
 print_section_header("🏈 QB CONTRACT ANALYSIS")
@@ -95,23 +94,7 @@ with DuckDBConnector() as db:
     # 2. Top 10 QB Contracts
     print_section_header("🏆 TOP 10 QB CONTRACTS BY TOTAL VALUE", "-")
 
-    top_10 = (
-        qb_df[
-            [
-                "player_name",
-                "team_signed_with",
-                "start_year",
-                "years",
-                "total_value",
-                "average_salary",
-            ]
-        ]
-        .head(10)
-        .copy()
-    )
-
-    # Format for display
-    display_cols = [
+    top_10_cols = [
         "player_name",
         "team_signed_with",
         "start_year",
@@ -119,12 +102,15 @@ with DuckDBConnector() as db:
         "total_value",
         "average_salary",
     ]
-    display_df = top_10[display_cols].copy()
+    top_10 = qb_df[top_10_cols].head(10).copy()
+
+    # Format for display
+    display_df = top_10.copy()
     display_df["total_value"] = display_df["total_value"].apply(
-        lambda x: f"${x / 1_000_000:.2f}M"
+        lambda x: f"${x/1_000_000:.2f}M"
     )
     display_df["average_salary"] = display_df["average_salary"].apply(
-        lambda x: f"${x / 1_000_000:.2f}M"
+        lambda x: f"${x/1_000_000:.2f}M"
     )
 
     print(display_df.to_string(index=False))
@@ -256,7 +242,7 @@ with DuckDBConnector() as db:
         plt.text(
             row["total_spent_millions"] + 5,
             row.name,
-            f"${row['total_spent_millions']:.0f}M (n={int(row['contract_count'])})",
+            f"${row['total_spent_millions']:.0f}M " f"(n={int(row['contract_count'])})",
             va="center",
             fontsize=9,
         )
@@ -315,10 +301,13 @@ with DuckDBConnector() as db:
             f"in 2010 to {format_currency_millions(avg_2023)} in 2023"
         )
 
-    print(f"• {most_common_year} saw the most QB contracts signed ({most_contracts})")
-    print(f"• {qb_df['years'].mode()[0]}-year contracts are most common")
-    print(f"• Average guarantee is {
-            qb_df['guarantee_pct'].mean():.1f}% of total value")
+    print(
+        f"• {most_common_year} saw the most QB contracts " f"signed ({most_contracts})"
+    )
+    print(f"• {qb_df['years'].mode()[0]}-year contracts " "are most common")
+    print(
+        f"• Average guarantee is {qb_df['guarantee_pct'].mean():.1f}% " "of total value"
+    )
 
     print(f"\n📁 Visualizations saved to: {FIGS_DIR}")
 
