@@ -46,7 +46,7 @@ graph TB
     classDef model fill:#e0f7fa,stroke:#00bcd4,stroke-width:2px,color:#006064
     classDef output fill:#e3f2fd,stroke:#2196f3,stroke-width:2px,color:#0d47a1
 
-    %% === PIPELINE ===+
+    %% === PIPELINE ====
     subgraph DATA_FLOW ["<b>Contractual Models</b>"]
         subgraph STAGE_1 ["<b>✨ Positional Features</b>"]
             CLUSTERING["<b>🧬 K-Means + Elbow Method</b><br/>Archetype Labels"]
