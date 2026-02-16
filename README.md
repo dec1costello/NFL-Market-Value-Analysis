@@ -82,12 +82,10 @@ graph TB
 ## 🌵 Repository Structure
     
     ├── 📁 data/
-    │   ├── 📁 raw/                   
-    │   │   ├── contracts.csv
-    │   │   ├── stats.csv
-    │   │   └── physical.csv
-    │   └── 📁 processed/             # Intermediate processed data
-    │       └── README.md
+    │   └── 📁 raw/                   
+    │       ├── contracts.csv
+    │       ├── stats.csv
+    │       └── physical.csv
     │
     ├── 📁 warehouse/                 # DuckDB warehouse directory
     │   ├── nfl_contracts.duckdb       # MAIN DATABASE FILE
@@ -204,16 +202,6 @@ graph TB
     │   ├── api_documentation.md
     │   ├── data_dictionary.md
     │   └── setup_guide.md
-    │
-    ├── 📁 .github/                   # CI/CD workflows
-    │   └── 📁 workflows/
-    │       ├── test.yml
-    │       ├── build.yml
-    │       └── deploy.yml
-    │
-    ├── 📁 .vscode/                   # VS Code settings
-    │   ├── settings.json
-    │   └── extensions.json
     │
     ├── pyproject.toml               # UV/Python dependencies
     ├── uv.lock                      # UV lock file
