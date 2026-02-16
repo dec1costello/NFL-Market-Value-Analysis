@@ -1,7 +1,10 @@
-import pandas as pd
 from collections import defaultdict
 
+import pandas as pd
+
 # Assume df_raw columns: wr_id (str or int), def_id (e.g., 'team_2024'), observed (epa_per_targ), weight (targets), optionally game_id if per-game
+min_per_game = 5  # or whatever threshold you want
+df_raw = pd.DataFrame()
 
 df = df_raw[df_raw["weight"] >= min_per_game].copy()  # or whatever].copy()
 league_avg = (df["observed"] * df["weight"]).sum() / df["weight"].sum()
@@ -28,8 +31,8 @@ defs = list(def_matchups.keys())
 # to repeated Elo-style batch updates on all "matches"):
 # */
 # Initialize:
-wr_dev = {wr: 0.0 for wr in wrs}
-def_dev = {d: 0.0 for d in defs}
+wr_dev = dict.fromkeys(wrs, 0.0)
+def_dev = dict.fromkeys(defs, 0.0)
 prior_w_wr = 30.0  # equiv. targets; tune 20-50 (higher = more regression to mean; Bayes-like shrinkage)
 prior_w_def = (
     80.0  # defenses have more data; higher = less shrinkage on D ratings; tune 50-150

@@ -21,9 +21,17 @@ build-backend = "setuptools.build_meta"
 where = ["."]
 include = ["src*"]
 
-[tool.black]
+[tool.ruff]
 line-length = 88
-target-version = ['py38']
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "C", "N", "D", "I"]  # Common rule sets
+ignore = ["D203", "D213"]  # Rules to ignore
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D"]  # Ignore docstring rules in tests
+"eda/*" = ["D", "E501"]  # More permissive for EDA
 
 [tool.pytest.ini_options]
 minversion = "6.0"
