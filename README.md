@@ -209,6 +209,6 @@ graph TB
     ├── .gitignore
     ├── .dockerignore
     ├── README.md                    
-    └── Makefile                     # Common commands
+    └── Makefile                    
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>    
