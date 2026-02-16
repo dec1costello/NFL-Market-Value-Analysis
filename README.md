@@ -81,7 +81,6 @@ graph TB
 
 ## 🌵 Repository Structure
     
-    nfl-contracts/
     ├── 📁 data/
     │   ├── 📁 raw/                   
     │   │   ├── contracts.csv
