@@ -28,7 +28,7 @@ jobs:
       run: |
         uv venv
         uv pip install -e .  # This installs everything from pyproject.toml
-        uv pip install pytest-cov  # Add test dependencies
+        uv pip install pytest pytest-cov flake8 black ruff
 
     - name: Install package in development mode
       run: |
