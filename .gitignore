@@ -11,8 +11,14 @@ venv.bak/
 *.csv
 *.xlsx
 *.tsv
+*.json
 
 
 # Package metadata
 *.egg-info/
 *.egg
+
+
+# Database
+warehouse/*.duckdb
+warehouse/*.db

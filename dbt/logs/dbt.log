@@ -1184,3 +1184,2373 @@ alter table "nfl_contracts"."main_bronze"."contracts__dbt_tmp" rename to "contra
 [0m13:42:11.341578 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002B012825650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002B01245A350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002B012459D10>]}
 [0m13:42:11.341926 [debug] [MainThread]: Flushing usage events
 [0m13:42:12.113472 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:32:20.956808 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029FB7B39010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029FB8850050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029FB8E97ED0>]}
+
+
+============================== 20:32:20.966156 | 64004594-72c1-4ea4-8788-47ac0ff3af6e ==============================
+[0m20:32:20.966156 [info ] [MainThread]: Running with dbt=1.11.5
+[0m20:32:20.967156 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt', 'use_colors': 'True', 'invocation_command': 'dbt compile --select bronze.wr_season', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt\\logs'}
+[0m20:32:21.504227 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '64004594-72c1-4ea4-8788-47ac0ff3af6e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029FB819AC40>]}
+[0m20:32:21.581181 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '64004594-72c1-4ea4-8788-47ac0ff3af6e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029FB8D9F020>]}
+[0m20:32:21.604273 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m20:32:22.296590 [debug] [MainThread]: checksum: 917838c7befe257b9b22a76c21e5785f6f23ac83ef0336e2870f03c9c3f28402, vars: {}, profile: , target: , version: 1.11.5
+[0m20:32:25.031445 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 3 files added, 0 files changed.
+[0m20:32:25.031990 [debug] [MainThread]: Partial parsing: added file: nfl_contracts://models\bronze\wr_season.sql
+[0m20:32:25.032351 [debug] [MainThread]: Partial parsing: added file: nfl_contracts://models\bronze\wr_game.sql
+[0m20:32:25.032666 [debug] [MainThread]: Partial parsing: added file: nfl_contracts://macros\read_csv_pattern.sql
+[0m20:32:25.313293 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.nfl_contracts.gold
+[0m20:32:25.321423 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '64004594-72c1-4ea4-8788-47ac0ff3af6e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029FB8F70850>]}
+[0m20:32:25.406789 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:32:25.430198 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:32:25.490863 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '64004594-72c1-4ea4-8788-47ac0ff3af6e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029FBA3CBD40>]}
+[0m20:32:25.491567 [info ] [MainThread]: Found 4 models, 474 macros
+[0m20:32:25.492544 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '64004594-72c1-4ea4-8788-47ac0ff3af6e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029FBA05EA50>]}
+[0m20:32:25.577560 [info ] [MainThread]: 
+[0m20:32:25.580641 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m20:32:25.581689 [info ] [MainThread]: 
+[0m20:32:25.582658 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m20:32:25.588617 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_bronze'
+[0m20:32:25.604908 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_silver'
+[0m20:32:30.088028 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:32:30.088808 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:32:30.089335 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: BEGIN
+[0m20:32:30.090134 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: BEGIN
+[0m20:32:30.090711 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:32:30.091280 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:32:30.129031 [debug] [ThreadPool]: SQL status: OK in 0.038 seconds
+[0m20:32:30.129637 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:32:30.130078 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_bronze"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_bronze'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:32:30.130677 [debug] [ThreadPool]: SQL status: OK in 0.039 seconds
+[0m20:32:30.131161 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:32:30.132550 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_silver"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_silver'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:32:30.172932 [debug] [ThreadPool]: SQL status: OK in 0.042 seconds
+[0m20:32:30.175311 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: ROLLBACK
+[0m20:32:30.175775 [debug] [ThreadPool]: SQL status: OK in 0.042 seconds
+[0m20:32:30.177692 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: ROLLBACK
+[0m20:32:30.193698 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_bronze'
+[0m20:32:30.194118 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: Close
+[0m20:32:30.194682 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_silver'
+[0m20:32:30.195020 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: Close
+[0m20:32:30.196857 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '64004594-72c1-4ea4-8788-47ac0ff3af6e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029FBA653E10>]}
+[0m20:32:30.205606 [debug] [Thread-1 (]: Began running node model.nfl_contracts.wr_season
+[0m20:32:30.206258 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.nfl_contracts.wr_season'
+[0m20:32:30.206673 [debug] [Thread-1 (]: Began compiling node model.nfl_contracts.wr_season
+[0m20:32:30.214191 [debug] [Thread-1 (]: Writing injected SQL for node "model.nfl_contracts.wr_season"
+[0m20:32:30.216049 [debug] [Thread-1 (]: Began executing node model.nfl_contracts.wr_season
+[0m20:32:30.217349 [debug] [Thread-1 (]: Finished running node model.nfl_contracts.wr_season
+[0m20:32:30.219678 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:32:30.220468 [debug] [MainThread]: Connection 'list_nfl_contracts_main_bronze' was properly closed.
+[0m20:32:30.221212 [debug] [MainThread]: Connection 'list_nfl_contracts_main_silver' was properly closed.
+[0m20:32:30.221807 [debug] [MainThread]: Connection 'model.nfl_contracts.wr_season' was properly closed.
+[0m20:32:30.223077 [debug] [MainThread]: Command end result
+[0m20:32:30.243476 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:32:30.246357 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:32:30.254339 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\run_results.json
+[0m20:32:30.254868 [info ] [MainThread]: Compiled node 'wr_season' is:
+
+
+WITH source AS (
+    -- Read ALL seasonal WR data from 2015-2025
+    SELECT * FROM read_csv_auto(
+            '../data/raw/*/WR_season.csv',
+            header=true,
+            filename=true,
+            hive_partitioning=true
+        )
+)
+
+SELECT
+    filename as source_file,
+    -- Extract year from filename path
+    REGEXP_EXTRACT(filename, '.*/(\\d{4})/.*', 1) as season_year,
+    
+    -- Player info
+    TRIM(PlayerName) as player_name,
+    TRIM(PlayerId) as player_id,
+    TRIM(Pos) as position,
+    TRIM(Team) as team,
+    
+    -- Passing stats
+    TRY_CAST(PassingYDS AS INTEGER) as passing_yards,
+    TRY_CAST(PassingTD AS INTEGER) as passing_td,
+    TRY_CAST(PassingInt AS INTEGER) as passing_int,
+    
+    -- Rushing stats
+    TRY_CAST(RushingYDS AS INTEGER) as rushing_yards,
+    TRY_CAST(RushingTD AS INTEGER) as rushing_td,
+    
+    -- Receiving stats
+    TRY_CAST(ReceivingRec AS INTEGER) as receptions,
+    TRY_CAST(ReceivingYDS AS INTEGER) as receiving_yards,
+    TRY_CAST(ReceivingTD AS INTEGER) as receiving_td,
+    
+    -- Other stats
+    TRY_CAST(RetTD AS INTEGER) as return_td,
+    TRY_CAST(FumTD AS INTEGER) as fumble_return_td,
+    TRY_CAST(2PT AS INTEGER) as two_point_conversions,
+    TRY_CAST(Fum AS INTEGER) as fumbles,
+    TRY_CAST(FanPtsAgainst-pts AS DOUBLE) as fantasy_points_against,
+    
+    -- Touches
+    TRY_CAST(TouchCarries AS INTEGER) as carries,
+    TRY_CAST(TouchReceptions AS INTEGER) as touch_receptions,
+    TRY_CAST(Touches AS INTEGER) as total_touches,
+    TRY_CAST(TargetsReceptions AS INTEGER) as targets_receptions,
+    TRY_CAST(Targets AS INTEGER) as targets,
+    TRY_CAST(ReceptionPercentage AS DOUBLE) as reception_pct,
+    
+    -- Red zone
+    TRY_CAST(RzTarget AS INTEGER) as red_zone_targets,
+    TRY_CAST(RzTouch AS INTEGER) as red_zone_touches,
+    TRY_CAST(RzG2G AS INTEGER) as red_zone_goal_to_go,
+    
+    -- Rankings
+    TRY_CAST(Rank AS INTEGER) as rank,
+    TRY_CAST(TotalPoints AS DOUBLE) as total_points,
+    
+    -- Add ingestion timestamp
+    CURRENT_TIMESTAMP as ingested_at
+    
+FROM source
+WHERE position = 'WR'
+  AND player_name IS NOT NULL
+  AND player_name != 'PlayerName'  -- Filter out potential header rows
+[0m20:32:30.256598 [debug] [MainThread]: Command `dbt compile` succeeded at 20:32:30.256436 after 9.57 seconds
+[0m20:32:30.257038 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029FB8E68AD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029FBA80C9F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029FBA80C520>]}
+[0m20:32:30.257441 [debug] [MainThread]: Flushing usage events
+[0m20:32:31.189836 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:32:49.233673 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BDAD109010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BDADE0C050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BDAE457ED0>]}
+
+
+============================== 20:32:49.245896 | 9928da82-d8ff-4c9d-aba0-a86b3e12dca0 ==============================
+[0m20:32:49.245896 [info ] [MainThread]: Running with dbt=1.11.5
+[0m20:32:49.248156 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt compile --select bronze.wr_game', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt\\logs'}
+[0m20:32:49.600242 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '9928da82-d8ff-4c9d-aba0-a86b3e12dca0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BDAD75AC40>]}
+[0m20:32:49.674030 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '9928da82-d8ff-4c9d-aba0-a86b3e12dca0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BDAE35F020>]}
+[0m20:32:49.676953 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m20:32:50.183384 [debug] [MainThread]: checksum: 917838c7befe257b9b22a76c21e5785f6f23ac83ef0336e2870f03c9c3f28402, vars: {}, profile: , target: , version: 1.11.5
+[0m20:32:50.407780 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m20:32:50.408329 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m20:32:50.408578 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m20:32:50.414683 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.nfl_contracts.gold
+[0m20:32:50.443112 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '9928da82-d8ff-4c9d-aba0-a86b3e12dca0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BDAE530050>]}
+[0m20:32:50.540868 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:32:50.544499 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:32:50.596619 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '9928da82-d8ff-4c9d-aba0-a86b3e12dca0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BDAF9E5130>]}
+[0m20:32:50.597500 [info ] [MainThread]: Found 4 models, 474 macros
+[0m20:32:50.598229 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '9928da82-d8ff-4c9d-aba0-a86b3e12dca0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BDAE54E510>]}
+[0m20:32:50.601430 [info ] [MainThread]: 
+[0m20:32:50.602364 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m20:32:50.603016 [info ] [MainThread]: 
+[0m20:32:50.604882 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m20:32:50.612723 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_bronze'
+[0m20:32:50.627692 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_silver'
+[0m20:32:50.718616 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:32:50.719179 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:32:50.719552 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: BEGIN
+[0m20:32:50.719863 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: BEGIN
+[0m20:32:50.720156 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:32:50.720475 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:32:50.748601 [debug] [ThreadPool]: SQL status: OK in 0.028 seconds
+[0m20:32:50.749315 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:32:50.749808 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_bronze"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_bronze'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:32:50.750190 [debug] [ThreadPool]: SQL status: OK in 0.030 seconds
+[0m20:32:50.750582 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:32:50.750887 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_silver"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_silver'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:32:50.779036 [debug] [ThreadPool]: SQL status: OK in 0.029 seconds
+[0m20:32:50.779648 [debug] [ThreadPool]: SQL status: OK in 0.028 seconds
+[0m20:32:50.781155 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: ROLLBACK
+[0m20:32:50.782173 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: ROLLBACK
+[0m20:32:50.783847 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_silver'
+[0m20:32:50.784892 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: Close
+[0m20:32:50.788898 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_bronze'
+[0m20:32:50.789508 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: Close
+[0m20:32:50.791086 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '9928da82-d8ff-4c9d-aba0-a86b3e12dca0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BDAFD58BB0>]}
+[0m20:32:50.796910 [debug] [Thread-1 (]: Began running node model.nfl_contracts.wr_game
+[0m20:32:50.797495 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.nfl_contracts.wr_game'
+[0m20:32:50.797839 [debug] [Thread-1 (]: Began compiling node model.nfl_contracts.wr_game
+[0m20:32:50.808615 [debug] [Thread-1 (]: Writing injected SQL for node "model.nfl_contracts.wr_game"
+[0m20:32:50.810681 [debug] [Thread-1 (]: Began executing node model.nfl_contracts.wr_game
+[0m20:32:50.811601 [debug] [Thread-1 (]: Finished running node model.nfl_contracts.wr_game
+[0m20:32:50.814443 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:32:50.815360 [debug] [MainThread]: Connection 'list_nfl_contracts_main_bronze' was properly closed.
+[0m20:32:50.816095 [debug] [MainThread]: Connection 'list_nfl_contracts_main_silver' was properly closed.
+[0m20:32:50.816730 [debug] [MainThread]: Connection 'model.nfl_contracts.wr_game' was properly closed.
+[0m20:32:50.818145 [debug] [MainThread]: Command end result
+[0m20:32:50.844563 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:32:50.847363 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:32:50.858989 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\run_results.json
+[0m20:32:50.860032 [info ] [MainThread]: Compiled node 'wr_game' is:
+
+
+WITH source AS (
+    -- Read all game-level WR data from 2021-2025 (including week folders)
+    SELECT * FROM read_csv_auto(
+            '../data/raw/*/*/WR.csv',
+            header=true,
+            filename=true,
+            hive_partitioning=true
+        )
+)
+
+SELECT
+    filename as source_file,
+    
+    -- Extract season and week from path
+    REGEXP_EXTRACT(filename, '.*/(\\d{4})/\\d+/(.*)', 1) as season_year,
+    REGEXP_EXTRACT(filename, '.*/\\d{4}/(\\d+)/.*', 1) as week_number,
+    
+    -- Player info
+    TRIM(PlayerName) as player_name,
+    TRIM(PlayerId) as player_id,
+    TRIM(Pos) as position,
+    TRIM(Team) as team,
+    TRIM(PlayerOpponent) as opponent,
+    
+    -- Passing stats
+    TRY_CAST(PassingYDS AS INTEGER) as passing_yards,
+    TRY_CAST(PassingTD AS INTEGER) as passing_td,
+    TRY_CAST(PassingInt AS INTEGER) as passing_int,
+    
+    -- Rushing stats
+    TRY_CAST(RushingYDS AS INTEGER) as rushing_yards,
+    TRY_CAST(RushingTD AS INTEGER) as rushing_td,
+    
+    -- Receiving stats
+    TRY_CAST(ReceivingRec AS INTEGER) as receptions,
+    TRY_CAST(ReceivingYDS AS INTEGER) as receiving_yards,
+    TRY_CAST(ReceivingTD AS INTEGER) as receiving_td,
+    
+    -- Other stats
+    TRY_CAST(RetTD AS INTEGER) as return_td,
+    TRY_CAST(FumTD AS INTEGER) as fumble_return_td,
+    TRY_CAST(2PT AS INTEGER) as two_point_conversions,
+    TRY_CAST(Fum AS INTEGER) as fumbles,
+    TRY_CAST(FanPtsAgainst-pts AS DOUBLE) as fantasy_points_against,
+    
+    -- Touches
+    TRY_CAST(TouchCarries AS INTEGER) as carries,
+    TRY_CAST(TouchReceptions AS INTEGER) as touch_receptions,
+    TRY_CAST(Touches AS INTEGER) as total_touches,
+    TRY_CAST(TargetsReceptions AS INTEGER) as targets_receptions,
+    TRY_CAST(Targets AS INTEGER) as targets,
+    TRY_CAST(ReceptionPercentage AS DOUBLE) as reception_pct,
+    
+    -- Red zone
+    TRY_CAST(RzTarget AS INTEGER) as red_zone_targets,
+    TRY_CAST(RzTouch AS INTEGER) as red_zone_touches,
+    TRY_CAST(RzG2G AS INTEGER) as red_zone_goal_to_go,
+    
+    -- Rankings
+    TRY_CAST(Rank AS INTEGER) as rank,
+    TRY_CAST(TotalPoints AS DOUBLE) as total_points,
+    
+    -- Add ingestion timestamp
+    CURRENT_TIMESTAMP as ingested_at
+    
+FROM source
+WHERE position = 'WR'
+  AND player_name IS NOT NULL
+  AND player_name != 'PlayerName'  -- Filter out potential header rows
+[0m20:32:50.861772 [debug] [MainThread]: Command `dbt compile` succeeded at 20:32:50.861649 after 1.89 seconds
+[0m20:32:50.862118 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BDAE428AD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BDAFB2B490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BDAFB2B8B0>]}
+[0m20:32:50.862441 [debug] [MainThread]: Flushing usage events
+[0m20:32:51.907912 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:33:00.192351 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022224D29010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022225A3C050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022226087ED0>]}
+
+
+============================== 20:33:00.198585 | 0a00f5c3-f5d7-49f9-8bd0-ac1c8d29cf08 ==============================
+[0m20:33:00.198585 [info ] [MainThread]: Running with dbt=1.11.5
+[0m20:33:00.199584 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run --select bronze.wr_season', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt\\logs'}
+[0m20:33:00.596684 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '0a00f5c3-f5d7-49f9-8bd0-ac1c8d29cf08', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002222538AC40>]}
+[0m20:33:00.698787 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '0a00f5c3-f5d7-49f9-8bd0-ac1c8d29cf08', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022225F8F020>]}
+[0m20:33:00.702572 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m20:33:01.292544 [debug] [MainThread]: checksum: 917838c7befe257b9b22a76c21e5785f6f23ac83ef0336e2870f03c9c3f28402, vars: {}, profile: , target: , version: 1.11.5
+[0m20:33:01.483841 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m20:33:01.484299 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m20:33:01.484622 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m20:33:01.493715 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.nfl_contracts.gold
+[0m20:33:01.529293 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '0a00f5c3-f5d7-49f9-8bd0-ac1c8d29cf08', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022226160F50>]}
+[0m20:33:01.611875 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:33:01.615372 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:33:01.669145 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '0a00f5c3-f5d7-49f9-8bd0-ac1c8d29cf08', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022225F07200>]}
+[0m20:33:01.669961 [info ] [MainThread]: Found 4 models, 474 macros
+[0m20:33:01.670686 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0a00f5c3-f5d7-49f9-8bd0-ac1c8d29cf08', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022227305550>]}
+[0m20:33:01.672683 [info ] [MainThread]: 
+[0m20:33:01.673368 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m20:33:01.674140 [info ] [MainThread]: 
+[0m20:33:01.675052 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m20:33:01.676653 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts'
+[0m20:33:01.799551 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts"
+[0m20:33:01.800298 [debug] [ThreadPool]: On list_nfl_contracts: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"nfl_contracts"'
+    
+  
+  
+[0m20:33:01.801101 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:33:01.826360 [debug] [ThreadPool]: SQL status: OK in 0.025 seconds
+[0m20:33:01.827706 [debug] [ThreadPool]: On list_nfl_contracts: Close
+[0m20:33:01.828478 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_nfl_contracts, now create_nfl_contracts_main_bronze)
+[0m20:33:01.829023 [debug] [ThreadPool]: Creating schema "database: "nfl_contracts"
+schema: "main_bronze"
+"
+[0m20:33:01.838110 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:33:01.838694 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "create_nfl_contracts_main_bronze"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='nfl_contracts'
+        and type='sqlite'
+    
+  
+[0m20:33:01.839343 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m20:33:01.841106 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m20:33:01.843167 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:33:01.843681 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: BEGIN
+[0m20:33:01.844559 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m20:33:01.844972 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:33:01.845422 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "create_nfl_contracts_main_bronze"} */
+
+    
+    
+        create schema if not exists "nfl_contracts"."main_bronze"
+    
+[0m20:33:01.846596 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m20:33:01.848030 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: COMMIT
+[0m20:33:01.848548 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:33:01.849056 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: COMMIT
+[0m20:33:01.850273 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m20:33:01.850757 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: Close
+[0m20:33:01.861244 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_silver'
+[0m20:33:01.866869 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:33:01.867399 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_bronze'
+[0m20:33:01.867721 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: BEGIN
+[0m20:33:01.869559 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:33:01.870050 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:33:01.870354 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: BEGIN
+[0m20:33:01.870880 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:33:01.871354 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m20:33:01.871687 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:33:01.871947 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m20:33:01.872221 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_silver"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_silver'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:33:01.872523 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:33:01.873265 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_bronze"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_bronze'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:33:01.894528 [debug] [ThreadPool]: SQL status: OK in 0.021 seconds
+[0m20:33:01.895940 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: ROLLBACK
+[0m20:33:01.896387 [debug] [ThreadPool]: SQL status: OK in 0.024 seconds
+[0m20:33:01.897793 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: ROLLBACK
+[0m20:33:01.898796 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_bronze'
+[0m20:33:01.899202 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: Close
+[0m20:33:01.900509 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_silver'
+[0m20:33:01.900786 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: Close
+[0m20:33:01.901816 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0a00f5c3-f5d7-49f9-8bd0-ac1c8d29cf08', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000222279E1CC0>]}
+[0m20:33:01.902244 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:33:01.902953 [debug] [MainThread]: On master: BEGIN
+[0m20:33:01.903657 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:33:01.905526 [debug] [MainThread]: SQL status: OK in 0.002 seconds
+[0m20:33:01.906873 [debug] [MainThread]: On master: COMMIT
+[0m20:33:01.908166 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:33:01.908924 [debug] [MainThread]: On master: COMMIT
+[0m20:33:01.910453 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m20:33:01.911151 [debug] [MainThread]: On master: Close
+[0m20:33:01.919595 [debug] [Thread-1 (]: Began running node model.nfl_contracts.wr_season
+[0m20:33:01.921714 [info ] [Thread-1 (]: 1 of 1 START sql table model main_bronze.wr_season ............................. [RUN]
+[0m20:33:01.923859 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.nfl_contracts.wr_season'
+[0m20:33:01.925157 [debug] [Thread-1 (]: Began compiling node model.nfl_contracts.wr_season
+[0m20:33:01.940855 [debug] [Thread-1 (]: Writing injected SQL for node "model.nfl_contracts.wr_season"
+[0m20:33:01.943031 [debug] [Thread-1 (]: Began executing node model.nfl_contracts.wr_season
+[0m20:33:01.988578 [debug] [Thread-1 (]: Writing runtime sql for node "model.nfl_contracts.wr_season"
+[0m20:33:01.990879 [debug] [Thread-1 (]: Using duckdb connection "model.nfl_contracts.wr_season"
+[0m20:33:01.991460 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: BEGIN
+[0m20:33:01.991894 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m20:33:01.993386 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:33:01.993968 [debug] [Thread-1 (]: Using duckdb connection "model.nfl_contracts.wr_season"
+[0m20:33:01.994561 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "node_id": "model.nfl_contracts.wr_season"} */
+
+  
+    
+    
+
+    create  table
+      "nfl_contracts"."main_bronze"."wr_season__dbt_tmp"
+  
+    as (
+      
+
+WITH source AS (
+    -- Read ALL seasonal WR data from 2015-2025
+    SELECT * FROM read_csv_auto(
+            '../data/raw/*/WR_season.csv',
+            header=true,
+            filename=true,
+            hive_partitioning=true
+        )
+)
+
+SELECT
+    filename as source_file,
+    -- Extract year from filename path
+    REGEXP_EXTRACT(filename, '.*/(\\d{4})/.*', 1) as season_year,
+    
+    -- Player info
+    TRIM(PlayerName) as player_name,
+    TRIM(PlayerId) as player_id,
+    TRIM(Pos) as position,
+    TRIM(Team) as team,
+    
+    -- Passing stats
+    TRY_CAST(PassingYDS AS INTEGER) as passing_yards,
+    TRY_CAST(PassingTD AS INTEGER) as passing_td,
+    TRY_CAST(PassingInt AS INTEGER) as passing_int,
+    
+    -- Rushing stats
+    TRY_CAST(RushingYDS AS INTEGER) as rushing_yards,
+    TRY_CAST(RushingTD AS INTEGER) as rushing_td,
+    
+    -- Receiving stats
+    TRY_CAST(ReceivingRec AS INTEGER) as receptions,
+    TRY_CAST(ReceivingYDS AS INTEGER) as receiving_yards,
+    TRY_CAST(ReceivingTD AS INTEGER) as receiving_td,
+    
+    -- Other stats
+    TRY_CAST(RetTD AS INTEGER) as return_td,
+    TRY_CAST(FumTD AS INTEGER) as fumble_return_td,
+    TRY_CAST(2PT AS INTEGER) as two_point_conversions,
+    TRY_CAST(Fum AS INTEGER) as fumbles,
+    TRY_CAST(FanPtsAgainst-pts AS DOUBLE) as fantasy_points_against,
+    
+    -- Touches
+    TRY_CAST(TouchCarries AS INTEGER) as carries,
+    TRY_CAST(TouchReceptions AS INTEGER) as touch_receptions,
+    TRY_CAST(Touches AS INTEGER) as total_touches,
+    TRY_CAST(TargetsReceptions AS INTEGER) as targets_receptions,
+    TRY_CAST(Targets AS INTEGER) as targets,
+    TRY_CAST(ReceptionPercentage AS DOUBLE) as reception_pct,
+    
+    -- Red zone
+    TRY_CAST(RzTarget AS INTEGER) as red_zone_targets,
+    TRY_CAST(RzTouch AS INTEGER) as red_zone_touches,
+    TRY_CAST(RzG2G AS INTEGER) as red_zone_goal_to_go,
+    
+    -- Rankings
+    TRY_CAST(Rank AS INTEGER) as rank,
+    TRY_CAST(TotalPoints AS DOUBLE) as total_points,
+    
+    -- Add ingestion timestamp
+    CURRENT_TIMESTAMP as ingested_at
+    
+FROM source
+WHERE position = 'WR'
+  AND player_name IS NOT NULL
+  AND player_name != 'PlayerName'  -- Filter out potential header rows
+    );
+  
+  
+[0m20:33:02.000712 [debug] [Thread-1 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "node_id": "model.nfl_contracts.wr_season"} */
+
+  
+    
+    
+
+    create  table
+      "nfl_contracts"."main_bronze"."wr_season__dbt_tmp"
+  
+    as (
+      
+
+WITH source AS (
+    -- Read ALL seasonal WR data from 2015-2025
+    SELECT * FROM read_csv_auto(
+            '../data/raw/*/WR_season.csv',
+            header=true,
+            filename=true,
+            hive_partitioning=true
+        )
+)
+
+SELECT
+    filename as source_file,
+    -- Extract year from filename path
+    REGEXP_EXTRACT(filename, '.*/(\\d{4})/.*', 1) as season_year,
+    
+    -- Player info
+    TRIM(PlayerName) as player_name,
+    TRIM(PlayerId) as player_id,
+    TRIM(Pos) as position,
+    TRIM(Team) as team,
+    
+    -- Passing stats
+    TRY_CAST(PassingYDS AS INTEGER) as passing_yards,
+    TRY_CAST(PassingTD AS INTEGER) as passing_td,
+    TRY_CAST(PassingInt AS INTEGER) as passing_int,
+    
+    -- Rushing stats
+    TRY_CAST(RushingYDS AS INTEGER) as rushing_yards,
+    TRY_CAST(RushingTD AS INTEGER) as rushing_td,
+    
+    -- Receiving stats
+    TRY_CAST(ReceivingRec AS INTEGER) as receptions,
+    TRY_CAST(ReceivingYDS AS INTEGER) as receiving_yards,
+    TRY_CAST(ReceivingTD AS INTEGER) as receiving_td,
+    
+    -- Other stats
+    TRY_CAST(RetTD AS INTEGER) as return_td,
+    TRY_CAST(FumTD AS INTEGER) as fumble_return_td,
+    TRY_CAST(2PT AS INTEGER) as two_point_conversions,
+    TRY_CAST(Fum AS INTEGER) as fumbles,
+    TRY_CAST(FanPtsAgainst-pts AS DOUBLE) as fantasy_points_against,
+    
+    -- Touches
+    TRY_CAST(TouchCarries AS INTEGER) as carries,
+    TRY_CAST(TouchReceptions AS INTEGER) as touch_receptions,
+    TRY_CAST(Touches AS INTEGER) as total_touches,
+    TRY_CAST(TargetsReceptions AS INTEGER) as targets_receptions,
+    TRY_CAST(Targets AS INTEGER) as targets,
+    TRY_CAST(ReceptionPercentage AS DOUBLE) as reception_pct,
+    
+    -- Red zone
+    TRY_CAST(RzTarget AS INTEGER) as red_zone_targets,
+    TRY_CAST(RzTouch AS INTEGER) as red_zone_touches,
+    TRY_CAST(RzG2G AS INTEGER) as red_zone_goal_to_go,
+    
+    -- Rankings
+    TRY_CAST(Rank AS INTEGER) as rank,
+    TRY_CAST(TotalPoints AS DOUBLE) as total_points,
+    
+    -- Add ingestion timestamp
+    CURRENT_TIMESTAMP as ingested_at
+    
+FROM source
+WHERE position = 'WR'
+  AND player_name IS NOT NULL
+  AND player_name != 'PlayerName'  -- Filter out potential header rows
+    );
+  
+  
+[0m20:33:02.001503 [debug] [Thread-1 (]: DuckDB adapter: Rolling back transaction.
+[0m20:33:02.002183 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: ROLLBACK
+[0m20:33:02.177305 [debug] [Thread-1 (]: Failed to rollback 'model.nfl_contracts.wr_season'
+[0m20:33:02.177897 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: Close
+[0m20:33:02.181663 [debug] [Thread-1 (]: Runtime Error in model wr_season (models\bronze\wr_season.sql)
+  Parser Error: syntax error at or near "PT"
+  
+  LINE 51:     TRY_CAST(2PT AS INTEGER) as two_point_conversions,
+                         ^
+[0m20:33:02.183959 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0a00f5c3-f5d7-49f9-8bd0-ac1c8d29cf08', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022227B68AD0>]}
+[0m20:33:02.184614 [error] [Thread-1 (]: 1 of 1 ERROR creating sql table model main_bronze.wr_season .................... [[31mERROR[0m in 0.26s]
+[0m20:33:02.186040 [debug] [Thread-1 (]: Finished running node model.nfl_contracts.wr_season
+[0m20:33:02.187499 [debug] [Thread-7 (]: Marking all children of 'model.nfl_contracts.wr_season' to be skipped because of status 'error'.  Reason: Runtime Error in model wr_season (models\bronze\wr_season.sql)
+  Parser Error: syntax error at or near "PT"
+  
+  LINE 51:     TRY_CAST(2PT AS INTEGER) as two_point_conversions,
+                         ^.
+[0m20:33:02.190297 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:33:02.190889 [debug] [MainThread]: On master: BEGIN
+[0m20:33:02.192197 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m20:33:02.194621 [debug] [MainThread]: SQL status: OK in 0.002 seconds
+[0m20:33:02.195560 [debug] [MainThread]: On master: COMMIT
+[0m20:33:02.196460 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:33:02.197228 [debug] [MainThread]: On master: COMMIT
+[0m20:33:02.198939 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m20:33:02.199785 [debug] [MainThread]: On master: Close
+[0m20:33:02.200740 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:33:02.201346 [debug] [MainThread]: Connection 'create_nfl_contracts_main_bronze' was properly closed.
+[0m20:33:02.201869 [debug] [MainThread]: Connection 'list_nfl_contracts_main_silver' was properly closed.
+[0m20:33:02.202387 [debug] [MainThread]: Connection 'list_nfl_contracts_main_bronze' was properly closed.
+[0m20:33:02.202900 [debug] [MainThread]: Connection 'model.nfl_contracts.wr_season' was properly closed.
+[0m20:33:02.203362 [info ] [MainThread]: 
+[0m20:33:02.204069 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 0.53 seconds (0.53s).
+[0m20:33:02.205323 [debug] [MainThread]: Command end result
+[0m20:33:02.308082 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:33:02.311372 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:33:02.319285 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\run_results.json
+[0m20:33:02.319817 [info ] [MainThread]: 
+[0m20:33:02.320618 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m20:33:02.321553 [info ] [MainThread]: 
+[0m20:33:02.322615 [error] [MainThread]: [31mFailure in model wr_season (models\bronze\wr_season.sql)[0m
+[0m20:33:02.323750 [error] [MainThread]:   Runtime Error in model wr_season (models\bronze\wr_season.sql)
+  Parser Error: syntax error at or near "PT"
+  
+  LINE 51:     TRY_CAST(2PT AS INTEGER) as two_point_conversions,
+                         ^
+[0m20:33:02.324939 [info ] [MainThread]: 
+[0m20:33:02.326308 [info ] [MainThread]:   compiled code at target\compiled\nfl_contracts\models\bronze\wr_season.sql
+[0m20:33:02.327373 [info ] [MainThread]: 
+[0m20:33:02.327960 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=1
+[0m20:33:02.328982 [debug] [MainThread]: Command `dbt run` failed at 20:33:02.328847 after 2.34 seconds
+[0m20:33:02.329382 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000222277BF750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022227400230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022227400730>]}
+[0m20:33:02.329759 [debug] [MainThread]: Flushing usage events
+[0m20:33:03.252341 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:35:22.859897 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020F79239010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020F79F40050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020F7A597ED0>]}
+
+
+============================== 20:35:22.866278 | d1f4a554-8e23-4605-a675-fbace9050e9f ==============================
+[0m20:35:22.866278 [info ] [MainThread]: Running with dbt=1.11.5
+[0m20:35:22.867398 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt', 'invocation_command': 'dbt compile --select bronze.wr_season', 'indirect_selection': 'eager', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt\\logs'}
+[0m20:35:23.148634 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd1f4a554-8e23-4605-a675-fbace9050e9f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020F7988AC40>]}
+[0m20:35:23.215467 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd1f4a554-8e23-4605-a675-fbace9050e9f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020F7A48F020>]}
+[0m20:35:23.218546 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m20:35:23.516822 [debug] [MainThread]: checksum: 917838c7befe257b9b22a76c21e5785f6f23ac83ef0336e2870f03c9c3f28402, vars: {}, profile: , target: , version: 1.11.5
+[0m20:35:23.678511 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 2 files changed.
+[0m20:35:23.679261 [debug] [MainThread]: Partial parsing: updated file: nfl_contracts://models\bronze\wr_season.sql
+[0m20:35:23.679625 [debug] [MainThread]: Partial parsing: updated file: nfl_contracts://models\bronze\wr_game.sql
+[0m20:35:23.925755 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.nfl_contracts.gold
+[0m20:35:23.930921 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd1f4a554-8e23-4605-a675-fbace9050e9f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020F7A660850>]}
+[0m20:35:24.000597 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:35:24.003830 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:35:24.046544 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'd1f4a554-8e23-4605-a675-fbace9050e9f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020F7BB15130>]}
+[0m20:35:24.047169 [info ] [MainThread]: Found 4 models, 474 macros
+[0m20:35:24.047852 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd1f4a554-8e23-4605-a675-fbace9050e9f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020F7B94F770>]}
+[0m20:35:24.130857 [info ] [MainThread]: 
+[0m20:35:24.132018 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m20:35:24.132890 [info ] [MainThread]: 
+[0m20:35:24.133981 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m20:35:24.139034 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_bronze'
+[0m20:35:24.148269 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_silver'
+[0m20:35:24.231456 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:35:24.233591 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:35:24.234439 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: BEGIN
+[0m20:35:24.234916 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: BEGIN
+[0m20:35:24.235844 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:35:24.236446 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:35:24.256522 [debug] [ThreadPool]: SQL status: OK in 0.021 seconds
+[0m20:35:24.257217 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:35:24.257577 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_bronze"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_bronze'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:35:24.257950 [debug] [ThreadPool]: SQL status: OK in 0.021 seconds
+[0m20:35:24.258544 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:35:24.259022 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_silver"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_silver'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:35:24.278468 [debug] [ThreadPool]: SQL status: OK in 0.019 seconds
+[0m20:35:24.279337 [debug] [ThreadPool]: SQL status: OK in 0.021 seconds
+[0m20:35:24.280633 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: ROLLBACK
+[0m20:35:24.282167 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: ROLLBACK
+[0m20:35:24.283702 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_bronze'
+[0m20:35:24.284306 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_silver'
+[0m20:35:24.284700 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: Close
+[0m20:35:24.285074 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: Close
+[0m20:35:24.286769 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd1f4a554-8e23-4605-a675-fbace9050e9f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020F7BDA7BA0>]}
+[0m20:35:24.292608 [debug] [Thread-1 (]: Began running node model.nfl_contracts.wr_season
+[0m20:35:24.293296 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.nfl_contracts.wr_season'
+[0m20:35:24.293748 [debug] [Thread-1 (]: Began compiling node model.nfl_contracts.wr_season
+[0m20:35:24.301157 [debug] [Thread-1 (]: Writing injected SQL for node "model.nfl_contracts.wr_season"
+[0m20:35:24.302619 [debug] [Thread-1 (]: Began executing node model.nfl_contracts.wr_season
+[0m20:35:24.303465 [debug] [Thread-1 (]: Finished running node model.nfl_contracts.wr_season
+[0m20:35:24.304795 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:35:24.305183 [debug] [MainThread]: Connection 'list_nfl_contracts_main_bronze' was properly closed.
+[0m20:35:24.305468 [debug] [MainThread]: Connection 'list_nfl_contracts_main_silver' was properly closed.
+[0m20:35:24.305732 [debug] [MainThread]: Connection 'model.nfl_contracts.wr_season' was properly closed.
+[0m20:35:24.306397 [debug] [MainThread]: Command end result
+[0m20:35:24.324675 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:35:24.327381 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:35:24.334578 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\run_results.json
+[0m20:35:24.335157 [info ] [MainThread]: Compiled node 'wr_season' is:
+
+
+WITH source AS (
+    -- Read ALL seasonal WR data from 2015-2025
+    SELECT * FROM read_csv_auto(
+            '../data/raw/*/WR_season.csv',
+            header=true,
+            filename=true,
+            hive_partitioning=true
+        )
+)
+
+SELECT
+    filename as source_file,
+    -- Extract year from filename path
+    REGEXP_EXTRACT(filename, '.*/(\\d{4})/.*', 1) as season_year,
+    
+    -- Player info
+    TRIM(PlayerName) as player_name,
+    TRIM(PlayerId) as player_id,
+    TRIM(Pos) as position,
+    TRIM(Team) as team,
+    
+    -- Passing stats
+    TRY_CAST(PassingYDS AS INTEGER) as passing_yards,
+    TRY_CAST(PassingTD AS INTEGER) as passing_td,
+    TRY_CAST(PassingInt AS INTEGER) as passing_int,
+    
+    -- Rushing stats
+    TRY_CAST(RushingYDS AS INTEGER) as rushing_yards,
+    TRY_CAST(RushingTD AS INTEGER) as rushing_td,
+    
+    -- Receiving stats
+    TRY_CAST(ReceivingRec AS INTEGER) as receptions,
+    TRY_CAST(ReceivingYDS AS INTEGER) as receiving_yards,
+    TRY_CAST(ReceivingTD AS INTEGER) as receiving_td,
+    
+    -- Other stats
+    TRY_CAST(RetTD AS INTEGER) as return_td,
+    TRY_CAST(FumTD AS INTEGER) as fumble_return_td,
+    TRY_CAST("2PT" AS INTEGER) as two_point_conversions,
+    TRY_CAST(Fum AS INTEGER) as fumbles,
+    TRY_CAST("FanPtsAgainst-pts" AS DOUBLE) as fantasy_points_against,
+    
+    -- Touches
+    TRY_CAST(TouchCarries AS INTEGER) as carries,
+    TRY_CAST(TouchReceptions AS INTEGER) as touch_receptions,
+    TRY_CAST(Touches AS INTEGER) as total_touches,
+    TRY_CAST(TargetsReceptions AS INTEGER) as targets_receptions,
+    TRY_CAST(Targets AS INTEGER) as targets,
+    TRY_CAST(ReceptionPercentage AS DOUBLE) as reception_pct,
+    
+    -- Red zone
+    TRY_CAST(RzTarget AS INTEGER) as red_zone_targets,
+    TRY_CAST(RzTouch AS INTEGER) as red_zone_touches,
+    TRY_CAST(RzG2G AS INTEGER) as red_zone_goal_to_go,
+    
+    -- Rankings
+    TRY_CAST(Rank AS INTEGER) as rank,
+    TRY_CAST(TotalPoints AS DOUBLE) as total_points,
+    
+    -- Add ingestion timestamp
+    CURRENT_TIMESTAMP as ingested_at
+    
+FROM source
+WHERE position = 'WR'
+  AND player_name IS NOT NULL
+  AND player_name != 'PlayerName'  -- Filter out potential header rows
+[0m20:35:24.337001 [debug] [MainThread]: Command `dbt compile` succeeded at 20:35:24.336796 after 1.67 seconds
+[0m20:35:24.337551 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020F7A558AD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020F7BF38AA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020F7BF385D0>]}
+[0m20:35:24.338075 [debug] [MainThread]: Flushing usage events
+[0m20:35:25.100595 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:35:34.774999 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002179F6C9010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217A03DC050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217A0A27ED0>]}
+
+
+============================== 20:35:34.793132 | 8f15fd51-e6c2-4cb2-bbfe-baa486461609 ==============================
+[0m20:35:34.793132 [info ] [MainThread]: Running with dbt=1.11.5
+[0m20:35:34.795301 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'invocation_command': 'dbt compile --select bronze.wr_game', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt\\logs'}
+[0m20:35:35.165168 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '8f15fd51-e6c2-4cb2-bbfe-baa486461609', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002179FD2AC40>]}
+[0m20:35:35.261292 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '8f15fd51-e6c2-4cb2-bbfe-baa486461609', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217A092F020>]}
+[0m20:35:35.264550 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m20:35:35.650032 [debug] [MainThread]: checksum: 917838c7befe257b9b22a76c21e5785f6f23ac83ef0336e2870f03c9c3f28402, vars: {}, profile: , target: , version: 1.11.5
+[0m20:35:35.879304 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m20:35:35.879690 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m20:35:35.879949 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m20:35:35.888413 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.nfl_contracts.gold
+[0m20:35:35.920278 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '8f15fd51-e6c2-4cb2-bbfe-baa486461609', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217A0B00050>]}
+[0m20:35:35.988638 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:35:35.991589 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:35:36.046893 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '8f15fd51-e6c2-4cb2-bbfe-baa486461609', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217A1FC9130>]}
+[0m20:35:36.047830 [info ] [MainThread]: Found 4 models, 474 macros
+[0m20:35:36.048496 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '8f15fd51-e6c2-4cb2-bbfe-baa486461609', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217A0B1E510>]}
+[0m20:35:36.051711 [info ] [MainThread]: 
+[0m20:35:36.052758 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m20:35:36.053534 [info ] [MainThread]: 
+[0m20:35:36.054976 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m20:35:36.065860 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_silver'
+[0m20:35:36.074703 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_bronze'
+[0m20:35:36.212463 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:35:36.213225 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:35:36.213896 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: BEGIN
+[0m20:35:36.214376 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: BEGIN
+[0m20:35:36.214842 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:35:36.215517 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:35:36.245083 [debug] [ThreadPool]: SQL status: OK in 0.030 seconds
+[0m20:35:36.245871 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:35:36.246387 [debug] [ThreadPool]: SQL status: OK in 0.031 seconds
+[0m20:35:36.246789 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_silver"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_silver'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:35:36.247340 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:35:36.248111 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_bronze"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_bronze'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:35:36.267908 [debug] [ThreadPool]: SQL status: OK in 0.020 seconds
+[0m20:35:36.268427 [debug] [ThreadPool]: SQL status: OK in 0.020 seconds
+[0m20:35:36.271114 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: ROLLBACK
+[0m20:35:36.272749 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: ROLLBACK
+[0m20:35:36.274422 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_silver'
+[0m20:35:36.275284 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: Close
+[0m20:35:36.276703 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_bronze'
+[0m20:35:36.277599 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: Close
+[0m20:35:36.279101 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '8f15fd51-e6c2-4cb2-bbfe-baa486461609', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217A2338AE0>]}
+[0m20:35:36.286433 [debug] [Thread-1 (]: Began running node model.nfl_contracts.wr_game
+[0m20:35:36.287093 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.nfl_contracts.wr_game'
+[0m20:35:36.287437 [debug] [Thread-1 (]: Began compiling node model.nfl_contracts.wr_game
+[0m20:35:36.303572 [debug] [Thread-1 (]: Writing injected SQL for node "model.nfl_contracts.wr_game"
+[0m20:35:36.306417 [debug] [Thread-1 (]: Began executing node model.nfl_contracts.wr_game
+[0m20:35:36.307746 [debug] [Thread-1 (]: Finished running node model.nfl_contracts.wr_game
+[0m20:35:36.310154 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:35:36.311149 [debug] [MainThread]: Connection 'list_nfl_contracts_main_silver' was properly closed.
+[0m20:35:36.312004 [debug] [MainThread]: Connection 'list_nfl_contracts_main_bronze' was properly closed.
+[0m20:35:36.312957 [debug] [MainThread]: Connection 'model.nfl_contracts.wr_game' was properly closed.
+[0m20:35:36.314260 [debug] [MainThread]: Command end result
+[0m20:35:36.368183 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:35:36.374324 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:35:36.390595 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\run_results.json
+[0m20:35:36.391564 [info ] [MainThread]: Compiled node 'wr_game' is:
+
+
+WITH source AS (
+    -- Read all game-level WR data from 2021-2025 (including week folders)
+    SELECT * FROM read_csv_auto(
+            '../data/raw/*/*/WR.csv',
+            header=true,
+            filename=true,
+            hive_partitioning=true
+        )
+)
+
+SELECT
+    filename as source_file,
+    
+    -- Extract season and week from path
+    REGEXP_EXTRACT(filename, '.*/(\\d{4})/\\d+/(.*)', 1) as season_year,
+    REGEXP_EXTRACT(filename, '.*/\\d{4}/(\\d+)/.*', 1) as week_number,
+    
+    -- Player info
+    TRIM(PlayerName) as player_name,
+    TRIM(PlayerId) as player_id,
+    TRIM(Pos) as position,
+    TRIM(Team) as team,
+    TRIM(PlayerOpponent) as opponent,
+    
+    -- Passing stats
+    TRY_CAST(PassingYDS AS INTEGER) as passing_yards,
+    TRY_CAST(PassingTD AS INTEGER) as passing_td,
+    TRY_CAST(PassingInt AS INTEGER) as passing_int,
+    
+    -- Rushing stats
+    TRY_CAST(RushingYDS AS INTEGER) as rushing_yards,
+    TRY_CAST(RushingTD AS INTEGER) as rushing_td,
+    
+    -- Receiving stats
+    TRY_CAST(ReceivingRec AS INTEGER) as receptions,
+    TRY_CAST(ReceivingYDS AS INTEGER) as receiving_yards,
+    TRY_CAST(ReceivingTD AS INTEGER) as receiving_td,
+    
+    -- Other stats
+    TRY_CAST(RetTD AS INTEGER) as return_td,
+    TRY_CAST(FumTD AS INTEGER) as fumble_return_td,
+    TRY_CAST("2PT" AS INTEGER) as two_point_conversions,
+    TRY_CAST(Fum AS INTEGER) as fumbles,
+    TRY_CAST("FanPtsAgainst-pts" AS DOUBLE) as fantasy_points_against,
+    
+    -- Touches
+    TRY_CAST(TouchCarries AS INTEGER) as carries,
+    TRY_CAST(TouchReceptions AS INTEGER) as touch_receptions,
+    TRY_CAST(Touches AS INTEGER) as total_touches,
+    TRY_CAST(TargetsReceptions AS INTEGER) as targets_receptions,
+    TRY_CAST(Targets AS INTEGER) as targets,
+    TRY_CAST(ReceptionPercentage AS DOUBLE) as reception_pct,
+    
+    -- Red zone
+    TRY_CAST(RzTarget AS INTEGER) as red_zone_targets,
+    TRY_CAST(RzTouch AS INTEGER) as red_zone_touches,
+    TRY_CAST(RzG2G AS INTEGER) as red_zone_goal_to_go,
+    
+    -- Rankings
+    TRY_CAST(Rank AS INTEGER) as rank,
+    TRY_CAST(TotalPoints AS DOUBLE) as total_points,
+    
+    -- Add ingestion timestamp
+    CURRENT_TIMESTAMP as ingested_at
+    
+FROM source
+WHERE position = 'WR'
+  AND player_name IS NOT NULL
+  AND player_name != 'PlayerName'  -- Filter out potential header rows
+[0m20:35:36.394434 [debug] [MainThread]: Command `dbt compile` succeeded at 20:35:36.394028 after 1.82 seconds
+[0m20:35:36.395385 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217A09F8AD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217A210B960>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000217A210B490>]}
+[0m20:35:36.395796 [debug] [MainThread]: Flushing usage events
+[0m20:35:37.361683 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:35:43.501124 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194B92A9010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194B9FB0050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BA5F7ED0>]}
+
+
+============================== 20:35:43.509028 | 27c9a330-d61f-4785-8fc5-bb9bfaccbdc5 ==============================
+[0m20:35:43.509028 [info ] [MainThread]: Running with dbt=1.11.5
+[0m20:35:43.510969 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'invocation_command': 'dbt run --select bronze.wr_season', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt\\logs'}
+[0m20:35:43.804439 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '27c9a330-d61f-4785-8fc5-bb9bfaccbdc5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194B98FAC40>]}
+[0m20:35:43.876412 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '27c9a330-d61f-4785-8fc5-bb9bfaccbdc5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BA4FF020>]}
+[0m20:35:43.884632 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m20:35:44.226385 [debug] [MainThread]: checksum: 917838c7befe257b9b22a76c21e5785f6f23ac83ef0336e2870f03c9c3f28402, vars: {}, profile: , target: , version: 1.11.5
+[0m20:35:44.348429 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m20:35:44.349024 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m20:35:44.349364 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m20:35:44.354704 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.nfl_contracts.gold
+[0m20:35:44.384481 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '27c9a330-d61f-4785-8fc5-bb9bfaccbdc5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BA6D0F50>]}
+[0m20:35:44.440074 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:35:44.443073 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:35:44.487475 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '27c9a330-d61f-4785-8fc5-bb9bfaccbdc5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BA477200>]}
+[0m20:35:44.488199 [info ] [MainThread]: Found 4 models, 474 macros
+[0m20:35:44.489101 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '27c9a330-d61f-4785-8fc5-bb9bfaccbdc5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BB7BD1D0>]}
+[0m20:35:44.490850 [info ] [MainThread]: 
+[0m20:35:44.491699 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m20:35:44.492603 [info ] [MainThread]: 
+[0m20:35:44.493864 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m20:35:44.494960 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts'
+[0m20:35:44.622387 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts"
+[0m20:35:44.623359 [debug] [ThreadPool]: On list_nfl_contracts: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"nfl_contracts"'
+    
+  
+  
+[0m20:35:44.623892 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:35:44.647771 [debug] [ThreadPool]: SQL status: OK in 0.024 seconds
+[0m20:35:44.649595 [debug] [ThreadPool]: On list_nfl_contracts: Close
+[0m20:35:44.650318 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_nfl_contracts, now create_nfl_contracts_main_bronze)
+[0m20:35:44.650805 [debug] [ThreadPool]: Creating schema "database: "nfl_contracts"
+schema: "main_bronze"
+"
+[0m20:35:44.656856 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:35:44.657470 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "create_nfl_contracts_main_bronze"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='nfl_contracts'
+        and type='sqlite'
+    
+  
+[0m20:35:44.657860 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m20:35:44.659440 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m20:35:44.660849 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:35:44.661148 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: BEGIN
+[0m20:35:44.661714 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m20:35:44.661976 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:35:44.662236 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "create_nfl_contracts_main_bronze"} */
+
+    
+    
+        create schema if not exists "nfl_contracts"."main_bronze"
+    
+[0m20:35:44.662805 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m20:35:44.663510 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: COMMIT
+[0m20:35:44.663801 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:35:44.664070 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: COMMIT
+[0m20:35:44.664916 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m20:35:44.665211 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: Close
+[0m20:35:44.670838 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_bronze'
+[0m20:35:44.676685 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:35:44.677102 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: BEGIN
+[0m20:35:44.677441 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:35:44.677938 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_silver'
+[0m20:35:44.680685 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:35:44.681155 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: BEGIN
+[0m20:35:44.681531 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:35:44.681875 [debug] [ThreadPool]: SQL status: OK in 0.004 seconds
+[0m20:35:44.682491 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:35:44.682947 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_bronze"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_bronze'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:35:44.683475 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m20:35:44.683844 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:35:44.684116 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_silver"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_silver'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:35:44.699831 [debug] [ThreadPool]: SQL status: OK in 0.016 seconds
+[0m20:35:44.700522 [debug] [ThreadPool]: SQL status: OK in 0.016 seconds
+[0m20:35:44.701906 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: ROLLBACK
+[0m20:35:44.703418 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: ROLLBACK
+[0m20:35:44.704804 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_bronze'
+[0m20:35:44.705196 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: Close
+[0m20:35:44.706352 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_silver'
+[0m20:35:44.706643 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: Close
+[0m20:35:44.707860 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '27c9a330-d61f-4785-8fc5-bb9bfaccbdc5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BBE8DBF0>]}
+[0m20:35:44.708333 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:35:44.708629 [debug] [MainThread]: On master: BEGIN
+[0m20:35:44.708936 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:35:44.709784 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m20:35:44.710084 [debug] [MainThread]: On master: COMMIT
+[0m20:35:44.710335 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:35:44.710606 [debug] [MainThread]: On master: COMMIT
+[0m20:35:44.711135 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m20:35:44.711410 [debug] [MainThread]: On master: Close
+[0m20:35:44.718203 [debug] [Thread-1 (]: Began running node model.nfl_contracts.wr_season
+[0m20:35:44.718902 [info ] [Thread-1 (]: 1 of 1 START sql table model main_bronze.wr_season ............................. [RUN]
+[0m20:35:44.719930 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.nfl_contracts.wr_season'
+[0m20:35:44.720323 [debug] [Thread-1 (]: Began compiling node model.nfl_contracts.wr_season
+[0m20:35:44.728257 [debug] [Thread-1 (]: Writing injected SQL for node "model.nfl_contracts.wr_season"
+[0m20:35:44.730025 [debug] [Thread-1 (]: Began executing node model.nfl_contracts.wr_season
+[0m20:35:44.762251 [debug] [Thread-1 (]: Writing runtime sql for node "model.nfl_contracts.wr_season"
+[0m20:35:44.764117 [debug] [Thread-1 (]: Using duckdb connection "model.nfl_contracts.wr_season"
+[0m20:35:44.764560 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: BEGIN
+[0m20:35:44.765064 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m20:35:44.766431 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:35:44.766936 [debug] [Thread-1 (]: Using duckdb connection "model.nfl_contracts.wr_season"
+[0m20:35:44.767288 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "node_id": "model.nfl_contracts.wr_season"} */
+
+  
+    
+    
+
+    create  table
+      "nfl_contracts"."main_bronze"."wr_season__dbt_tmp"
+  
+    as (
+      
+
+WITH source AS (
+    -- Read ALL seasonal WR data from 2015-2025
+    SELECT * FROM read_csv_auto(
+            '../data/raw/*/WR_season.csv',
+            header=true,
+            filename=true,
+            hive_partitioning=true
+        )
+)
+
+SELECT
+    filename as source_file,
+    -- Extract year from filename path
+    REGEXP_EXTRACT(filename, '.*/(\\d{4})/.*', 1) as season_year,
+    
+    -- Player info
+    TRIM(PlayerName) as player_name,
+    TRIM(PlayerId) as player_id,
+    TRIM(Pos) as position,
+    TRIM(Team) as team,
+    
+    -- Passing stats
+    TRY_CAST(PassingYDS AS INTEGER) as passing_yards,
+    TRY_CAST(PassingTD AS INTEGER) as passing_td,
+    TRY_CAST(PassingInt AS INTEGER) as passing_int,
+    
+    -- Rushing stats
+    TRY_CAST(RushingYDS AS INTEGER) as rushing_yards,
+    TRY_CAST(RushingTD AS INTEGER) as rushing_td,
+    
+    -- Receiving stats
+    TRY_CAST(ReceivingRec AS INTEGER) as receptions,
+    TRY_CAST(ReceivingYDS AS INTEGER) as receiving_yards,
+    TRY_CAST(ReceivingTD AS INTEGER) as receiving_td,
+    
+    -- Other stats
+    TRY_CAST(RetTD AS INTEGER) as return_td,
+    TRY_CAST(FumTD AS INTEGER) as fumble_return_td,
+    TRY_CAST("2PT" AS INTEGER) as two_point_conversions,
+    TRY_CAST(Fum AS INTEGER) as fumbles,
+    TRY_CAST("FanPtsAgainst-pts" AS DOUBLE) as fantasy_points_against,
+    
+    -- Touches
+    TRY_CAST(TouchCarries AS INTEGER) as carries,
+    TRY_CAST(TouchReceptions AS INTEGER) as touch_receptions,
+    TRY_CAST(Touches AS INTEGER) as total_touches,
+    TRY_CAST(TargetsReceptions AS INTEGER) as targets_receptions,
+    TRY_CAST(Targets AS INTEGER) as targets,
+    TRY_CAST(ReceptionPercentage AS DOUBLE) as reception_pct,
+    
+    -- Red zone
+    TRY_CAST(RzTarget AS INTEGER) as red_zone_targets,
+    TRY_CAST(RzTouch AS INTEGER) as red_zone_touches,
+    TRY_CAST(RzG2G AS INTEGER) as red_zone_goal_to_go,
+    
+    -- Rankings
+    TRY_CAST(Rank AS INTEGER) as rank,
+    TRY_CAST(TotalPoints AS DOUBLE) as total_points,
+    
+    -- Add ingestion timestamp
+    CURRENT_TIMESTAMP as ingested_at
+    
+FROM source
+WHERE position = 'WR'
+  AND player_name IS NOT NULL
+  AND player_name != 'PlayerName'  -- Filter out potential header rows
+    );
+  
+  
+[0m20:35:44.949398 [debug] [Thread-1 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "node_id": "model.nfl_contracts.wr_season"} */
+
+  
+    
+    
+
+    create  table
+      "nfl_contracts"."main_bronze"."wr_season__dbt_tmp"
+  
+    as (
+      
+
+WITH source AS (
+    -- Read ALL seasonal WR data from 2015-2025
+    SELECT * FROM read_csv_auto(
+            '../data/raw/*/WR_season.csv',
+            header=true,
+            filename=true,
+            hive_partitioning=true
+        )
+)
+
+SELECT
+    filename as source_file,
+    -- Extract year from filename path
+    REGEXP_EXTRACT(filename, '.*/(\\d{4})/.*', 1) as season_year,
+    
+    -- Player info
+    TRIM(PlayerName) as player_name,
+    TRIM(PlayerId) as player_id,
+    TRIM(Pos) as position,
+    TRIM(Team) as team,
+    
+    -- Passing stats
+    TRY_CAST(PassingYDS AS INTEGER) as passing_yards,
+    TRY_CAST(PassingTD AS INTEGER) as passing_td,
+    TRY_CAST(PassingInt AS INTEGER) as passing_int,
+    
+    -- Rushing stats
+    TRY_CAST(RushingYDS AS INTEGER) as rushing_yards,
+    TRY_CAST(RushingTD AS INTEGER) as rushing_td,
+    
+    -- Receiving stats
+    TRY_CAST(ReceivingRec AS INTEGER) as receptions,
+    TRY_CAST(ReceivingYDS AS INTEGER) as receiving_yards,
+    TRY_CAST(ReceivingTD AS INTEGER) as receiving_td,
+    
+    -- Other stats
+    TRY_CAST(RetTD AS INTEGER) as return_td,
+    TRY_CAST(FumTD AS INTEGER) as fumble_return_td,
+    TRY_CAST("2PT" AS INTEGER) as two_point_conversions,
+    TRY_CAST(Fum AS INTEGER) as fumbles,
+    TRY_CAST("FanPtsAgainst-pts" AS DOUBLE) as fantasy_points_against,
+    
+    -- Touches
+    TRY_CAST(TouchCarries AS INTEGER) as carries,
+    TRY_CAST(TouchReceptions AS INTEGER) as touch_receptions,
+    TRY_CAST(Touches AS INTEGER) as total_touches,
+    TRY_CAST(TargetsReceptions AS INTEGER) as targets_receptions,
+    TRY_CAST(Targets AS INTEGER) as targets,
+    TRY_CAST(ReceptionPercentage AS DOUBLE) as reception_pct,
+    
+    -- Red zone
+    TRY_CAST(RzTarget AS INTEGER) as red_zone_targets,
+    TRY_CAST(RzTouch AS INTEGER) as red_zone_touches,
+    TRY_CAST(RzG2G AS INTEGER) as red_zone_goal_to_go,
+    
+    -- Rankings
+    TRY_CAST(Rank AS INTEGER) as rank,
+    TRY_CAST(TotalPoints AS DOUBLE) as total_points,
+    
+    -- Add ingestion timestamp
+    CURRENT_TIMESTAMP as ingested_at
+    
+FROM source
+WHERE position = 'WR'
+  AND player_name IS NOT NULL
+  AND player_name != 'PlayerName'  -- Filter out potential header rows
+    );
+  
+  
+[0m20:35:44.949971 [debug] [Thread-1 (]: DuckDB adapter: Rolling back transaction.
+[0m20:35:44.950400 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: ROLLBACK
+[0m20:35:44.958318 [debug] [Thread-1 (]: Failed to rollback 'model.nfl_contracts.wr_season'
+[0m20:35:44.958838 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: Close
+[0m20:35:44.962408 [debug] [Thread-1 (]: Runtime Error in model wr_season (models\bronze\wr_season.sql)
+  Binder Error: No function matches the given name and argument types 'trim(BIGINT)'. You might need to add explicit type casts.
+  	Candidate functions:
+  	trim(VARCHAR) -> VARCHAR
+  	trim(VARCHAR, VARCHAR) -> VARCHAR
+  
+  
+  LINE 30:     TRIM(PlayerId) as player_id,
+               ^
+[0m20:35:44.964867 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '27c9a330-d61f-4785-8fc5-bb9bfaccbdc5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BC038AD0>]}
+[0m20:35:44.965578 [error] [Thread-1 (]: 1 of 1 ERROR creating sql table model main_bronze.wr_season .................... [[31mERROR[0m in 0.24s]
+[0m20:35:44.966771 [debug] [Thread-1 (]: Finished running node model.nfl_contracts.wr_season
+[0m20:35:44.967431 [debug] [Thread-7 (]: Marking all children of 'model.nfl_contracts.wr_season' to be skipped because of status 'error'.  Reason: Runtime Error in model wr_season (models\bronze\wr_season.sql)
+  Binder Error: No function matches the given name and argument types 'trim(BIGINT)'. You might need to add explicit type casts.
+  	Candidate functions:
+  	trim(VARCHAR) -> VARCHAR
+  	trim(VARCHAR, VARCHAR) -> VARCHAR
+  
+  
+  LINE 30:     TRIM(PlayerId) as player_id,
+               ^.
+[0m20:35:44.970285 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:35:44.970689 [debug] [MainThread]: On master: BEGIN
+[0m20:35:44.970945 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m20:35:44.971626 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m20:35:44.971884 [debug] [MainThread]: On master: COMMIT
+[0m20:35:44.972130 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:35:44.972371 [debug] [MainThread]: On master: COMMIT
+[0m20:35:44.972877 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m20:35:44.973148 [debug] [MainThread]: On master: Close
+[0m20:35:44.973474 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:35:44.973705 [debug] [MainThread]: Connection 'create_nfl_contracts_main_bronze' was properly closed.
+[0m20:35:44.973919 [debug] [MainThread]: Connection 'list_nfl_contracts_main_bronze' was properly closed.
+[0m20:35:44.974140 [debug] [MainThread]: Connection 'list_nfl_contracts_main_silver' was properly closed.
+[0m20:35:44.974352 [debug] [MainThread]: Connection 'model.nfl_contracts.wr_season' was properly closed.
+[0m20:35:44.974596 [info ] [MainThread]: 
+[0m20:35:44.975204 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 0.48 seconds (0.48s).
+[0m20:35:44.976810 [debug] [MainThread]: Command end result
+[0m20:35:45.055493 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:35:45.058506 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:35:45.065952 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\run_results.json
+[0m20:35:45.066478 [info ] [MainThread]: 
+[0m20:35:45.067860 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m20:35:45.068535 [info ] [MainThread]: 
+[0m20:35:45.069242 [error] [MainThread]: [31mFailure in model wr_season (models\bronze\wr_season.sql)[0m
+[0m20:35:45.070011 [error] [MainThread]:   Runtime Error in model wr_season (models\bronze\wr_season.sql)
+  Binder Error: No function matches the given name and argument types 'trim(BIGINT)'. You might need to add explicit type casts.
+  	Candidate functions:
+  	trim(VARCHAR) -> VARCHAR
+  	trim(VARCHAR, VARCHAR) -> VARCHAR
+  
+  
+  LINE 30:     TRIM(PlayerId) as player_id,
+               ^
+[0m20:35:45.072284 [info ] [MainThread]: 
+[0m20:35:45.073251 [info ] [MainThread]:   compiled code at target\compiled\nfl_contracts\models\bronze\wr_season.sql
+[0m20:35:45.074299 [info ] [MainThread]: 
+[0m20:35:45.074974 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=1
+[0m20:35:45.076225 [debug] [MainThread]: Command `dbt run` failed at 20:35:45.076079 after 1.76 seconds
+[0m20:35:45.076605 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BBC6F800>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BB8B0230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000194BB8B0730>]}
+[0m20:35:45.077020 [debug] [MainThread]: Flushing usage events
+[0m20:35:45.865423 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:37:25.118056 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000121D1C19010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000121D2920050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000121D2F67ED0>]}
+
+
+============================== 20:37:25.123406 | f9712257-934a-4b70-8dfc-194bb3868920 ==============================
+[0m20:37:25.123406 [info ] [MainThread]: Running with dbt=1.11.5
+[0m20:37:25.124272 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'invocation_command': 'dbt compile --select bronze.wr_season', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt\\logs'}
+[0m20:37:25.392324 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f9712257-934a-4b70-8dfc-194bb3868920', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000121D226AC40>]}
+[0m20:37:25.456347 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f9712257-934a-4b70-8dfc-194bb3868920', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000121D2E6F020>]}
+[0m20:37:25.459227 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m20:37:25.774047 [debug] [MainThread]: checksum: 917838c7befe257b9b22a76c21e5785f6f23ac83ef0336e2870f03c9c3f28402, vars: {}, profile: , target: , version: 1.11.5
+[0m20:37:25.958462 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 2 files changed.
+[0m20:37:25.959068 [debug] [MainThread]: Partial parsing: updated file: nfl_contracts://models\bronze\wr_game.sql
+[0m20:37:25.959472 [debug] [MainThread]: Partial parsing: updated file: nfl_contracts://models\bronze\wr_season.sql
+[0m20:37:26.220061 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.nfl_contracts.gold
+[0m20:37:26.224975 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f9712257-934a-4b70-8dfc-194bb3868920', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000121D3040850>]}
+[0m20:37:26.285083 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:37:26.288214 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:37:26.330140 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f9712257-934a-4b70-8dfc-194bb3868920', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000121D4509130>]}
+[0m20:37:26.330703 [info ] [MainThread]: Found 4 models, 474 macros
+[0m20:37:26.331501 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f9712257-934a-4b70-8dfc-194bb3868920', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000121D433F770>]}
+[0m20:37:26.389294 [info ] [MainThread]: 
+[0m20:37:26.390172 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m20:37:26.390744 [info ] [MainThread]: 
+[0m20:37:26.392018 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m20:37:26.396863 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_bronze'
+[0m20:37:26.404533 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_silver'
+[0m20:37:26.501260 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:37:26.501802 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: BEGIN
+[0m20:37:26.502232 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:37:26.502675 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:37:26.503408 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: BEGIN
+[0m20:37:26.504024 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:37:26.524346 [debug] [ThreadPool]: SQL status: OK in 0.022 seconds
+[0m20:37:26.524959 [debug] [ThreadPool]: SQL status: OK in 0.021 seconds
+[0m20:37:26.525494 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:37:26.526140 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:37:26.526668 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_bronze"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_bronze'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:37:26.527207 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_silver"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_silver'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:37:26.544956 [debug] [ThreadPool]: SQL status: OK in 0.017 seconds
+[0m20:37:26.545745 [debug] [ThreadPool]: SQL status: OK in 0.018 seconds
+[0m20:37:26.547173 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: ROLLBACK
+[0m20:37:26.548512 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: ROLLBACK
+[0m20:37:26.549985 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_silver'
+[0m20:37:26.550379 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: Close
+[0m20:37:26.550925 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_bronze'
+[0m20:37:26.551269 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: Close
+[0m20:37:26.552946 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f9712257-934a-4b70-8dfc-194bb3868920', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000121D479BBA0>]}
+[0m20:37:26.559132 [debug] [Thread-1 (]: Began running node model.nfl_contracts.wr_season
+[0m20:37:26.559765 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.nfl_contracts.wr_season'
+[0m20:37:26.560280 [debug] [Thread-1 (]: Began compiling node model.nfl_contracts.wr_season
+[0m20:37:26.568281 [debug] [Thread-1 (]: Writing injected SQL for node "model.nfl_contracts.wr_season"
+[0m20:37:26.569600 [debug] [Thread-1 (]: Began executing node model.nfl_contracts.wr_season
+[0m20:37:26.570413 [debug] [Thread-1 (]: Finished running node model.nfl_contracts.wr_season
+[0m20:37:26.571964 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:37:26.572331 [debug] [MainThread]: Connection 'list_nfl_contracts_main_bronze' was properly closed.
+[0m20:37:26.572615 [debug] [MainThread]: Connection 'list_nfl_contracts_main_silver' was properly closed.
+[0m20:37:26.572913 [debug] [MainThread]: Connection 'model.nfl_contracts.wr_season' was properly closed.
+[0m20:37:26.573585 [debug] [MainThread]: Command end result
+[0m20:37:26.595293 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:37:26.597998 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:37:26.605769 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\run_results.json
+[0m20:37:26.606317 [info ] [MainThread]: Compiled node 'wr_season' is:
+
+
+WITH source AS (
+    -- Read ALL seasonal WR data from 2015-2025
+    SELECT * FROM read_csv_auto(
+            '../data/raw/*/WR_season.csv',
+            header=true,
+            filename=true,
+            hive_partitioning=true
+        )
+)
+
+SELECT
+    filename as source_file,
+    -- Extract year from filename path
+    REGEXP_EXTRACT(filename, '.*/(\\d{4})/.*', 1) as season_year,
+    
+    -- Player info
+    TRIM(PlayerName) as player_name,
+    TRIM(CAST(PlayerId AS VARCHAR)) as player_id,  -- Fixed: cast to string before trim
+    TRIM(Pos) as position,
+    TRIM(Team) as team,
+    
+    -- Passing stats
+    TRY_CAST(PassingYDS AS INTEGER) as passing_yards,
+    TRY_CAST(PassingTD AS INTEGER) as passing_td,
+    TRY_CAST(PassingInt AS INTEGER) as passing_int,
+    
+    -- Rushing stats
+    TRY_CAST(RushingYDS AS INTEGER) as rushing_yards,
+    TRY_CAST(RushingTD AS INTEGER) as rushing_td,
+    
+    -- Receiving stats
+    TRY_CAST(ReceivingRec AS INTEGER) as receptions,
+    TRY_CAST(ReceivingYDS AS INTEGER) as receiving_yards,
+    TRY_CAST(ReceivingTD AS INTEGER) as receiving_td,
+    
+    -- Other stats
+    TRY_CAST(RetTD AS INTEGER) as return_td,
+    TRY_CAST(FumTD AS INTEGER) as fumble_return_td,
+    TRY_CAST("2PT" AS INTEGER) as two_point_conversions,
+    TRY_CAST(Fum AS INTEGER) as fumbles,
+    TRY_CAST("FanPtsAgainst-pts" AS DOUBLE) as fantasy_points_against,
+    
+    -- Touches
+    TRY_CAST(TouchCarries AS INTEGER) as carries,
+    TRY_CAST(TouchReceptions AS INTEGER) as touch_receptions,
+    TRY_CAST(Touches AS INTEGER) as total_touches,
+    TRY_CAST(TargetsReceptions AS INTEGER) as targets_receptions,
+    TRY_CAST(Targets AS INTEGER) as targets,
+    TRY_CAST(ReceptionPercentage AS DOUBLE) as reception_pct,
+    
+    -- Red zone
+    TRY_CAST(RzTarget AS INTEGER) as red_zone_targets,
+    TRY_CAST(RzTouch AS INTEGER) as red_zone_touches,
+    TRY_CAST(RzG2G AS INTEGER) as red_zone_goal_to_go,
+    
+    -- Rankings
+    TRY_CAST(Rank AS INTEGER) as rank,
+    TRY_CAST(TotalPoints AS DOUBLE) as total_points,
+    
+    -- Add ingestion timestamp
+    CURRENT_TIMESTAMP as ingested_at
+    
+FROM source
+WHERE position = 'WR'
+  AND player_name IS NOT NULL
+  AND player_name != 'PlayerName'  -- Filter out potential header rows
+[0m20:37:26.608324 [debug] [MainThread]: Command `dbt compile` succeeded at 20:37:26.608156 after 1.69 seconds
+[0m20:37:26.608768 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000121D2F38AD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000121D49285D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000121D49289F0>]}
+[0m20:37:26.609176 [debug] [MainThread]: Flushing usage events
+[0m20:37:27.419658 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:37:35.996605 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001397DF29010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001397EC3C050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001397F287ED0>]}
+
+
+============================== 20:37:36.002910 | 862c0b86-6241-4efd-a8db-360cdff5dae9 ==============================
+[0m20:37:36.002910 [info ] [MainThread]: Running with dbt=1.11.5
+[0m20:37:36.003900 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt compile --select bronze.wr_game', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt\\logs'}
+[0m20:37:36.298911 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '862c0b86-6241-4efd-a8db-360cdff5dae9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001397E58AC40>]}
+[0m20:37:36.368891 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '862c0b86-6241-4efd-a8db-360cdff5dae9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001397F18F020>]}
+[0m20:37:36.371618 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m20:37:36.709243 [debug] [MainThread]: checksum: 917838c7befe257b9b22a76c21e5785f6f23ac83ef0336e2870f03c9c3f28402, vars: {}, profile: , target: , version: 1.11.5
+[0m20:37:36.881304 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m20:37:36.881762 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m20:37:36.882110 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m20:37:36.888843 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.nfl_contracts.gold
+[0m20:37:36.915993 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '862c0b86-6241-4efd-a8db-360cdff5dae9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001397F360050>]}
+[0m20:37:36.977210 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:37:36.980602 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:37:37.026229 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '862c0b86-6241-4efd-a8db-360cdff5dae9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001397F88D130>]}
+[0m20:37:37.026935 [info ] [MainThread]: Found 4 models, 474 macros
+[0m20:37:37.027734 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '862c0b86-6241-4efd-a8db-360cdff5dae9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001397F37E510>]}
+[0m20:37:37.029834 [info ] [MainThread]: 
+[0m20:37:37.030646 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m20:37:37.031321 [info ] [MainThread]: 
+[0m20:37:37.032666 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m20:37:37.038639 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_bronze'
+[0m20:37:37.050252 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_silver'
+[0m20:37:37.135156 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:37:37.135690 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:37:37.136201 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: BEGIN
+[0m20:37:37.136683 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: BEGIN
+[0m20:37:37.137213 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:37:37.137714 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:37:37.157214 [debug] [ThreadPool]: SQL status: OK in 0.020 seconds
+[0m20:37:37.157856 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:37:37.158350 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_bronze"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_bronze'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:37:37.160391 [debug] [ThreadPool]: SQL status: OK in 0.023 seconds
+[0m20:37:37.161300 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:37:37.162024 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_silver"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_silver'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:37:37.179584 [debug] [ThreadPool]: SQL status: OK in 0.021 seconds
+[0m20:37:37.180284 [debug] [ThreadPool]: SQL status: OK in 0.018 seconds
+[0m20:37:37.182166 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: ROLLBACK
+[0m20:37:37.183663 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: ROLLBACK
+[0m20:37:37.185977 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_silver'
+[0m20:37:37.186743 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: Close
+[0m20:37:37.187444 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_bronze'
+[0m20:37:37.188703 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: Close
+[0m20:37:37.190585 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '862c0b86-6241-4efd-a8db-360cdff5dae9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001397FBF8AE0>]}
+[0m20:37:37.197737 [debug] [Thread-1 (]: Began running node model.nfl_contracts.wr_game
+[0m20:37:37.198661 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.nfl_contracts.wr_game'
+[0m20:37:37.199426 [debug] [Thread-1 (]: Began compiling node model.nfl_contracts.wr_game
+[0m20:37:37.209990 [debug] [Thread-1 (]: Writing injected SQL for node "model.nfl_contracts.wr_game"
+[0m20:37:37.211611 [debug] [Thread-1 (]: Began executing node model.nfl_contracts.wr_game
+[0m20:37:37.212501 [debug] [Thread-1 (]: Finished running node model.nfl_contracts.wr_game
+[0m20:37:37.214676 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:37:37.215065 [debug] [MainThread]: Connection 'list_nfl_contracts_main_bronze' was properly closed.
+[0m20:37:37.215403 [debug] [MainThread]: Connection 'list_nfl_contracts_main_silver' was properly closed.
+[0m20:37:37.215745 [debug] [MainThread]: Connection 'model.nfl_contracts.wr_game' was properly closed.
+[0m20:37:37.216340 [debug] [MainThread]: Command end result
+[0m20:37:37.240658 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:37:37.243944 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:37:37.251241 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\run_results.json
+[0m20:37:37.251925 [info ] [MainThread]: Compiled node 'wr_game' is:
+
+
+WITH source AS (
+    -- Read all game-level WR data from 2021-2025 (including week folders)
+    SELECT * FROM read_csv_auto(
+            '../data/raw/*/*/WR.csv',
+            header=true,
+            filename=true,
+            hive_partitioning=true
+        )
+)
+
+SELECT
+    filename as source_file,
+    
+    -- Extract season and week from path
+    REGEXP_EXTRACT(filename, '.*/(\\d{4})/\\d+/(.*)', 1) as season_year,
+    REGEXP_EXTRACT(filename, '.*/\\d{4}/(\\d+)/.*', 1) as week_number,
+    
+    -- Player info
+    TRIM(PlayerName) as player_name,
+    TRIM(CAST(PlayerId AS VARCHAR)) as player_id,  -- Fixed: cast to string before trim
+    TRIM(Pos) as position,
+    TRIM(Team) as team,
+    TRIM(PlayerOpponent) as opponent,
+    
+    -- Passing stats
+    TRY_CAST(PassingYDS AS INTEGER) as passing_yards,
+    TRY_CAST(PassingTD AS INTEGER) as passing_td,
+    TRY_CAST(PassingInt AS INTEGER) as passing_int,
+    
+    -- Rushing stats
+    TRY_CAST(RushingYDS AS INTEGER) as rushing_yards,
+    TRY_CAST(RushingTD AS INTEGER) as rushing_td,
+    
+    -- Receiving stats
+    TRY_CAST(ReceivingRec AS INTEGER) as receptions,
+    TRY_CAST(ReceivingYDS AS INTEGER) as receiving_yards,
+    TRY_CAST(ReceivingTD AS INTEGER) as receiving_td,
+    
+    -- Other stats
+    TRY_CAST(RetTD AS INTEGER) as return_td,
+    TRY_CAST(FumTD AS INTEGER) as fumble_return_td,
+    TRY_CAST("2PT" AS INTEGER) as two_point_conversions,
+    TRY_CAST(Fum AS INTEGER) as fumbles,
+    TRY_CAST("FanPtsAgainst-pts" AS DOUBLE) as fantasy_points_against,
+    
+    -- Touches
+    TRY_CAST(TouchCarries AS INTEGER) as carries,
+    TRY_CAST(TouchReceptions AS INTEGER) as touch_receptions,
+    TRY_CAST(Touches AS INTEGER) as total_touches,
+    TRY_CAST(TargetsReceptions AS INTEGER) as targets_receptions,
+    TRY_CAST(Targets AS INTEGER) as targets,
+    TRY_CAST(ReceptionPercentage AS DOUBLE) as reception_pct,
+    
+    -- Red zone
+    TRY_CAST(RzTarget AS INTEGER) as red_zone_targets,
+    TRY_CAST(RzTouch AS INTEGER) as red_zone_touches,
+    TRY_CAST(RzG2G AS INTEGER) as red_zone_goal_to_go,
+    
+    -- Rankings
+    TRY_CAST(Rank AS INTEGER) as rank,
+    TRY_CAST(TotalPoints AS DOUBLE) as total_points,
+    
+    -- Add ingestion timestamp
+    CURRENT_TIMESTAMP as ingested_at
+    
+FROM source
+WHERE position = 'WR'
+  AND player_name IS NOT NULL
+  AND player_name != 'PlayerName'  -- Filter out potential header rows
+[0m20:37:37.253971 [debug] [MainThread]: Command `dbt compile` succeeded at 20:37:37.253794 after 1.44 seconds
+[0m20:37:37.254399 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001397F258AD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001397F9CB8B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001397F9C9FF0>]}
+[0m20:37:37.254800 [debug] [MainThread]: Flushing usage events
+[0m20:37:37.980937 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:37:45.286380 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D1CA39010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D1D73C050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D1DD97ED0>]}
+
+
+============================== 20:37:45.292076 | befec6f4-bd78-468d-a057-5aaca7dfc4b8 ==============================
+[0m20:37:45.292076 [info ] [MainThread]: Running with dbt=1.11.5
+[0m20:37:45.293068 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run --select bronze.wr_season', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt\\logs'}
+[0m20:37:45.547404 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'befec6f4-bd78-468d-a057-5aaca7dfc4b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D1D08AC40>]}
+[0m20:37:45.616823 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'befec6f4-bd78-468d-a057-5aaca7dfc4b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D1DC8F020>]}
+[0m20:37:45.619829 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m20:37:45.931420 [debug] [MainThread]: checksum: 917838c7befe257b9b22a76c21e5785f6f23ac83ef0336e2870f03c9c3f28402, vars: {}, profile: , target: , version: 1.11.5
+[0m20:37:46.054280 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m20:37:46.054675 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m20:37:46.054944 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m20:37:46.060269 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.nfl_contracts.gold
+[0m20:37:46.080335 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'befec6f4-bd78-468d-a057-5aaca7dfc4b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D1DE60F50>]}
+[0m20:37:46.146666 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:37:46.149784 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:37:46.195245 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'befec6f4-bd78-468d-a057-5aaca7dfc4b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D1DC07200>]}
+[0m20:37:46.195849 [info ] [MainThread]: Found 4 models, 474 macros
+[0m20:37:46.196423 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'befec6f4-bd78-468d-a057-5aaca7dfc4b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D1EFCD1D0>]}
+[0m20:37:46.198264 [info ] [MainThread]: 
+[0m20:37:46.199011 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m20:37:46.199473 [info ] [MainThread]: 
+[0m20:37:46.200276 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m20:37:46.201460 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts'
+[0m20:37:46.288708 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts"
+[0m20:37:46.289206 [debug] [ThreadPool]: On list_nfl_contracts: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"nfl_contracts"'
+    
+  
+  
+[0m20:37:46.289487 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:37:46.307570 [debug] [ThreadPool]: SQL status: OK in 0.018 seconds
+[0m20:37:46.308794 [debug] [ThreadPool]: On list_nfl_contracts: Close
+[0m20:37:46.309521 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_nfl_contracts, now create_nfl_contracts_main_bronze)
+[0m20:37:46.309937 [debug] [ThreadPool]: Creating schema "database: "nfl_contracts"
+schema: "main_bronze"
+"
+[0m20:37:46.318402 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:37:46.318786 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "create_nfl_contracts_main_bronze"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='nfl_contracts'
+        and type='sqlite'
+    
+  
+[0m20:37:46.319056 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m20:37:46.320241 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m20:37:46.321428 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:37:46.321706 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: BEGIN
+[0m20:37:46.322457 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m20:37:46.323099 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:37:46.323472 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "create_nfl_contracts_main_bronze"} */
+
+    
+    
+        create schema if not exists "nfl_contracts"."main_bronze"
+    
+[0m20:37:46.324090 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m20:37:46.324810 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: COMMIT
+[0m20:37:46.325125 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:37:46.325374 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: COMMIT
+[0m20:37:46.325904 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m20:37:46.326173 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: Close
+[0m20:37:46.332413 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_bronze'
+[0m20:37:46.337847 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:37:46.338663 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: BEGIN
+[0m20:37:46.339314 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_silver'
+[0m20:37:46.339807 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:37:46.341492 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:37:46.342292 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: BEGIN
+[0m20:37:46.342674 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:37:46.343523 [debug] [ThreadPool]: SQL status: OK in 0.004 seconds
+[0m20:37:46.343921 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:37:46.344559 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_bronze"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_bronze'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:37:46.345532 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m20:37:46.346310 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:37:46.346858 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_silver"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_silver'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:37:46.361799 [debug] [ThreadPool]: SQL status: OK in 0.016 seconds
+[0m20:37:46.363522 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: ROLLBACK
+[0m20:37:46.363904 [debug] [ThreadPool]: SQL status: OK in 0.017 seconds
+[0m20:37:46.365545 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: ROLLBACK
+[0m20:37:46.366729 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_bronze'
+[0m20:37:46.367068 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: Close
+[0m20:37:46.368413 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_silver'
+[0m20:37:46.368702 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: Close
+[0m20:37:46.369998 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'befec6f4-bd78-468d-a057-5aaca7dfc4b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D1F6A1BF0>]}
+[0m20:37:46.370421 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:37:46.370699 [debug] [MainThread]: On master: BEGIN
+[0m20:37:46.370937 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:37:46.371601 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m20:37:46.371854 [debug] [MainThread]: On master: COMMIT
+[0m20:37:46.372133 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:37:46.372387 [debug] [MainThread]: On master: COMMIT
+[0m20:37:46.373109 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m20:37:46.373407 [debug] [MainThread]: On master: Close
+[0m20:37:46.380385 [debug] [Thread-1 (]: Began running node model.nfl_contracts.wr_season
+[0m20:37:46.380901 [info ] [Thread-1 (]: 1 of 1 START sql table model main_bronze.wr_season ............................. [RUN]
+[0m20:37:46.382644 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.nfl_contracts.wr_season'
+[0m20:37:46.383195 [debug] [Thread-1 (]: Began compiling node model.nfl_contracts.wr_season
+[0m20:37:46.391665 [debug] [Thread-1 (]: Writing injected SQL for node "model.nfl_contracts.wr_season"
+[0m20:37:46.396320 [debug] [Thread-1 (]: Began executing node model.nfl_contracts.wr_season
+[0m20:37:46.428336 [debug] [Thread-1 (]: Writing runtime sql for node "model.nfl_contracts.wr_season"
+[0m20:37:46.429662 [debug] [Thread-1 (]: Using duckdb connection "model.nfl_contracts.wr_season"
+[0m20:37:46.430106 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: BEGIN
+[0m20:37:46.430414 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m20:37:46.431283 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:37:46.431618 [debug] [Thread-1 (]: Using duckdb connection "model.nfl_contracts.wr_season"
+[0m20:37:46.431993 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "node_id": "model.nfl_contracts.wr_season"} */
+
+  
+    
+    
+
+    create  table
+      "nfl_contracts"."main_bronze"."wr_season__dbt_tmp"
+  
+    as (
+      
+
+WITH source AS (
+    -- Read ALL seasonal WR data from 2015-2025
+    SELECT * FROM read_csv_auto(
+            '../data/raw/*/WR_season.csv',
+            header=true,
+            filename=true,
+            hive_partitioning=true
+        )
+)
+
+SELECT
+    filename as source_file,
+    -- Extract year from filename path
+    REGEXP_EXTRACT(filename, '.*/(\\d{4})/.*', 1) as season_year,
+    
+    -- Player info
+    TRIM(PlayerName) as player_name,
+    TRIM(CAST(PlayerId AS VARCHAR)) as player_id,  -- Fixed: cast to string before trim
+    TRIM(Pos) as position,
+    TRIM(Team) as team,
+    
+    -- Passing stats
+    TRY_CAST(PassingYDS AS INTEGER) as passing_yards,
+    TRY_CAST(PassingTD AS INTEGER) as passing_td,
+    TRY_CAST(PassingInt AS INTEGER) as passing_int,
+    
+    -- Rushing stats
+    TRY_CAST(RushingYDS AS INTEGER) as rushing_yards,
+    TRY_CAST(RushingTD AS INTEGER) as rushing_td,
+    
+    -- Receiving stats
+    TRY_CAST(ReceivingRec AS INTEGER) as receptions,
+    TRY_CAST(ReceivingYDS AS INTEGER) as receiving_yards,
+    TRY_CAST(ReceivingTD AS INTEGER) as receiving_td,
+    
+    -- Other stats
+    TRY_CAST(RetTD AS INTEGER) as return_td,
+    TRY_CAST(FumTD AS INTEGER) as fumble_return_td,
+    TRY_CAST("2PT" AS INTEGER) as two_point_conversions,
+    TRY_CAST(Fum AS INTEGER) as fumbles,
+    TRY_CAST("FanPtsAgainst-pts" AS DOUBLE) as fantasy_points_against,
+    
+    -- Touches
+    TRY_CAST(TouchCarries AS INTEGER) as carries,
+    TRY_CAST(TouchReceptions AS INTEGER) as touch_receptions,
+    TRY_CAST(Touches AS INTEGER) as total_touches,
+    TRY_CAST(TargetsReceptions AS INTEGER) as targets_receptions,
+    TRY_CAST(Targets AS INTEGER) as targets,
+    TRY_CAST(ReceptionPercentage AS DOUBLE) as reception_pct,
+    
+    -- Red zone
+    TRY_CAST(RzTarget AS INTEGER) as red_zone_targets,
+    TRY_CAST(RzTouch AS INTEGER) as red_zone_touches,
+    TRY_CAST(RzG2G AS INTEGER) as red_zone_goal_to_go,
+    
+    -- Rankings
+    TRY_CAST(Rank AS INTEGER) as rank,
+    TRY_CAST(TotalPoints AS DOUBLE) as total_points,
+    
+    -- Add ingestion timestamp
+    CURRENT_TIMESTAMP as ingested_at
+    
+FROM source
+WHERE position = 'WR'
+  AND player_name IS NOT NULL
+  AND player_name != 'PlayerName'  -- Filter out potential header rows
+    );
+  
+  
+[0m20:37:46.617852 [debug] [Thread-1 (]: SQL status: OK in 0.185 seconds
+[0m20:37:46.624408 [debug] [Thread-1 (]: Using duckdb connection "model.nfl_contracts.wr_season"
+[0m20:37:46.624926 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "node_id": "model.nfl_contracts.wr_season"} */
+alter table "nfl_contracts"."main_bronze"."wr_season__dbt_tmp" rename to "wr_season"
+[0m20:37:46.626208 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:37:46.640528 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: COMMIT
+[0m20:37:46.641091 [debug] [Thread-1 (]: Using duckdb connection "model.nfl_contracts.wr_season"
+[0m20:37:46.641416 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: COMMIT
+[0m20:37:46.650804 [debug] [Thread-1 (]: SQL status: OK in 0.009 seconds
+[0m20:37:46.657595 [debug] [Thread-1 (]: Using duckdb connection "model.nfl_contracts.wr_season"
+[0m20:37:46.658341 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "node_id": "model.nfl_contracts.wr_season"} */
+
+      drop table if exists "nfl_contracts"."main_bronze"."wr_season__dbt_backup" cascade
+    
+[0m20:37:46.659723 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:37:46.662489 [debug] [Thread-1 (]: On model.nfl_contracts.wr_season: Close
+[0m20:37:46.665501 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'befec6f4-bd78-468d-a057-5aaca7dfc4b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D1F8284D0>]}
+[0m20:37:46.666296 [info ] [Thread-1 (]: 1 of 1 OK created sql table model main_bronze.wr_season ........................ [[32mOK[0m in 0.28s]
+[0m20:37:46.667371 [debug] [Thread-1 (]: Finished running node model.nfl_contracts.wr_season
+[0m20:37:46.669626 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:37:46.669968 [debug] [MainThread]: On master: BEGIN
+[0m20:37:46.670230 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m20:37:46.670891 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m20:37:46.671175 [debug] [MainThread]: On master: COMMIT
+[0m20:37:46.671509 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:37:46.671750 [debug] [MainThread]: On master: COMMIT
+[0m20:37:46.672268 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m20:37:46.672600 [debug] [MainThread]: On master: Close
+[0m20:37:46.673140 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:37:46.673482 [debug] [MainThread]: Connection 'create_nfl_contracts_main_bronze' was properly closed.
+[0m20:37:46.673805 [debug] [MainThread]: Connection 'list_nfl_contracts_main_bronze' was properly closed.
+[0m20:37:46.674023 [debug] [MainThread]: Connection 'list_nfl_contracts_main_silver' was properly closed.
+[0m20:37:46.674238 [debug] [MainThread]: Connection 'model.nfl_contracts.wr_season' was properly closed.
+[0m20:37:46.674589 [info ] [MainThread]: 
+[0m20:37:46.675414 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 0.47 seconds (0.47s).
+[0m20:37:46.676684 [debug] [MainThread]: Command end result
+[0m20:37:46.761230 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:37:46.765792 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:37:46.773428 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\run_results.json
+[0m20:37:46.773856 [info ] [MainThread]: 
+[0m20:37:46.775175 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m20:37:46.775880 [info ] [MainThread]: 
+[0m20:37:46.776690 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m20:37:46.778354 [debug] [MainThread]: Command `dbt run` succeeded at 20:37:46.778092 after 1.68 seconds
+[0m20:37:46.778803 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D1F47F5F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D1F0C0190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022D1F0C02D0>]}
+[0m20:37:46.779248 [debug] [MainThread]: Flushing usage events
+[0m20:37:47.526064 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:38:11.151875 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D46A89010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D4778C050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D47DE7ED0>]}
+
+
+============================== 20:38:11.158051 | dfdd4e9b-89e8-4745-938d-a56aeeae08cb ==============================
+[0m20:38:11.158051 [info ] [MainThread]: Running with dbt=1.11.5
+[0m20:38:11.159036 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt run --select bronze.wr_game', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt\\logs'}
+[0m20:38:11.437441 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'dfdd4e9b-89e8-4745-938d-a56aeeae08cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D470DAC40>]}
+[0m20:38:11.508110 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'dfdd4e9b-89e8-4745-938d-a56aeeae08cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D47CDF020>]}
+[0m20:38:11.511413 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m20:38:11.824552 [debug] [MainThread]: checksum: 917838c7befe257b9b22a76c21e5785f6f23ac83ef0336e2870f03c9c3f28402, vars: {}, profile: , target: , version: 1.11.5
+[0m20:38:11.945676 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m20:38:11.946065 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m20:38:11.946342 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m20:38:11.951934 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.nfl_contracts.gold
+[0m20:38:11.973603 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'dfdd4e9b-89e8-4745-938d-a56aeeae08cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D47EB0F50>]}
+[0m20:38:12.042865 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:38:12.046671 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:38:12.092021 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'dfdd4e9b-89e8-4745-938d-a56aeeae08cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D47C57200>]}
+[0m20:38:12.092689 [info ] [MainThread]: Found 4 models, 474 macros
+[0m20:38:12.093383 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'dfdd4e9b-89e8-4745-938d-a56aeeae08cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D4907D550>]}
+[0m20:38:12.095133 [info ] [MainThread]: 
+[0m20:38:12.095782 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m20:38:12.096346 [info ] [MainThread]: 
+[0m20:38:12.096971 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m20:38:12.098199 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts'
+[0m20:38:12.190922 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts"
+[0m20:38:12.191365 [debug] [ThreadPool]: On list_nfl_contracts: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"nfl_contracts"'
+    
+  
+  
+[0m20:38:12.191705 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:38:12.246066 [debug] [ThreadPool]: SQL status: OK in 0.054 seconds
+[0m20:38:12.247323 [debug] [ThreadPool]: On list_nfl_contracts: Close
+[0m20:38:12.248001 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_nfl_contracts, now create_nfl_contracts_main_bronze)
+[0m20:38:12.248401 [debug] [ThreadPool]: Creating schema "database: "nfl_contracts"
+schema: "main_bronze"
+"
+[0m20:38:12.254309 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:38:12.254810 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "create_nfl_contracts_main_bronze"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='nfl_contracts'
+        and type='sqlite'
+    
+  
+[0m20:38:12.255108 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m20:38:12.256324 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m20:38:12.257461 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:38:12.257788 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: BEGIN
+[0m20:38:12.258325 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m20:38:12.258629 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:38:12.258871 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "create_nfl_contracts_main_bronze"} */
+
+    
+    
+        create schema if not exists "nfl_contracts"."main_bronze"
+    
+[0m20:38:12.259432 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m20:38:12.260146 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: COMMIT
+[0m20:38:12.260431 [debug] [ThreadPool]: Using duckdb connection "create_nfl_contracts_main_bronze"
+[0m20:38:12.260873 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: COMMIT
+[0m20:38:12.261567 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m20:38:12.261857 [debug] [ThreadPool]: On create_nfl_contracts_main_bronze: Close
+[0m20:38:12.267389 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_bronze'
+[0m20:38:12.274074 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:38:12.274763 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_nfl_contracts_main_silver'
+[0m20:38:12.275115 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: BEGIN
+[0m20:38:12.276835 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:38:12.277234 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:38:12.277614 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: BEGIN
+[0m20:38:12.278284 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:38:12.278934 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m20:38:12.279378 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_bronze"
+[0m20:38:12.279684 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_bronze"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_bronze'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:38:12.280316 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m20:38:12.280611 [debug] [ThreadPool]: Using duckdb connection "list_nfl_contracts_main_silver"
+[0m20:38:12.280889 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "connection_name": "list_nfl_contracts_main_silver"} */
+select
+      'nfl_contracts' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_silver'
+    and lower(table_catalog) = 'nfl_contracts'
+  
+[0m20:38:12.295442 [debug] [ThreadPool]: SQL status: OK in 0.015 seconds
+[0m20:38:12.295923 [debug] [ThreadPool]: SQL status: OK in 0.015 seconds
+[0m20:38:12.297157 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: ROLLBACK
+[0m20:38:12.298264 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: ROLLBACK
+[0m20:38:12.299984 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_bronze'
+[0m20:38:12.300328 [debug] [ThreadPool]: On list_nfl_contracts_main_bronze: Close
+[0m20:38:12.300854 [debug] [ThreadPool]: Failed to rollback 'list_nfl_contracts_main_silver'
+[0m20:38:12.301168 [debug] [ThreadPool]: On list_nfl_contracts_main_silver: Close
+[0m20:38:12.303228 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'dfdd4e9b-89e8-4745-938d-a56aeeae08cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D49751BF0>]}
+[0m20:38:12.304071 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:38:12.304433 [debug] [MainThread]: On master: BEGIN
+[0m20:38:12.304739 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:38:12.305463 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m20:38:12.305830 [debug] [MainThread]: On master: COMMIT
+[0m20:38:12.306109 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:38:12.306403 [debug] [MainThread]: On master: COMMIT
+[0m20:38:12.307012 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m20:38:12.307343 [debug] [MainThread]: On master: Close
+[0m20:38:12.313971 [debug] [Thread-1 (]: Began running node model.nfl_contracts.wr_game
+[0m20:38:12.314602 [info ] [Thread-1 (]: 1 of 1 START sql table model main_bronze.wr_game ............................... [RUN]
+[0m20:38:12.315709 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.nfl_contracts.wr_game'
+[0m20:38:12.316121 [debug] [Thread-1 (]: Began compiling node model.nfl_contracts.wr_game
+[0m20:38:12.324900 [debug] [Thread-1 (]: Writing injected SQL for node "model.nfl_contracts.wr_game"
+[0m20:38:12.326441 [debug] [Thread-1 (]: Began executing node model.nfl_contracts.wr_game
+[0m20:38:12.360742 [debug] [Thread-1 (]: Writing runtime sql for node "model.nfl_contracts.wr_game"
+[0m20:38:12.362835 [debug] [Thread-1 (]: Using duckdb connection "model.nfl_contracts.wr_game"
+[0m20:38:12.363344 [debug] [Thread-1 (]: On model.nfl_contracts.wr_game: BEGIN
+[0m20:38:12.363695 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m20:38:12.364606 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:38:12.365075 [debug] [Thread-1 (]: Using duckdb connection "model.nfl_contracts.wr_game"
+[0m20:38:12.365576 [debug] [Thread-1 (]: On model.nfl_contracts.wr_game: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "node_id": "model.nfl_contracts.wr_game"} */
+
+  
+    
+    
+
+    create  table
+      "nfl_contracts"."main_bronze"."wr_game__dbt_tmp"
+  
+    as (
+      
+
+WITH source AS (
+    -- Read all game-level WR data from 2021-2025 (including week folders)
+    SELECT * FROM read_csv_auto(
+            '../data/raw/*/*/WR.csv',
+            header=true,
+            filename=true,
+            hive_partitioning=true
+        )
+)
+
+SELECT
+    filename as source_file,
+    
+    -- Extract season and week from path
+    REGEXP_EXTRACT(filename, '.*/(\\d{4})/\\d+/(.*)', 1) as season_year,
+    REGEXP_EXTRACT(filename, '.*/\\d{4}/(\\d+)/.*', 1) as week_number,
+    
+    -- Player info
+    TRIM(PlayerName) as player_name,
+    TRIM(CAST(PlayerId AS VARCHAR)) as player_id,  -- Fixed: cast to string before trim
+    TRIM(Pos) as position,
+    TRIM(Team) as team,
+    TRIM(PlayerOpponent) as opponent,
+    
+    -- Passing stats
+    TRY_CAST(PassingYDS AS INTEGER) as passing_yards,
+    TRY_CAST(PassingTD AS INTEGER) as passing_td,
+    TRY_CAST(PassingInt AS INTEGER) as passing_int,
+    
+    -- Rushing stats
+    TRY_CAST(RushingYDS AS INTEGER) as rushing_yards,
+    TRY_CAST(RushingTD AS INTEGER) as rushing_td,
+    
+    -- Receiving stats
+    TRY_CAST(ReceivingRec AS INTEGER) as receptions,
+    TRY_CAST(ReceivingYDS AS INTEGER) as receiving_yards,
+    TRY_CAST(ReceivingTD AS INTEGER) as receiving_td,
+    
+    -- Other stats
+    TRY_CAST(RetTD AS INTEGER) as return_td,
+    TRY_CAST(FumTD AS INTEGER) as fumble_return_td,
+    TRY_CAST("2PT" AS INTEGER) as two_point_conversions,
+    TRY_CAST(Fum AS INTEGER) as fumbles,
+    TRY_CAST("FanPtsAgainst-pts" AS DOUBLE) as fantasy_points_against,
+    
+    -- Touches
+    TRY_CAST(TouchCarries AS INTEGER) as carries,
+    TRY_CAST(TouchReceptions AS INTEGER) as touch_receptions,
+    TRY_CAST(Touches AS INTEGER) as total_touches,
+    TRY_CAST(TargetsReceptions AS INTEGER) as targets_receptions,
+    TRY_CAST(Targets AS INTEGER) as targets,
+    TRY_CAST(ReceptionPercentage AS DOUBLE) as reception_pct,
+    
+    -- Red zone
+    TRY_CAST(RzTarget AS INTEGER) as red_zone_targets,
+    TRY_CAST(RzTouch AS INTEGER) as red_zone_touches,
+    TRY_CAST(RzG2G AS INTEGER) as red_zone_goal_to_go,
+    
+    -- Rankings
+    TRY_CAST(Rank AS INTEGER) as rank,
+    TRY_CAST(TotalPoints AS DOUBLE) as total_points,
+    
+    -- Add ingestion timestamp
+    CURRENT_TIMESTAMP as ingested_at
+    
+FROM source
+WHERE position = 'WR'
+  AND player_name IS NOT NULL
+  AND player_name != 'PlayerName'  -- Filter out potential header rows
+    );
+  
+  
+[0m20:38:12.666693 [debug] [Thread-1 (]: SQL status: OK in 0.300 seconds
+[0m20:38:12.673333 [debug] [Thread-1 (]: Using duckdb connection "model.nfl_contracts.wr_game"
+[0m20:38:12.673811 [debug] [Thread-1 (]: On model.nfl_contracts.wr_game: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "node_id": "model.nfl_contracts.wr_game"} */
+alter table "nfl_contracts"."main_bronze"."wr_game__dbt_tmp" rename to "wr_game"
+[0m20:38:12.674770 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:38:12.688424 [debug] [Thread-1 (]: On model.nfl_contracts.wr_game: COMMIT
+[0m20:38:12.688927 [debug] [Thread-1 (]: Using duckdb connection "model.nfl_contracts.wr_game"
+[0m20:38:12.689298 [debug] [Thread-1 (]: On model.nfl_contracts.wr_game: COMMIT
+[0m20:38:12.723198 [debug] [Thread-1 (]: SQL status: OK in 0.033 seconds
+[0m20:38:12.728838 [debug] [Thread-1 (]: Using duckdb connection "model.nfl_contracts.wr_game"
+[0m20:38:12.729761 [debug] [Thread-1 (]: On model.nfl_contracts.wr_game: /* {"app": "dbt", "dbt_version": "1.11.5", "profile_name": "nfl_contracts", "target_name": "dev", "node_id": "model.nfl_contracts.wr_game"} */
+
+      drop table if exists "nfl_contracts"."main_bronze"."wr_game__dbt_backup" cascade
+    
+[0m20:38:12.731115 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m20:38:12.733889 [debug] [Thread-1 (]: On model.nfl_contracts.wr_game: Close
+[0m20:38:12.736249 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dfdd4e9b-89e8-4745-938d-a56aeeae08cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D498D87D0>]}
+[0m20:38:12.736979 [info ] [Thread-1 (]: 1 of 1 OK created sql table model main_bronze.wr_game .......................... [[32mOK[0m in 0.42s]
+[0m20:38:12.738171 [debug] [Thread-1 (]: Finished running node model.nfl_contracts.wr_game
+[0m20:38:12.739830 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:38:12.740221 [debug] [MainThread]: On master: BEGIN
+[0m20:38:12.740511 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m20:38:12.741152 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m20:38:12.741473 [debug] [MainThread]: On master: COMMIT
+[0m20:38:12.741760 [debug] [MainThread]: Using duckdb connection "master"
+[0m20:38:12.742034 [debug] [MainThread]: On master: COMMIT
+[0m20:38:12.742598 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m20:38:12.742937 [debug] [MainThread]: On master: Close
+[0m20:38:12.743348 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:38:12.743607 [debug] [MainThread]: Connection 'create_nfl_contracts_main_bronze' was properly closed.
+[0m20:38:12.743849 [debug] [MainThread]: Connection 'list_nfl_contracts_main_bronze' was properly closed.
+[0m20:38:12.744083 [debug] [MainThread]: Connection 'list_nfl_contracts_main_silver' was properly closed.
+[0m20:38:12.744332 [debug] [MainThread]: Connection 'model.nfl_contracts.wr_game' was properly closed.
+[0m20:38:12.744661 [info ] [MainThread]: 
+[0m20:38:12.745388 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 0.65 seconds (0.65s).
+[0m20:38:12.746449 [debug] [MainThread]: Command end result
+[0m20:38:12.833619 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\manifest.json
+[0m20:38:12.837476 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\semantic_manifest.json
+[0m20:38:12.844691 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\target\run_results.json
+[0m20:38:12.845137 [info ] [MainThread]: 
+[0m20:38:12.845791 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m20:38:12.846276 [info ] [MainThread]: 
+[0m20:38:12.846779 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m20:38:12.847735 [debug] [MainThread]: Command `dbt run` succeeded at 20:38:12.847597 after 1.88 seconds
+[0m20:38:12.848111 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D49532200>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D4916C190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D4916C2D0>]}
+[0m20:38:12.848470 [debug] [MainThread]: Flushing usage events
+[0m20:38:13.602650 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:11:05.134588 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000222A13B9010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000222A20D0050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000222A2717ED0>]}
+
+
+============================== 21:11:05.139606 | d80ad53c-e9cb-443a-b716-92a70b109822 ==============================
+[0m21:11:05.139606 [info ] [MainThread]: Running with dbt=1.11.5
+[0m21:11:05.141038 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt debug', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt\\logs'}
+[0m21:11:05.207090 [info ] [MainThread]: dbt version: 1.11.5
+[0m21:11:05.208411 [info ] [MainThread]: python version: 3.13.5
+[0m21:11:05.209034 [info ] [MainThread]: python path: C:\Users\decla\Desktop\NFL-Market-Value-Analysis\.venv\Scripts\python.exe
+[0m21:11:05.210179 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m21:11:05.338187 [info ] [MainThread]: Using profiles dir at C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt
+[0m21:11:05.339000 [info ] [MainThread]: Using profiles.yml file at C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\profiles.yml
+[0m21:11:05.339862 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\dbt_project.yml
+[0m21:11:05.343594 [info ] [MainThread]: adapter type: duckdb
+[0m21:11:05.344575 [info ] [MainThread]: adapter version: 1.10.0
+[0m21:11:05.454117 [info ] [MainThread]: Configuration:
+[0m21:11:05.454839 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m21:11:05.455821 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m21:11:05.456332 [info ] [MainThread]: Required dependencies:
+[0m21:11:05.457241 [debug] [MainThread]: Executing "git --help"
+[0m21:11:05.507447 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone             Clone a repository into a new directory\n   init              Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add               Add file contents to the index\n   mv                Move or rename a file, a directory, or a symlink\n   restore           Restore working tree files\n   rm                Remove files from the working tree and from the index\n   sparse-checkout   Initialize and modify the sparse-checkout\n\nexamine the history and state (see also: git help revisions)\n   bisect            Use binary search to find the commit that introduced a bug\n   diff              Show changes between commits, commit and working tree, etc\n   grep              Print lines matching a pattern\n   log               Show commit logs\n   show              Show various types of objects\n   status            Show the working tree status\n\ngrow, mark and tweak your common history\n   branch            List, create, or delete branches\n   commit            Record changes to the repository\n   merge             Join two or more development histories together\n   rebase            Reapply commits on top of another base tip\n   reset             Reset current HEAD to the specified state\n   switch            Switch branches\n   tag               Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch             Download objects and refs from another repository\n   pull              Fetch from and integrate with another repository or a local branch\n   push              Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m21:11:05.507919 [debug] [MainThread]: STDERR: "b''"
+[0m21:11:05.508201 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m21:11:05.508877 [info ] [MainThread]: Connection:
+[0m21:11:05.509804 [info ] [MainThread]:   database: superbowl
+[0m21:11:05.510611 [info ] [MainThread]:   schema: main
+[0m21:11:05.511300 [info ] [MainThread]:   path: warehouse/superbowl.duckdb
+[0m21:11:05.511815 [info ] [MainThread]:   config_options: None
+[0m21:11:05.512573 [info ] [MainThread]:   extensions: None
+[0m21:11:05.513394 [info ] [MainThread]:   settings: {}
+[0m21:11:05.513895 [info ] [MainThread]:   external_root: .
+[0m21:11:05.514510 [info ] [MainThread]:   use_credential_provider: None
+[0m21:11:05.515145 [info ] [MainThread]:   attach: None
+[0m21:11:05.515941 [info ] [MainThread]:   filesystems: None
+[0m21:11:05.516516 [info ] [MainThread]:   remote: None
+[0m21:11:05.517092 [info ] [MainThread]:   plugins: None
+[0m21:11:05.517694 [info ] [MainThread]:   disable_transactions: False
+[0m21:11:05.518536 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m21:11:05.862426 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m21:11:05.952510 [debug] [MainThread]: Using duckdb connection "debug"
+[0m21:11:05.952955 [debug] [MainThread]: On debug: select 1 as id
+[0m21:11:05.953277 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:11:05.968955 [debug] [MainThread]: DuckDB adapter: Error running SQL: select 1 as id
+[0m21:11:05.969592 [debug] [MainThread]: DuckDB adapter: Rolling back transaction.
+[0m21:11:05.970144 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m21:11:05.970745 [info ] [MainThread]: [31m1 check failed:[0m
+[0m21:11:05.971588 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Runtime Error
+  IO Error: Cannot open file "c:\users\decla\desktop\nfl-market-value-analysis\dbt\warehouse\superbowl.duckdb": The system cannot find the path specified.
+  
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m21:11:05.973005 [debug] [MainThread]: Command `dbt debug` failed at 21:11:05.972728 after 1.03 seconds
+[0m21:11:05.973428 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m21:11:05.973884 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000222A39EF360>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000222A39E9D90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000222A390DF20>]}
+[0m21:11:05.974396 [debug] [MainThread]: Flushing usage events
+[0m21:11:06.921903 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:12:27.070493 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014BC0D89010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014BC1A90050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014BC20E7ED0>]}
+
+
+============================== 21:12:27.075415 | fa296993-8246-4bad-b6c1-ddf45d1c3488 ==============================
+[0m21:12:27.075415 [info ] [MainThread]: Running with dbt=1.11.5
+[0m21:12:27.076881 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt', 'invocation_command': 'dbt debug', 'indirect_selection': 'eager', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt\\logs'}
+[0m21:12:27.107605 [info ] [MainThread]: dbt version: 1.11.5
+[0m21:12:27.108773 [info ] [MainThread]: python version: 3.13.5
+[0m21:12:27.109530 [info ] [MainThread]: python path: C:\Users\decla\Desktop\NFL-Market-Value-Analysis\.venv\Scripts\python.exe
+[0m21:12:27.110404 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m21:12:27.236851 [info ] [MainThread]: Using profiles dir at C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt
+[0m21:12:27.238078 [info ] [MainThread]: Using profiles.yml file at C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\profiles.yml
+[0m21:12:27.238897 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\dbt_project.yml
+[0m21:12:27.242407 [info ] [MainThread]: adapter type: duckdb
+[0m21:12:27.243242 [info ] [MainThread]: adapter version: 1.10.0
+[0m21:12:27.389831 [info ] [MainThread]: Configuration:
+[0m21:12:27.390542 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m21:12:27.391111 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m21:12:27.391596 [info ] [MainThread]: Required dependencies:
+[0m21:12:27.392161 [debug] [MainThread]: Executing "git --help"
+[0m21:12:27.440536 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone             Clone a repository into a new directory\n   init              Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add               Add file contents to the index\n   mv                Move or rename a file, a directory, or a symlink\n   restore           Restore working tree files\n   rm                Remove files from the working tree and from the index\n   sparse-checkout   Initialize and modify the sparse-checkout\n\nexamine the history and state (see also: git help revisions)\n   bisect            Use binary search to find the commit that introduced a bug\n   diff              Show changes between commits, commit and working tree, etc\n   grep              Print lines matching a pattern\n   log               Show commit logs\n   show              Show various types of objects\n   status            Show the working tree status\n\ngrow, mark and tweak your common history\n   branch            List, create, or delete branches\n   commit            Record changes to the repository\n   merge             Join two or more development histories together\n   rebase            Reapply commits on top of another base tip\n   reset             Reset current HEAD to the specified state\n   switch            Switch branches\n   tag               Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch             Download objects and refs from another repository\n   pull              Fetch from and integrate with another repository or a local branch\n   push              Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m21:12:27.441112 [debug] [MainThread]: STDERR: "b''"
+[0m21:12:27.441442 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m21:12:27.442039 [info ] [MainThread]: Connection:
+[0m21:12:27.442602 [info ] [MainThread]:   database: superbowl
+[0m21:12:27.443083 [info ] [MainThread]:   schema: main
+[0m21:12:27.443522 [info ] [MainThread]:   path: ../warehouse/superbowl.duckdb
+[0m21:12:27.444458 [info ] [MainThread]:   config_options: None
+[0m21:12:27.445246 [info ] [MainThread]:   extensions: None
+[0m21:12:27.446121 [info ] [MainThread]:   settings: {}
+[0m21:12:27.447161 [info ] [MainThread]:   external_root: .
+[0m21:12:27.447784 [info ] [MainThread]:   use_credential_provider: None
+[0m21:12:27.448269 [info ] [MainThread]:   attach: None
+[0m21:12:27.448718 [info ] [MainThread]:   filesystems: None
+[0m21:12:27.449095 [info ] [MainThread]:   remote: None
+[0m21:12:27.449550 [info ] [MainThread]:   plugins: None
+[0m21:12:27.449954 [info ] [MainThread]:   disable_transactions: False
+[0m21:12:27.450540 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m21:12:27.755171 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m21:12:27.829516 [debug] [MainThread]: Using duckdb connection "debug"
+[0m21:12:27.829965 [debug] [MainThread]: On debug: select 1 as id
+[0m21:12:27.830269 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:12:27.849554 [debug] [MainThread]: SQL status: OK in 0.019 seconds
+[0m21:12:27.850488 [debug] [MainThread]: On debug: Close
+[0m21:12:27.850965 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m21:12:27.852069 [info ] [MainThread]: [32mAll checks passed![0m
+[0m21:12:27.853447 [debug] [MainThread]: Command `dbt debug` succeeded at 21:12:27.853232 after 1.00 seconds
+[0m21:12:27.853868 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m21:12:27.854183 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014BC342F230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014BC3425EB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014BC3350F30>]}
+[0m21:12:27.854720 [debug] [MainThread]: Flushing usage events
+[0m21:12:28.716793 [debug] [MainThread]: An error was encountered while trying to flush usage events

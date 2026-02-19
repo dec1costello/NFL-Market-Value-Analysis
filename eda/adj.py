@@ -4,9 +4,10 @@ Implements Open-Closed Principle for position-agnostic player rating
 """
 
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
-from typing import Dict, List, Tuple, DefaultDict
 from collections import defaultdict
+from dataclasses import dataclass
+from typing import Dict, List, Tuple
+
 import numpy as np
 from scipy import stats
 
@@ -77,7 +78,7 @@ class WRModel(PositionModel):
             )
             matchups.append(matchup)
             if i < 3:  # Show first few examples
-                print(f"    Example {i+1}: {matchup}")
+                print(f"    Example {i + 1}: {matchup}")
         print(f"  Created {len(matchups)} WR matchups")
         return matchups
 
@@ -93,7 +94,7 @@ class WRModel(PositionModel):
         return 0.0
 
     def get_prior_strength(self) -> float:
-        print(f"  WR prior strength (k) = 200")
+        print("  WR prior strength (k) = 200")
         return 200  # k for Bayesian shrinkage
 
     def get_weight_function(self, volume: float) -> float:
@@ -120,7 +121,7 @@ class RBModel(PositionModel):
             )
             matchups.append(matchup)
             if i < 3:
-                print(f"    Example {i+1}: {matchup}")
+                print(f"    Example {i + 1}: {matchup}")
         print(f"  Created {len(matchups)} RB matchups")
         return matchups
 
@@ -133,7 +134,7 @@ class RBModel(PositionModel):
         return epa_per_carry
 
     def get_prior_strength(self) -> float:
-        print(f"  RB prior strength (k) = 150")
+        print("  RB prior strength (k) = 150")
         return 150  # RBs need less stabilization (more carries per game)
 
     def get_weight_function(self, volume: float) -> float:
@@ -158,7 +159,7 @@ class MutualOpponentModel:
         self.league_avg: float = 0.0
         self.matchups: List[Matchup] = []
 
-    def fit(self, matchups: List[Matchup], max_iter: int = 100, tol: float = 1e-4):
+    def fit(self, matchups: List[Matchup], max_iter: int = 100, tol: float = 1e-4):  # noqa: C901
         """Coordinate descent algorithm for mutual opponent adjustment"""
         print(f"\n=== Fitting model with {len(matchups)} matchups ===")
         self.matchups = matchups
@@ -186,8 +187,8 @@ class MutualOpponentModel:
 
         # Step 3: Initialize ratings
         print("\n3. Initializing ratings...")
-        self.player_ratings = {pid: 0.0 for pid in player_obs.keys()}
-        self.opponent_ratings = {oid: 0.0 for oid in opponent_obs.keys()}
+        self.player_ratings = dict.fromkeys(player_obs.keys(), 0.0)
+        self.opponent_ratings = dict.fromkeys(opponent_obs.keys(), 0.0)
 
         print(f"   Initialized {len(self.player_ratings)} player ratings to 0")
         print(f"   Initialized {len(self.opponent_ratings)} opponent ratings to 0")
@@ -200,7 +201,7 @@ class MutualOpponentModel:
 
             # Update player ratings (fix opponents)
             print(f"\n   Iteration {iteration + 1}:")
-            print(f"   a. Updating player ratings...")
+            print("   a. Updating player ratings...")
             for pid, obs_list in player_obs.items():
                 effective_samples = 0
                 total_residual = 0.0
@@ -226,7 +227,7 @@ class MutualOpponentModel:
                         )
 
             # Update opponent ratings (fix players)
-            print(f"   b. Updating opponent ratings...")
+            print("   b. Updating opponent ratings...")
             for oid, obs_list in opponent_obs.items():
                 effective_samples = 0
                 total_residual = 0.0
@@ -250,7 +251,7 @@ class MutualOpponentModel:
                         )
 
             # Center player ratings (mean = 0)
-            print(f"   c. Centering ratings...")
+            print("   c. Centering ratings...")
             avg_player = sum(self.player_ratings.values()) / len(self.player_ratings)
             self.player_ratings = {
                 k: v - avg_player for k, v in self.player_ratings.items()
@@ -274,7 +275,7 @@ class MutualOpponentModel:
                 print(f"\n   ✓ CONVERGED after {iteration + 1} iterations!")
                 break
 
-        print(f"\n=== Model fitting complete ===")
+        print("\n=== Model fitting complete ===")
         print(
             f"Final player ratings range: [{min(self.player_ratings.values()):.3f}, {max(self.player_ratings.values()):.3f}]"
         )
@@ -324,7 +325,7 @@ class EnhancedMutualOpponentModel(MutualOpponentModel):
         quality_weight: bool = True,
     ):
         super().__init__(position_model)
-        print(f"\n=== Initializing Enhanced Model ===")
+        print("\n=== Initializing Enhanced Model ===")
         self.recency_decay = recency_decay
         self.quality_weight = quality_weight
         self.game_weights: Dict[str, float] = {}  # game_id -> recency weight
@@ -347,13 +348,13 @@ class EnhancedMutualOpponentModel(MutualOpponentModel):
                     print(
                         f"  {m.player_id} Week {week}: original={original_weight:.3f}, recency={recency_weight:.3f}, final={m.weight:.3f}"
                     )
-            except:
+            except (ValueError, IndexError):
                 # If game_id format doesn't have week, skip recency weighting
                 pass
 
     def fit_with_quality_weighting(self, matchups: List[Matchup]):
         """Enhanced fitting with opponent quality consideration"""
-        print(f"\n=== Starting quality-weighted fitting ===")
+        print("\n=== Starting quality-weighted fitting ===")
 
         # Two-pass approach:
         print("1. Initial fit to establish baseline ratings...")
@@ -391,7 +392,7 @@ class EnhancedMutualOpponentModel(MutualOpponentModel):
             rating = self.player_ratings.get(player_id, 0.0)
             ci_lower = rating * 0.7
             ci_upper = rating * 1.3
-            print(f"  Small sample (<10), using wide interval:")
+            print("  Small sample (<10), using wide interval:")
             print(f"  Rating: {rating:.3f}, CI: [{ci_lower:.3f}, {ci_upper:.3f}]")
             return ci_lower, ci_upper
 
@@ -414,7 +415,7 @@ class EnhancedMutualOpponentModel(MutualOpponentModel):
             print(f"  Confidence interval: [{ci_lower:.3f}, {ci_upper:.3f}]")
 
             return ci_lower, ci_upper
-        except:
+        except (KeyError, ValueError, TypeError):
             rating = self.player_ratings.get(player_id, 0.0)
             return rating * 0.8, rating * 1.2
 
@@ -647,8 +648,8 @@ def main():
     print("=" * 60)
 
     # Demonstrate both models
-    wr_model = demonstrate_wr_model()
-    rb_model = demonstrate_rb_model()
+    demonstrate_wr_model()
+    demonstrate_rb_model()
 
     # Show the Open-Closed Principle in action
     print("\n" + "=" * 60)

@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "dbt-duckdb>=1.10.0",
+    "duckdb>=0.9.0",
     "matplotlib>=3.10.8",
     "numpy>=2.4.2",
     "pandas>=3.0.0",
@@ -21,10 +21,26 @@ build-backend = "setuptools.build_meta"
 where = ["."]
 include = ["src*"]
 
-[tool.black]
+[tool.ruff]
 line-length = 88
-target-version = ['py38']
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "C", "N", "D", "I"]  # Common rule sets
+ignore = ["D203", "D213"]  # Rules to ignore
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D"]  # Ignore docstring rules in tests
+"eda/*" = ["D", "E501"]  # More permissive for EDA
 
 [tool.pytest.ini_options]
 minversion = "6.0"
 testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--cov=src",
+    "--cov-report=term",
+    "--cov-fail-under=80"
+]
