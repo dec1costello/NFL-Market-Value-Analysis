@@ -1,11 +1,11 @@
-"""
-QB EDA using DuckDB connector
-"""
+"""QB EDA using DuckDB connector."""
 
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 from pathlib import Path
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
 from src.utils.duckdb_connector import DuckDBConnector
 
 # Setup

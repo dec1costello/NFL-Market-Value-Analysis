@@ -1,6 +1,6 @@
-"""
-Test script to query bronze dbt model data from DuckDB
-Run this after running 'dbt run' to ensure data is loaded
+"""Test script to query bronze dbt model data from DuckDB.
+
+Run this after running 'dbt run' to ensure data is loaded.
 """
 
 from src.utils.duckdb_connector import DuckDBConnector
@@ -26,7 +26,7 @@ with DuckDBConnector() as db:
 
     try:
         bronze_check = db.query("""
-            SELECT 
+            SELECT
                 COUNT(*) as row_count,
                 COUNT(DISTINCT position) as unique_positions
             FROM main_bronze.contracts
@@ -41,8 +41,8 @@ with DuckDBConnector() as db:
 
     try:
         sample = db.query("""
-            SELECT 
-                rank, player_name, position, team_signed_with, 
+            SELECT
+                rank, player_name, position, team_signed_with,
                 years, total_value, average_salary
             FROM main_bronze.contracts
             LIMIT 5
