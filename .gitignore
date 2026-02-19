@@ -10,3 +10,15 @@ venv.bak/
 # Big files
 *.csv
 *.xlsx
+*.tsv
+*.json
+
+
+# Package metadata
+*.egg-info/
+*.egg
+
+
+# Database
+warehouse/*.duckdb
+warehouse/*.db

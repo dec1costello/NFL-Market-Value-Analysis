@@ -1,51 +1,89 @@
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+"""QB EDA using DuckDB connector."""
+
 from pathlib import Path
 
-# Get the project root
-project_root = Path(__file__).parent.parent.parent
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
 
-# Path to your contracts data
-contracts_path = project_root / 'data' / 'raw' / 'NFL_Contracts.csv'
+from src.utils.duckdb_connector import DuckDBConnector
 
-print(f"Loading file from: {contracts_path}")
+# Setup
+plt.style.use("seaborn-v0_8-darkgrid")
+sns.set_palette("husl")
+FIGS_DIR = Path(__file__).parent.parent.parent / "docs" / "figures"
+FIGS_DIR.mkdir(parents=True, exist_ok=True)
 
-# Try to read with different options to handle the messy headers
-# Option 1: Skip the first few rows if they're not actual data
-# contracts_df = pd.read_csv(contracts_path, skiprows=2)  # Adjust skiprows as needed
 
-# Option 2: Read with no header and then assign proper column names
-contracts_df = pd.read_csv(contracts_path, header=None)
+def fmt_millions(v: float) -> str:
+    """Format as millions."""
+    return f"${v / 1_000_000:.2f}M"
 
-# Let's see what the first few rows look like
-print("\nFirst 5 rows of raw data:")
-print(contracts_df.head(10))
 
-# Look at the shape
-print(f"\nDataset shape: {contracts_df.shape}")
+print("=" * 60)
+print("🏈 QB CONTRACT ANALYSIS")
+print("=" * 60)
 
-# Check what might be the header row (usually the row with actual column names)
-print("\nPossible header row (row 0):")
-print(contracts_df.iloc[0].tolist())
+with DuckDBConnector() as db:
+    # Load data
+    qb_df = db.query("""
+        SELECT player_name, team_signed_with, start_year, years,
+               total_value, average_salary, guarantee_at_signing
+        FROM main_bronze.contracts
+        WHERE position = 'QB' AND total_value IS NOT NULL
+        ORDER BY total_value DESC
+    """)
 
-print("\nPossible data start (row 1):")
-print(contracts_df.iloc[1].tolist())
+    print(f"Loaded {len(qb_df):,} QB contracts")
+    print(f"Years: {qb_df['start_year'].min()}-{qb_df['start_year'].max()}")
 
-print("\nPossible data start (row 2):")
-print(contracts_df.iloc[2].tolist())
+    # Add guarantee percentage
+    qb_df["guarantee_pct"] = (
+        qb_df["guarantee_at_signing"] / qb_df["total_value"] * 100
+    ).round(1)
 
-# You might want to skip the first few rows and use row 2 as header
-# contracts_df = pd.read_csv(contracts_path, skiprows=2, header=0)
+    # Basic stats
+    print("\n📊 BASIC STATS")
+    print("-" * 40)
+    print(f"Avg value: {fmt_millions(qb_df['total_value'].mean())}")
+    print(f"Median: {fmt_millions(qb_df['total_value'].median())}")
+    print(f"Max: {fmt_millions(qb_df['total_value'].max())}")
+    print(f"Avg length: {qb_df['years'].mean():.1f} years")
+    print(f"Avg guarantee: {qb_df['guarantee_pct'].mean():.1f}%")
 
-# Or you might want to assign custom column names
-custom_columns = ['rank', 'player', 'team', 'position', 'contract_value', 
-                  'guaranteed', 'average_per_year', 'years', 'signing_bonus',
-                  'gtd_at_signing', 'other_bonus', 'cap_hit_2024', 
-                  'cap_hit_2025', 'cap_hit_2026', 'total_value', 'notes']
+    # Top 10
+    print("\n🏆 TOP 10")
+    print("-" * 60)
+    top10 = qb_df.head(10).copy()
+    top10["total"] = top10["total_value"].apply(fmt_millions)
+    top10["salary"] = top10["average_salary"].apply(fmt_millions)
+    print(
+        top10[
+            [
+                "player_name",
+                "team_signed_with",
+                "start_year",
+                "years",
+                "total",
+                "salary",
+            ]
+        ].to_string(index=False)
+    )
 
-# Read with custom column names (adjust based on what you see in the data)
-# contracts_df = pd.read_csv(contracts_path, skiprows=1, names=custom_columns)
+    # Save summary
+    summary = {
+        "Metric": ["Total", "Avg Value", "Median", "Max", "Avg Length"],
+        "Value": [
+            len(qb_df),
+            fmt_millions(qb_df["total_value"].mean()),
+            fmt_millions(qb_df["total_value"].median()),
+            fmt_millions(qb_df["total_value"].max()),
+            f"{qb_df['years'].mean():.1f} years",
+        ],
+    }
+    pd.DataFrame(summary).to_csv(FIGS_DIR.parent / "qb_summary.csv", index=False)
+    print("\n✅ Summary saved")
 
-print("\n✅ Script completed successfully!")
+print("\n" + "=" * 60)
+print("✅ Complete")
+print("=" * 60)
