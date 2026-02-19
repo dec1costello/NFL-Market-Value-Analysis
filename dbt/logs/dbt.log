@@ -3437,3 +3437,120 @@ alter table "nfl_contracts"."main_bronze"."wr_game__dbt_tmp" rename to "wr_game"
 [0m20:38:12.848111 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D49532200>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D4916C190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013D4916C2D0>]}
 [0m20:38:12.848470 [debug] [MainThread]: Flushing usage events
 [0m20:38:13.602650 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:11:05.134588 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000222A13B9010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000222A20D0050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000222A2717ED0>]}
+
+
+============================== 21:11:05.139606 | d80ad53c-e9cb-443a-b716-92a70b109822 ==============================
+[0m21:11:05.139606 [info ] [MainThread]: Running with dbt=1.11.5
+[0m21:11:05.141038 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt debug', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt\\logs'}
+[0m21:11:05.207090 [info ] [MainThread]: dbt version: 1.11.5
+[0m21:11:05.208411 [info ] [MainThread]: python version: 3.13.5
+[0m21:11:05.209034 [info ] [MainThread]: python path: C:\Users\decla\Desktop\NFL-Market-Value-Analysis\.venv\Scripts\python.exe
+[0m21:11:05.210179 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m21:11:05.338187 [info ] [MainThread]: Using profiles dir at C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt
+[0m21:11:05.339000 [info ] [MainThread]: Using profiles.yml file at C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\profiles.yml
+[0m21:11:05.339862 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\dbt_project.yml
+[0m21:11:05.343594 [info ] [MainThread]: adapter type: duckdb
+[0m21:11:05.344575 [info ] [MainThread]: adapter version: 1.10.0
+[0m21:11:05.454117 [info ] [MainThread]: Configuration:
+[0m21:11:05.454839 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m21:11:05.455821 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m21:11:05.456332 [info ] [MainThread]: Required dependencies:
+[0m21:11:05.457241 [debug] [MainThread]: Executing "git --help"
+[0m21:11:05.507447 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone             Clone a repository into a new directory\n   init              Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add               Add file contents to the index\n   mv                Move or rename a file, a directory, or a symlink\n   restore           Restore working tree files\n   rm                Remove files from the working tree and from the index\n   sparse-checkout   Initialize and modify the sparse-checkout\n\nexamine the history and state (see also: git help revisions)\n   bisect            Use binary search to find the commit that introduced a bug\n   diff              Show changes between commits, commit and working tree, etc\n   grep              Print lines matching a pattern\n   log               Show commit logs\n   show              Show various types of objects\n   status            Show the working tree status\n\ngrow, mark and tweak your common history\n   branch            List, create, or delete branches\n   commit            Record changes to the repository\n   merge             Join two or more development histories together\n   rebase            Reapply commits on top of another base tip\n   reset             Reset current HEAD to the specified state\n   switch            Switch branches\n   tag               Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch             Download objects and refs from another repository\n   pull              Fetch from and integrate with another repository or a local branch\n   push              Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m21:11:05.507919 [debug] [MainThread]: STDERR: "b''"
+[0m21:11:05.508201 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m21:11:05.508877 [info ] [MainThread]: Connection:
+[0m21:11:05.509804 [info ] [MainThread]:   database: superbowl
+[0m21:11:05.510611 [info ] [MainThread]:   schema: main
+[0m21:11:05.511300 [info ] [MainThread]:   path: warehouse/superbowl.duckdb
+[0m21:11:05.511815 [info ] [MainThread]:   config_options: None
+[0m21:11:05.512573 [info ] [MainThread]:   extensions: None
+[0m21:11:05.513394 [info ] [MainThread]:   settings: {}
+[0m21:11:05.513895 [info ] [MainThread]:   external_root: .
+[0m21:11:05.514510 [info ] [MainThread]:   use_credential_provider: None
+[0m21:11:05.515145 [info ] [MainThread]:   attach: None
+[0m21:11:05.515941 [info ] [MainThread]:   filesystems: None
+[0m21:11:05.516516 [info ] [MainThread]:   remote: None
+[0m21:11:05.517092 [info ] [MainThread]:   plugins: None
+[0m21:11:05.517694 [info ] [MainThread]:   disable_transactions: False
+[0m21:11:05.518536 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m21:11:05.862426 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m21:11:05.952510 [debug] [MainThread]: Using duckdb connection "debug"
+[0m21:11:05.952955 [debug] [MainThread]: On debug: select 1 as id
+[0m21:11:05.953277 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:11:05.968955 [debug] [MainThread]: DuckDB adapter: Error running SQL: select 1 as id
+[0m21:11:05.969592 [debug] [MainThread]: DuckDB adapter: Rolling back transaction.
+[0m21:11:05.970144 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m21:11:05.970745 [info ] [MainThread]: [31m1 check failed:[0m
+[0m21:11:05.971588 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Runtime Error
+  IO Error: Cannot open file "c:\users\decla\desktop\nfl-market-value-analysis\dbt\warehouse\superbowl.duckdb": The system cannot find the path specified.
+  
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m21:11:05.973005 [debug] [MainThread]: Command `dbt debug` failed at 21:11:05.972728 after 1.03 seconds
+[0m21:11:05.973428 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m21:11:05.973884 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000222A39EF360>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000222A39E9D90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000222A390DF20>]}
+[0m21:11:05.974396 [debug] [MainThread]: Flushing usage events
+[0m21:11:06.921903 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:12:27.070493 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014BC0D89010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014BC1A90050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014BC20E7ED0>]}
+
+
+============================== 21:12:27.075415 | fa296993-8246-4bad-b6c1-ddf45d1c3488 ==============================
+[0m21:12:27.075415 [info ] [MainThread]: Running with dbt=1.11.5
+[0m21:12:27.076881 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt', 'invocation_command': 'dbt debug', 'indirect_selection': 'eager', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\decla\\Desktop\\NFL-Market-Value-Analysis\\dbt\\logs'}
+[0m21:12:27.107605 [info ] [MainThread]: dbt version: 1.11.5
+[0m21:12:27.108773 [info ] [MainThread]: python version: 3.13.5
+[0m21:12:27.109530 [info ] [MainThread]: python path: C:\Users\decla\Desktop\NFL-Market-Value-Analysis\.venv\Scripts\python.exe
+[0m21:12:27.110404 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m21:12:27.236851 [info ] [MainThread]: Using profiles dir at C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt
+[0m21:12:27.238078 [info ] [MainThread]: Using profiles.yml file at C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\profiles.yml
+[0m21:12:27.238897 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\decla\Desktop\NFL-Market-Value-Analysis\dbt\dbt_project.yml
+[0m21:12:27.242407 [info ] [MainThread]: adapter type: duckdb
+[0m21:12:27.243242 [info ] [MainThread]: adapter version: 1.10.0
+[0m21:12:27.389831 [info ] [MainThread]: Configuration:
+[0m21:12:27.390542 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m21:12:27.391111 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m21:12:27.391596 [info ] [MainThread]: Required dependencies:
+[0m21:12:27.392161 [debug] [MainThread]: Executing "git --help"
+[0m21:12:27.440536 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone             Clone a repository into a new directory\n   init              Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add               Add file contents to the index\n   mv                Move or rename a file, a directory, or a symlink\n   restore           Restore working tree files\n   rm                Remove files from the working tree and from the index\n   sparse-checkout   Initialize and modify the sparse-checkout\n\nexamine the history and state (see also: git help revisions)\n   bisect            Use binary search to find the commit that introduced a bug\n   diff              Show changes between commits, commit and working tree, etc\n   grep              Print lines matching a pattern\n   log               Show commit logs\n   show              Show various types of objects\n   status            Show the working tree status\n\ngrow, mark and tweak your common history\n   branch            List, create, or delete branches\n   commit            Record changes to the repository\n   merge             Join two or more development histories together\n   rebase            Reapply commits on top of another base tip\n   reset             Reset current HEAD to the specified state\n   switch            Switch branches\n   tag               Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch             Download objects and refs from another repository\n   pull              Fetch from and integrate with another repository or a local branch\n   push              Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m21:12:27.441112 [debug] [MainThread]: STDERR: "b''"
+[0m21:12:27.441442 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m21:12:27.442039 [info ] [MainThread]: Connection:
+[0m21:12:27.442602 [info ] [MainThread]:   database: superbowl
+[0m21:12:27.443083 [info ] [MainThread]:   schema: main
+[0m21:12:27.443522 [info ] [MainThread]:   path: ../warehouse/superbowl.duckdb
+[0m21:12:27.444458 [info ] [MainThread]:   config_options: None
+[0m21:12:27.445246 [info ] [MainThread]:   extensions: None
+[0m21:12:27.446121 [info ] [MainThread]:   settings: {}
+[0m21:12:27.447161 [info ] [MainThread]:   external_root: .
+[0m21:12:27.447784 [info ] [MainThread]:   use_credential_provider: None
+[0m21:12:27.448269 [info ] [MainThread]:   attach: None
+[0m21:12:27.448718 [info ] [MainThread]:   filesystems: None
+[0m21:12:27.449095 [info ] [MainThread]:   remote: None
+[0m21:12:27.449550 [info ] [MainThread]:   plugins: None
+[0m21:12:27.449954 [info ] [MainThread]:   disable_transactions: False
+[0m21:12:27.450540 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m21:12:27.755171 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m21:12:27.829516 [debug] [MainThread]: Using duckdb connection "debug"
+[0m21:12:27.829965 [debug] [MainThread]: On debug: select 1 as id
+[0m21:12:27.830269 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:12:27.849554 [debug] [MainThread]: SQL status: OK in 0.019 seconds
+[0m21:12:27.850488 [debug] [MainThread]: On debug: Close
+[0m21:12:27.850965 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m21:12:27.852069 [info ] [MainThread]: [32mAll checks passed![0m
+[0m21:12:27.853447 [debug] [MainThread]: Command `dbt debug` succeeded at 21:12:27.853232 after 1.00 seconds
+[0m21:12:27.853868 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m21:12:27.854183 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014BC342F230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014BC3425EB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000014BC3350F30>]}
+[0m21:12:27.854720 [debug] [MainThread]: Flushing usage events
+[0m21:12:28.716793 [debug] [MainThread]: An error was encountered while trying to flush usage events

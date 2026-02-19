@@ -1,13 +1,14 @@
-"""
-DuckDB connector utility for NFL Market Value Analysis.
+"""DuckDB connector utility for NFL Market Value Analysis.
+
 Provides easy access to the DuckDB database created by dbt.
 """
 
+import logging
+from pathlib import Path
+from typing import Any, Dict, Optional, Union
+
 import duckdb
 import pandas as pd
-from pathlib import Path
-from typing import Optional, Union, Dict, Any
-import logging
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -15,24 +16,22 @@ logger = logging.getLogger(__name__)
 
 
 class DuckDBConnector:
-    """
-    A connector class for DuckDB to easily query bronze, silver, and gold models.
-    """
+    """A connector class for DuckDB to easily query bronze, silver, and gold models."""
 
     def __init__(self, db_path: Optional[Union[str, Path]] = None):
-        """
-        Initialize the DuckDB connector.
+        """Initialize the DuckDB connector.
 
         Args:
             db_path: Path to the DuckDB database file. If None, uses default location.
+
         """
         if db_path is None:
-            # Default to project root
+            # Default to project root / warehouse / superbowl.duckdb
             self.project_root = Path(__file__).parent.parent.parent
-            self.db_path = self.project_root / "nfl_contracts.duckdb"
+            self.db_path = self.project_root / "warehouse" / "superbowl.duckdb"
         else:
             self.db_path = Path(db_path)
-            self.project_root = self.db_path.parent
+            self.project_root = self.db_path.parent.parent
 
         self.conn = None
         logger.info(f"DuckDBConnector initialized with database: {self.db_path}")
@@ -64,8 +63,7 @@ class DuckDBConnector:
         self.disconnect()
 
     def query(self, sql: str, params: Optional[Dict[str, Any]] = None) -> pd.DataFrame:
-        """
-        Execute a SQL query and return results as a DataFrame.
+        """Execute a SQL query and return results as a DataFrame.
 
         Args:
             sql: SQL query string
@@ -73,6 +71,7 @@ class DuckDBConnector:
 
         Returns:
             pandas DataFrame with query results
+
         """
         if not self.conn:
             self.connect()
@@ -105,8 +104,7 @@ class DuckDBConnector:
         return self.query(sql)
 
     def get_top_contracts(self, position: str = "QB", n: int = 10) -> pd.DataFrame:
-        """
-        Get top N contracts by value for a specific position.
+        """Get top N contracts by value for a specific position.
 
         Args:
             position: Player position (QB, RB, WR, etc.)
@@ -114,9 +112,10 @@ class DuckDBConnector:
 
         Returns:
             DataFrame with top contracts
+
         """
         sql = """
-        SELECT 
+        SELECT
             player_name,
             team_signed_with,
             start_year,
@@ -135,15 +134,15 @@ class DuckDBConnector:
     def get_contracts_by_year(
         self, year: int, position: Optional[str] = None
     ) -> pd.DataFrame:
-        """
-        Get contracts signed in a specific year.
+        """Get contracts signed in a specific year.
 
         Args:
             year: Start year of contract
             position: Optional position filter
+
         """
         sql = """
-        SELECT 
+        SELECT
             player_name,
             position,
             team_signed_with,
@@ -165,7 +164,7 @@ class DuckDBConnector:
     def get_position_summary(self) -> pd.DataFrame:
         """Get summary statistics by position."""
         sql = """
-        SELECT 
+        SELECT
             position,
             COUNT(*) as contract_count,
             ROUND(AVG(total_value), 2) as avg_total_value,
@@ -175,7 +174,7 @@ class DuckDBConnector:
             ROUND(MAX(total_value), 2) as max_value,
             ROUND(AVG(guarantee_at_signing), 2) as avg_guarantee
         FROM main_bronze.contracts
-        WHERE position IS NOT NULL 
+        WHERE position IS NOT NULL
             AND position NOT IN ('', 'Pos')
         GROUP BY position
         ORDER BY avg_total_value DESC
@@ -185,7 +184,7 @@ class DuckDBConnector:
     def get_team_summary(self) -> pd.DataFrame:
         """Get team spending summary."""
         sql = """
-        SELECT 
+        SELECT
             team_signed_with as team,
             COUNT(*) as total_contracts,
             ROUND(SUM(total_value), 2) as total_spent,
@@ -201,7 +200,7 @@ class DuckDBConnector:
     def get_qb_market_trends(self) -> pd.DataFrame:
         """Get QB market trends over time."""
         sql = """
-        SELECT 
+        SELECT
             start_year,
             COUNT(*) as num_contracts,
             ROUND(AVG(total_value), 2) as avg_total_value,
@@ -211,7 +210,7 @@ class DuckDBConnector:
             ROUND(MAX(total_value), 2) as max_value,
             ROUND(MIN(total_value), 2) as min_value
         FROM main_bronze.contracts
-        WHERE position = 'QB' 
+        WHERE position = 'QB'
             AND start_year >= 2010
             AND total_value IS NOT NULL
         GROUP BY start_year
@@ -222,7 +221,7 @@ class DuckDBConnector:
     def search_players(self, search_term: str) -> pd.DataFrame:
         """Search for players by name."""
         sql = """
-        SELECT 
+        SELECT
             player_name,
             position,
             team_signed_with,
@@ -238,7 +237,7 @@ class DuckDBConnector:
     def get_table_info(self) -> pd.DataFrame:
         """Get information about available tables."""
         sql = """
-        SELECT 
+        SELECT
             table_schema,
             table_name,
             table_type
@@ -251,7 +250,7 @@ class DuckDBConnector:
     def get_column_info(self, table_name: str) -> pd.DataFrame:
         """Get column information for a specific table."""
         sql = """
-        SELECT 
+        SELECT
             column_name,
             data_type,
             is_nullable
@@ -262,8 +261,7 @@ class DuckDBConnector:
         return self.query(sql, [table_name])
 
     def execute_dbt_model(self, model_name: str) -> None:
-        """
-        Execute a dbt model (requires dbt installed).
+        """Execute a dbt model (requires dbt installed).
 
         Note: This runs a shell command, use with caution.
         """

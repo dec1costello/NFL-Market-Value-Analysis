@@ -3,6 +3,6 @@ nfl_contracts:
   outputs:
     dev:
       type: duckdb
-      path: ../nfl_contracts.duckdb
+      path: ../warehouse/superbowl.duckdb
       schema: main
       threads: 4

@@ -17,3 +17,8 @@ venv.bak/
 # Package metadata
 *.egg-info/
 *.egg
+
+
+# Database
+warehouse/*.duckdb
+warehouse/*.db
