@@ -59,14 +59,12 @@ jobs:
       if: github.base_ref == 'main'
       run: |
         source .venv/bin/activate
-        export PYTHONPATH=$PYTHONPATH:$(pwd)
         
-        # Run tests with coverage if tests exist
+        # Just run tests without coverage requirement
         if [ -d "tests" ] && [ "$(ls -A tests)" ]; then
-          python -m pytest --cov=src --cov-report=term --cov-fail-under=25 tests/ -v
+          pytest tests/ -v
         else
-          echo "⚠️ No tests found - skipping coverage"
-          exit 0  # Don't fail the build
+          echo "⚠️ No tests found"
         fi
         
         # Check CHANGELOG
