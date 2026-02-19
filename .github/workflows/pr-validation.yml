@@ -28,7 +28,7 @@ jobs:
     - name: Install deps
       run: |
         uv venv
-        uv pip install pytest flake8 black ruff  # Added ruff here!
+        uv pip install pytest flake8 black ruff pytest-cov
 
     - name: Format check with black
       run: |
