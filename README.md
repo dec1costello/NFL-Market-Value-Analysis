@@ -174,17 +174,17 @@ graph TB
     │       ├── prometheus-values.yaml
     │       └── grafana-dashboard.yaml
     │
-    ├── 📁 tests/                     # Test suite
+    ├── 📁 tests/                     
     │   ├── 📁 unit/
     │   ├── 📁 integration/
     │   └── 📁 e2e/
     │
-    ├── 📁 scripts/                   # Utility scripts
+    ├── 📁 scripts/                   
     │   ├── init_duckdb.py
     │   ├── run_full_pipeline.sh
     │   └── deploy_to_k8s.sh
     │
-    ├── 📁 docs/                      # Documentation
+    ├── 📁 docs/                      
     │   ├── architecture.md
     │   ├── api_documentation.md
     │   └── setup_guide.md
