@@ -81,38 +81,31 @@ graph TB
 
 ## 🌵 Repository Structure
     
-    ├── 📁 data/
-    │   └── 📁 raw/                   
-    │       ├── contracts.csv
-    │       ├── stats.csv
-    │       └── physical.csv
-    │
-    ├── 📁 warehouse/                 # DuckDB warehouse directory
-    │   ├── nfl_contracts.duckdb       # MAIN DATABASE FILE
-    │   └── backups/                   # Daily backups
+    ├── 📁 warehouse/                 # DuckDB warehouse
+    │   └── superbowl.duckdb        
     │
     ├── 📁 dbt/                       # SQL transformations
-    │   ├── dbt_project.yml            # dbt configuration
+    │   ├── dbt_project.yml       
     │   ├── 📁 models/
     │   │   ├── 📁 bronze/            # Raw table staging
     │   │   │   ├── contracts.sql
     │   │   │   ├── stats.sql
     │   │   │   └── physical.sql
-    │   │   ├── 📁 silver/            # Cleaned business tables
+    │   │   ├── 📁 silver/            # Filtered business tables
     │   │   │   ├── dim_players.sql
     │   │   │   ├── fact_performance.sql
     │   │   │   └── fact_contracts.sql
-    │   │   └── 📁 gold/              # Feature engineering
-    │   │       ├── features/
-    │   │       │   ├── qb_features.sql
-    │   │       │   ├── wr_features.sql
-    │   │       │   └── position_features.sql
-    │   │       ├── qbr_ratings.sql
-    │   │       └── z_scores.sql
-    │   ├── 📁 tests/                  # Data quality tests
-    │   │   ├── contracts_test.sql
-    │   │   └── uniqueness_test.sql
-    │   └── 📁 macros/                 # Reusable SQL
+    │   │   ├── 📁 gold/              # Cleaned business tables
+    │   │   │   ├── dim_players.sql
+    │   │   │   ├── fact_performance.sql
+    │   │   |   ├── adj_ratings.sql
+    │   │   │   └── fact_contracts.sql
+    │   │   └── 📁 features/          # Feature engineering
+    │   │       ├── qb_features.sql
+    │   │       ├── wr_features.sql
+    │   │       └── position_features.sql
+    │   ├── 📁 tests/                 # Data quality tests
+    │   └── 📁 macros/                # Reusable SQL
     │       └── calculate_qbr.sql
     │
     ├── 📁 src/                       # Python source code
@@ -183,24 +176,17 @@ graph TB
     │
     ├── 📁 tests/                     # Test suite
     │   ├── 📁 unit/
-    │   │   ├── test_clustering.py
-    │   │   └── test_features.py
     │   ├── 📁 integration/
-    │   │   ├── test_pipeline.py
-    │   │   └── test_duckdb.py
     │   └── 📁 e2e/
-    │       └── test_full_pipeline.py
     │
     ├── 📁 scripts/                   # Utility scripts
     │   ├── init_duckdb.py
     │   ├── run_full_pipeline.sh
-    │   ├── backup_warehouse.sh
     │   └── deploy_to_k8s.sh
     │
     ├── 📁 docs/                      # Documentation
     │   ├── architecture.md
     │   ├── api_documentation.md
-    │   ├── data_dictionary.md
     │   └── setup_guide.md
     │
     ├── pyproject.toml               # UV/Python dependencies
